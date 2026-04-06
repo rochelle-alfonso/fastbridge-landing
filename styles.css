@@ -1,0 +1,852 @@
+/* ========== @font-face: Delight ========== */
+@font-face {
+  font-family: 'Delight';
+  src: url('assets/Delight/Web-TT/Delight-Medium.woff2') format('woff2'),
+       url('assets/Delight/Web-TT/Delight-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Delight';
+  src: url('assets/Delight/Web-TT/Delight-SemiBold.woff2') format('woff2'),
+       url('assets/Delight/Web-TT/Delight-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========== @font-face: Geist ========== */
+@font-face {
+  font-family: 'Geist';
+  src: url('assets/geist-font-1.8.0/fonts/Geist/webfonts/Geist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('assets/geist-font-1.8.0/fonts/Geist/webfonts/Geist-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --foreground-primary: #161615;
+  --foreground-secondary: #5b5b5a;
+  --brand-white: #fffffe;
+  --bg-field: #f8f7f6;
+  --text-muted: #9197a5;
+  --text-dark: #1a1a1a;
+  --border-light: #e8e8e7;
+  --dot-inactive: #c6c6c6;
+}
+
+body {
+  font-family: 'Geist', sans-serif;
+  background: var(--brand-white);
+  color: var(--foreground-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  animation: pageLoad 0.6s ease-out 0.1s forwards;
+}
+
+@keyframes pageLoad {
+  to { opacity: 1; }
+}
+
+/* Section reveal animations */
+.hero-text-area,
+.bridge-card-wrapper,
+.chains-section,
+.how-it-works {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: sectionReveal 0.7s ease-out forwards;
+}
+
+.hero-text-area    { animation-delay: 0.4s; }
+.bridge-card-wrapper { animation-delay: 0.6s; }
+.chains-section    { animation-delay: 0.8s; }
+.how-it-works      { animation-delay: 1s; }
+
+@keyframes sectionReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page {
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 20px);
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg-img--next {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.hero-bg-img--visible {
+  opacity: 1;
+}
+
+/* Pixel Overlay */
+#pixel-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.pixel-grid {
+  display: grid;
+  grid-template-columns: repeat(120, 1fr);
+  gap: 5px;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.px-c {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  box-sizing: border-box;
+}
+
+.px-lo {
+  box-shadow: inset 0 0 0 1.25px #ffffff;
+  transition: opacity 0.6s ease-in-out, filter 0.6s ease-in-out;
+}
+
+.px-lf {
+  background: #ffffff;
+  transition: opacity 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 72px 20px;
+  width: 100%;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar.navbar--hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.navbar.navbar--scrolled {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 254, 0.7);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-logo-text {
+  margin-left: 4px;
+  font-family: 'Delight', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.48px;
+  color: var(--foreground-primary);
+  line-height: 29px;
+}
+
+.nav-btn {
+  width: 160px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  background: var(--foreground-primary);
+  color: var(--brand-white);
+  border: none;
+  border-radius: 12px;
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 1px 4px 0px rgba(85, 85, 85, 0.05);
+}
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  background: var(--brand-white);
+  color: var(--foreground-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 1px 4px 0px rgba(85, 85, 85, 0.05);
+}
+
+/* Hero Content Layout */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 72px;
+  height: calc(900px - 160px);
+  margin-top: 60px;
+}
+
+/* Hero Text Area */
+.hero-text-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 520px;
+  flex-shrink: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.hero-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 463px;
+}
+
+.hero-heading {
+  font-family: 'Delight', sans-serif;
+  font-size: 58px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 1.04px;
+  color: var(--foreground-primary);
+}
+
+.hero-description {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #3d3d3d;
+  width: 469px;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.hero-buttons .btn-primary {
+  width: 160px;
+}
+
+/* ========== BRIDGE CARD ========== */
+.bridge-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 607px;
+  flex-shrink: 0;
+}
+
+.bridge-card {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: hidden;
+}
+
+.bridge-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.bridge-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.bridge-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.bridge-field {
+  width: 547px;
+  height: 68px;
+  background: var(--bg-field);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.field-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.token-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.musd-icon {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.musd-outer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.musd-inner {
+  position: absolute;
+  top: 7.81%;
+  left: 7.95%;
+  width: 84.1%;
+  height: 84.29%;
+}
+
+.field-text {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
+  color: var(--text-dark);
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.dropdown-icon {
+  width: 18px;
+  height: 17px;
+}
+
+.field-placeholder {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  text-transform: capitalize;
+  padding-left: 4px;
+}
+
+/* Add Recipient */
+.add-recipient {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pencil-icon {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+}
+
+.recipient-text {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
+  color: var(--text-dark);
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+/* Connect Wallet Button */
+.connect-wallet-btn {
+  width: 100%;
+  background: var(--text-dark);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 22px;
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 11px;
+  background: var(--dot-inactive);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+
+.dot-active {
+  width: 38px;
+  height: 16px;
+  background: white;
+}
+
+/* ========== SUPPORTED CHAINS ========== */
+.chains-section {
+  background: var(--brand-white);
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.chains-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.chains-title {
+  font-family: 'Delight', sans-serif;
+  font-size: 58px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.96px;
+  color: var(--foreground-primary);
+  text-align: center;
+}
+
+.chains-description {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--foreground-secondary);
+  text-align: center;
+  max-width: 794px;
+}
+
+.chains-logos {
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.chains-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  animation: scroll-logos 30s linear infinite;
+  width: max-content;
+}
+
+@keyframes scroll-logos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(var(--scroll-width, -50%)); }
+}
+
+.chain-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  height: 60px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.chain-logo img {
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+}
+
+/* Uniform visual height — tuned per logo to account for built-in padding */
+.chain-logo img[alt="Ethereum"]     { height: 34px; }
+.chain-logo img[alt="Arbitrum"]     { height: 95px; }
+.chain-logo img[alt="Optimism"]     { height: 17px; }
+.chain-logo img[alt="Avalanche"]    { height: 34px; }
+.chain-logo img[alt="Polygon"]     { height: 109px; }
+.chain-logo img[alt="Hyperliquid"] { height: 26px; }
+.chain-logo img[alt="Base"]        { height: 48px; }
+.chain-logo img[alt="Scroll"]      { height: 61px; }
+.chain-logo img[alt="Kaia"]        { height: 46px; }
+.chain-logo img[alt="Tron"]        { height: 34px; }
+.chain-logo img[alt="MegaETH"]     { height: 29px; }
+.chain-logo img[alt="Monad"]       { height: 85px; }
+.chain-logo img[alt="BNB Chain"]   { height: 26px; }
+.chain-logo img[alt="Sophon"]      { height: 104px; filter: grayscale(100%) invert(1); }
+.chain-logo img[alt="Citrea"]      { height: 26px; }
+
+/* ========== HOW FASTBRIDGE WORKS ========== */
+.how-it-works {
+  background: #141413;
+  padding: 100px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+  margin: 0 20px;
+}
+
+.steps-scroll {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.steps-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.steps-track {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-card {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 72px 150px;
+  height: 100vh;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  width: 493px;
+}
+
+.step-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #f0f0ef;
+}
+
+.step-heading {
+  font-family: 'Delight', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.96px;
+  color: #f0f0ef;
+}
+
+.step-description {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #848483;
+  width: 479px;
+}
+
+.step-image {
+  width: 723px;
+  height: 483px;
+  overflow: hidden;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.how-it-works-title {
+  font-family: 'Delight', sans-serif;
+  font-size: 58px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 1.16px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #f0f0ef;
+  width: 100%;
+  padding: 0 72px;
+}
+
+/* ========== FAQ SECTION ========== */
+.faq-section {
+  background: white;
+  padding: 100px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.faq-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-title {
+  font-family: 'Delight', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.96px;
+  color: var(--foreground-primary);
+}
+
+.faq-subtitle {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #848483;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid #9e9e9d;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 24px 0;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--foreground-primary);
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
+}
+
+.faq-item--open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 0 0 84px;
+}
+
+.faq-item--open .faq-answer {
+  max-height: 300px;
+  padding: 0 0 24px 84px;
+}
+
+.faq-answer p {
+  font-family: 'Geist', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #848483;
+  max-width: 1046px;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: #f8f7f6;
+  margin: 0 20px 20px;
+}
+
+.footer-inner {
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col-title {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--foreground-primary);
+  margin-bottom: 4px;
+}
+
+.footer-col a {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #848483;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: var(--foreground-primary);
+}
+
+.footer-copyright {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #848483;
+  text-align: center;
+}

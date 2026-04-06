@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastBridge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="assets/fastbridge-icon.svg" alt="" class="nav-logo-icon">
+      <span class="nav-logo-text">fastbridge</span>
+    </div>
+    <button class="btn-primary nav-btn">Bridge Now</button>
+  </nav>
+
+  <div class="page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="assets/hero-bg.png" alt="" class="hero-bg-img">
+        <div id="pixel-overlay"></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <!-- Left: Text -->
+        <div class="hero-text-area">
+          <div class="hero-text-wrapper">
+            <h1 class="hero-heading">
+              One transaction.<br>
+              Every chain.<br>
+              Ready to trade.
+            </h1>
+            <p class="hero-description">
+              Combine your balances from multiple chains in a single move. No switching networks, no managing gas, no waiting. Arrive ready to transact.
+            </p>
+          </div>
+          <div class="hero-buttons">
+            <button class="btn-primary">Bridge Now</button>
+            <button class="btn-secondary">Integrate FastBridge </button>
+          </div>
+        </div>
+
+        <!-- Right: Bridge Card -->
+        <div class="bridge-card-wrapper">
+          <div class="bridge-card">
+            <div class="bridge-form">
+              <span class="bridge-label">To</span>
+              <div class="bridge-fields">
+                <!-- Chain Selector -->
+                <div class="bridge-field">
+                  <div class="field-left">
+                    <img src="assets/megaeth-icon.svg" alt="MegaETH" class="token-icon">
+                    <span class="field-text">MegaETH</span>
+                  </div>
+                  <img src="assets/dropdown.svg" alt="" class="dropdown-icon">
+                </div>
+                <!-- Token Selector -->
+                <div class="bridge-field">
+                  <div class="field-left">
+                    <div class="musd-icon">
+                      <img src="assets/musd-icon-outer.svg" alt="" class="musd-outer">
+                      <img src="assets/musd-icon-inner.svg" alt="" class="musd-inner">
+                    </div>
+                    <span class="field-text">MUSD</span>
+                  </div>
+                  <img src="assets/dropdown.svg" alt="" class="dropdown-icon">
+                </div>
+                <!-- Amount Input -->
+                <div class="bridge-field">
+                  <span class="field-placeholder">0.00</span>
+                </div>
+              </div>
+              <!-- Add Recipient -->
+              <div class="add-recipient">
+                <img src="assets/pencil-icon.svg" alt="" class="pencil-icon">
+                <span class="recipient-text">Add Recipient Address</span>
+              </div>
+            </div>
+            <button class="connect-wallet-btn">Connect Wallet</button>
+          </div>
+          <!-- Dots -->
+          <div class="dots">
+            <div class="dot dot-active" data-slide="0"></div>
+            <div class="dot" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Chains Section -->
+    <section class="chains-section">
+      <div class="chains-header">
+        <h2 class="chains-title">Supported Chains</h2>
+        <p class="chains-description">
+          Aggregate your stablecoins like USDC, USDT and others across all major EVM chains in seconds with no wrapping and no gas management.
+        </p>
+      </div>
+      <div class="chains-logos">
+        <div class="chains-track">
+          <div class="chain-logo"><img src="assets/eth-logo.png" alt="Ethereum"></div>
+          <div class="chain-logo"><img src="assets/arb-logo.png" alt="Arbitrum"></div>
+          <div class="chain-logo"><img src="assets/op-logo.png" alt="Optimism"></div>
+          <div class="chain-logo"><img src="assets/avax-logo.png" alt="Avalanche"></div>
+          <div class="chain-logo"><img src="assets/polygon-logo.png" alt="Polygon"></div>
+          <div class="chain-logo"><img src="assets/hyperliquid-logo.png" alt="Hyperliquid"></div>
+          <div class="chain-logo"><img src="assets/base-logo.png" alt="Base"></div>
+          <div class="chain-logo"><img src="assets/scroll-logo.png" alt="Scroll"></div>
+          <div class="chain-logo"><img src="assets/kaia-logo.png" alt="Kaia"></div>
+          <div class="chain-logo"><img src="assets/tron-logo.png" alt="Tron"></div>
+          <div class="chain-logo"><img src="assets/megaeth-logo.png" alt="MegaETH"></div>
+          <div class="chain-logo"><img src="assets/monad-logo.png" alt="Monad"></div>
+          <div class="chain-logo"><img src="assets/bnb-logo.png" alt="BNB Chain"></div>
+          <div class="chain-logo"><img src="assets/sophon-logo.png" alt="Sophon"></div>
+          <div class="chain-logo"><img src="assets/citrea-logo.png" alt="Citrea"></div>
+          <!-- Duplicate for seamless scroll -->
+          <div class="chain-logo"><img src="assets/eth-logo.png" alt="Ethereum"></div>
+          <div class="chain-logo"><img src="assets/arb-logo.png" alt="Arbitrum"></div>
+          <div class="chain-logo"><img src="assets/op-logo.png" alt="Optimism"></div>
+          <div class="chain-logo"><img src="assets/avax-logo.png" alt="Avalanche"></div>
+          <div class="chain-logo"><img src="assets/polygon-logo.png" alt="Polygon"></div>
+          <div class="chain-logo"><img src="assets/hyperliquid-logo.png" alt="Hyperliquid"></div>
+          <div class="chain-logo"><img src="assets/base-logo.png" alt="Base"></div>
+          <div class="chain-logo"><img src="assets/scroll-logo.png" alt="Scroll"></div>
+          <div class="chain-logo"><img src="assets/kaia-logo.png" alt="Kaia"></div>
+          <div class="chain-logo"><img src="assets/tron-logo.png" alt="Tron"></div>
+          <div class="chain-logo"><img src="assets/megaeth-logo.png" alt="MegaETH"></div>
+          <div class="chain-logo"><img src="assets/monad-logo.png" alt="Monad"></div>
+          <div class="chain-logo"><img src="assets/bnb-logo.png" alt="BNB Chain"></div>
+          <div class="chain-logo"><img src="assets/sophon-logo.png" alt="Sophon"></div>
+          <div class="chain-logo"><img src="assets/citrea-logo.png" alt="Citrea"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How FastBridge Works -->
+    <section class="how-it-works">
+      <h2 class="how-it-works-title">How FastBridge Works</h2>
+      <div class="steps-scroll">
+        <div class="steps-track">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-text">
+              <div class="step-header">
+                <span class="step-label">Step 1</span>
+                <h3 class="step-heading">Select chain, token &amp; amount</h3>
+              </div>
+              <p class="step-description">Choose which chain you want to bridge to, what token you want to hold, and how much you want to receive. FastBridge aggregates your balances across multiple chains automatically, and finds the optimal combination to fill your request. No need to plan which chain your funds are coming from.</p>
+            </div>
+            <div class="step-image">
+              <img src="assets/how-it-works.png" alt="Step 1">
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-text">
+              <div class="step-header">
+                <span class="step-label">Step 2</span>
+                <h3 class="step-heading">Verify your request</h3>
+              </div>
+              <p class="step-description">Review how your balances will be used and how the transaction will be routed. You can deselect individual source chains if you want to control which balances are included. FastBridge updates automatically.</p>
+            </div>
+            <div class="step-image">
+              <img src="assets/how-it-works.png" alt="Step 2">
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-text">
+              <div class="step-header">
+                <span class="step-label">Step 3</span>
+                <h3 class="step-heading">One approval. Ready to trade.</h3>
+              </div>
+              <p class="step-description">Sign just one transaction. FastBridge's intent-based execution layer routes, settles, and delivers your funds to the destination in ~20 seconds and with 0 native gas needed.</p>
+            </div>
+            <div class="step-image">
+              <img src="assets/how-it-works.png" alt="Step 3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="faq-header">
+        <h2 class="faq-title">Your Questions. Answered.</h2>
+        <p class="faq-subtitle">Answers to all your questions, quickly and clearly</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item faq-item--open">
+          <button class="faq-question">
+            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>What is Avail FastBridge?</span>
+          </button>
+          <div class="faq-answer">
+            <p>FastBridge is a unified cross-chain bridge that lets you move stablecoins and tokens from multiple source chains to any supported destination chain in a single transaction. Unlike traditional bridges, you don't need to manage gas on each chain or bridge one chain at a time; FastBridge aggregates your balances so you arrive ready to trade.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>How is FastBridge different from other bridges?</span>
+          </button>
+          <div class="faq-answer">
+            <p>FastBridge uses an intent-based execution layer that aggregates balances from multiple chains into a single transaction. Traditional bridges require you to bridge one chain at a time and manage gas on each network separately.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Do I need to hold gas tokens on every chain I'm bridging from?</span>
+          </button>
+          <div class="faq-answer">
+            <p>No. FastBridge handles gas abstraction, so you don't need native gas tokens on each source chain. Your funds arrive at the destination with zero native gas needed.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Which wallets are supported?</span>
+          </button>
+          <div class="faq-answer">
+            <p>FastBridge supports all major EVM-compatible wallets including MetaMask, WalletConnect, Coinbase Wallet, and more.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>How long does a bridge transaction take?</span>
+          </button>
+          <div class="faq-answer">
+            <p>Most transactions complete in approximately 20-30 seconds, depending on the source and destination chains.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-links">
+          <div class="footer-col">
+            <span class="footer-col-title">Pages</span>
+            <a href="#">Home</a>
+            <a href="#">About us</a>
+            <a href="#">Nexus</a>
+            <a href="#">DA</a>
+            <a href="#">Careers</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">&nbsp;</span>
+            <a href="#">Blog</a>
+            <a href="#">Ecosystem</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">T&amp;C</a>
+            <a href="#">Whitepaper</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Support</span>
+            <a href="#">Docs</a>
+            <a href="#">Discord</a>
+            <a href="#">GitHub</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Press Kit</span>
+            <a href="#">Brand Assets</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Socials</span>
+            <a href="#">X (Twitter)</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Telegram</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+        <p class="footer-copyright">Powered by &copy; Avail Project.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="pixel-overlay.js"></script>
+  <script src="navbar-scroll.js"></script>
+  <script src="carousel.js"></script>
+  <script src="logo-scroll.js"></script>
+  <script src="faq.js"></script>
+</body>
+</html>
