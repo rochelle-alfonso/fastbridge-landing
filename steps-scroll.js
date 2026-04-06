@@ -1,32 +1,56 @@
 (function() {
-  var textItems = document.querySelectorAll('.step-text-item');
-  var images = document.querySelectorAll('.steps-right .step-image');
-  if (!textItems.length || !images.length) return;
+  var stepsScroll = document.querySelector('.steps-scroll');
+  if (!stepsScroll) return;
 
-  var currentStep = 0;
+  var scrollCount = 0;
+  var lastDirection = null;
+  var resetTimer = null;
+  var threshold = 2;
 
-  function updateStep(index) {
-    if (index === currentStep) return;
-    currentStep = index;
-    textItems.forEach(function(item) {
-      item.classList.remove('active');
-    });
-    textItems[index].classList.add('active');
-  }
+  stepsScroll.addEventListener('wheel', function(e) {
+    var atTop = stepsScroll.scrollTop <= 0;
+    var atBottom = stepsScroll.scrollTop + stepsScroll.clientHeight >= stepsScroll.scrollHeight - 5;
+    var direction = e.deltaY > 0 ? 'down' : 'up';
 
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var step = parseInt(entry.target.dataset.step);
-        updateStep(step);
+    // If at the top and scrolling up, or at bottom and scrolling down
+    if ((atTop && direction === 'up') || (atBottom && direction === 'down')) {
+      if (direction === lastDirection) {
+        scrollCount++;
+      } else {
+        scrollCount = 1;
+        lastDirection = direction;
       }
-    });
-  }, {
-    root: null,
-    threshold: 0.5
-  });
 
-  images.forEach(function(img) {
-    observer.observe(img);
-  });
+      // Reset count after inactivity
+      if (resetTimer) clearTimeout(resetTimer);
+      resetTimer = setTimeout(function() {
+        scrollCount = 0;
+        lastDirection = null;
+      }, 1000);
+
+      if (scrollCount >= threshold) {
+        scrollCount = 0;
+        lastDirection = null;
+
+        // Find the next/previous section
+        var howItWorks = stepsScroll.closest('.how-it-works');
+        if (direction === 'down') {
+          var nextSection = howItWorks.nextElementSibling;
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          var prevSection = howItWorks.previousElementSibling;
+          if (prevSection) {
+            prevSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }
+      }
+    } else {
+      scrollCount = 0;
+      lastDirection = null;
+    }
+  }, { passive: true });
 })();
