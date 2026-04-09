@@ -42,9 +42,34 @@
     }
   }
 
-  // Pause all videos initially
-  for (var v = 0; v < totalSteps; v++) {
-    if (stepVideos[v]) stepVideos[v].pause();
+  // On mobile (no scroll lock), let all videos autoplay
+  function isMobile() {
+    return window.innerWidth <= 1024;
+  }
+
+  if (isMobile()) {
+    // Use IntersectionObserver to play/pause videos as they scroll into view
+    var videoObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var video = entry.target;
+        if (entry.isIntersecting) {
+          video.play().catch(function() {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    for (var v = 0; v < totalSteps; v++) {
+      if (stepVideos[v]) {
+        videoObserver.observe(stepVideos[v]);
+      }
+    }
+  } else {
+    // Pause all videos initially on desktop
+    for (var v = 0; v < totalSteps; v++) {
+      if (stepVideos[v]) stepVideos[v].pause();
+    }
   }
 
   function isSectionInFullView() {
