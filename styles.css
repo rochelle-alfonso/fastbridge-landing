@@ -1390,6 +1390,7 @@ html.snap-active {
     white-space: normal;
   }
   .hero-description {
+    font-size: 14px;
     width: 100%;
     max-width: 500px;
   }
