@@ -61,6 +61,7 @@ body {
   opacity: 0;
   animation: pageLoad 0.6s ease-out 0.1s forwards;
   padding: 20px;
+  overflow-x: hidden;
 }
 
 @keyframes pageLoad {
@@ -79,16 +80,14 @@ body {
 .bridge-card-wrapper { animation-delay: 0.6s; }
 
 /* Below-fold sections reveal on scroll */
-.chains-section,
 .blog-section,
 .faq-section,
 .footer {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-.chains-section.visible,
 .blog-section.visible,
 .faq-section.visible,
 .footer.visible {
@@ -106,24 +105,22 @@ body {
 .page {
   width: 100%;
   margin: 0 auto;
-  overflow-x: hidden;
 }
 
 /* ========== HERO SECTION ========== */
 .hero {
   position: relative;
   width: 100%;
-  height: 900px;
-  overflow: hidden;
+  min-height: 900px;
 }
 
 .hero-bg {
   position: absolute;
-  top: 0;
+  top: -60px;
   left: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 60px);
   overflow: hidden;
 }
 
@@ -184,53 +181,25 @@ body {
 
 /* Navbar */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 20px;
-  right: 20px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
   z-index: 100;
   box-sizing: border-box;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   background: transparent;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease, padding 0.3s ease;
 }
 
 .navbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 72px 20px;
+  padding: 0 72px;
   max-width: 1440px;
   margin: 0 auto;
   box-sizing: border-box;
-  transition: padding 0.3s ease;
-}
-
-.navbar.navbar--hidden {
-  opacity: 0;
-  transform: translateY(-100%);
-  pointer-events: none;
-}
-
-.navbar.navbar--scrolled {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  background: #fff;
-}
-
-.navbar.navbar--scrolled .navbar-inner {
-  padding: 20px 72px;
-}
-
-.navbar.navbar--dark {
-  background: transparent;
-}
-
-.navbar.navbar--dark .navbar-inner {
-  background: #141413;
-  max-width: 1440px;
-  width: 100%;
 }
 
 .navbar.navbar--dark .nav-logo-text {
@@ -276,19 +245,25 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 48px;
-  padding: 0 16px;
+  height: 56px;
+  padding: 0 24px;
   background: var(--foreground-primary);
   color: var(--brand-white);
   border: none;
   border-radius: 12px;
   font-family: 'Geist', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   text-align: center;
   cursor: pointer;
   box-shadow: 0px 1px 4px 0px rgba(85, 85, 85, 0.05);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -296,19 +271,46 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 48px;
-  padding: 0 16px;
+  height: 56px;
+  padding: 0 24px;
   background: var(--brand-white);
   color: var(--foreground-primary);
   border: 1px solid var(--border-light);
   border-radius: 12px;
   font-family: 'Geist', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
+  text-decoration: none;
   font-weight: 400;
   line-height: 18px;
   text-align: center;
   cursor: pointer;
   box-shadow: 0px 1px 4px 0px rgba(85, 85, 85, 0.05);
+  transition: opacity 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.btn-secondary:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+  border-color: #999;
+}
+
+.btn-tertiary {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  gap: 6px;
+  padding: 4px 0;
+  border-bottom: 1.5px solid var(--foreground-primary);
+  transition: opacity 0.2s;
+}
+
+.btn-tertiary:hover {
+  opacity: 0.7;
 }
 
 /* Hero Content Layout */
@@ -318,8 +320,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 40px;
   padding: 0 72px;
-  height: calc(900px - 160px);
+  min-height: calc(900px - 160px);
   margin-top: 60px;
   max-width: 1440px;
   margin-left: auto;
@@ -331,11 +334,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 30px;
   height: 520px;
-  flex-shrink: 0;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  flex-shrink: 1;
+  min-width: 0;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .hero-text-wrapper {
@@ -347,8 +352,8 @@ body {
 
 .hero-heading {
   font-family: 'Delight', sans-serif;
-  font-size: 52px;
-  white-space: nowrap;
+  font-size: clamp(36px, 4vw, 52px);
+  white-space: normal;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 1.04px;
@@ -361,14 +366,14 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #3d3d3d;
-  width: 469px;
+  max-width: 545px;
+  width: 100%;
 }
 
 .hero-buttons {
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 30px;
 }
 
 .hero-buttons .btn-primary {
@@ -381,31 +386,33 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  width: 607px;
-  flex-shrink: 0;
+  width: 560px;
+  max-width: 100%;
+  flex-shrink: 1;
 }
 
 .bridge-card {
   background: white;
-  border-radius: 24px;
-  padding: 30px;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   overflow: hidden;
 }
 
 .bridge-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
 }
 
 .bridge-label {
   font-family: 'Geist', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.4px;
@@ -416,13 +423,13 @@ body {
 .bridge-fields {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
 }
 
 .bridge-field {
-  width: 547px;
-  height: 68px;
+  width: 100%;
+  height: 56px;
   background: var(--bg-field);
   border-radius: 12px;
   display: flex;
@@ -440,8 +447,8 @@ body {
 }
 
 .token-icon {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
 }
 
@@ -469,7 +476,7 @@ body {
 
 .field-text {
   font-family: 'Geist', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.4px;
@@ -485,7 +492,7 @@ body {
 
 .field-placeholder {
   font-family: 'Geist', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.4px;
@@ -502,14 +509,14 @@ body {
 }
 
 .pencil-icon {
-  width: 32px;
-  height: 32px;
-  padding: 6px;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
 }
 
 .recipient-text {
   font-family: 'Geist', sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.4px;
@@ -524,10 +531,11 @@ body {
   background: var(--text-dark);
   color: white;
   border: none;
-  border-radius: 12px;
-  padding: 22px;
+  border-radius: 10px;
+  height: 52px;
+  padding: 0 16px;
   font-family: 'Geist', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.4px;
@@ -535,6 +543,12 @@ body {
   text-align: center;
   cursor: pointer;
   overflow: hidden;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.connect-wallet-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
 }
 
 /* Dots */
@@ -655,54 +669,43 @@ body {
 .chain-logo img[alt="Citrea"]      { height: 26px; }
 
 /* ========== HOW FASTBRIDGE WORKS ========== */
+html.snap-active {
+  scroll-snap-type: y proximity;
+}
+
 .how-it-works {
   background: #141413;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .steps-scroll {
   width: 100%;
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-
-.steps-scroll::-webkit-scrollbar {
-  display: none;
 }
 
 .steps-track {
   display: flex;
   flex-direction: column;
-  position: relative;
-  height: 100%;
 }
 
 .step-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
   background: #141413;
-  transform: translateY(100%);
-  transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  opacity: 0;
+  transform: translateY(80px) scale(0.97);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.step-card.active {
-  transform: translateY(0);
-}
-
-.step-card:first-child {
-  transform: translateY(0);
+.step-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .step-card-inner {
@@ -975,8 +978,15 @@ body {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding: 100px 72px 60px;
+  padding: 60px 72px 20px;
   position: relative;
+  z-index: 2;
+  background: #141413;
+}
+
+.how-it-works-title.sticky-active {
+  position: sticky;
+  top: 0;
   z-index: 2;
   background: #141413;
 }
@@ -1003,25 +1013,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
+  height: 56px;
   padding: 0 24px;
   background: var(--foreground-primary);
   color: var(--brand-white);
   border: none;
   border-radius: 12px;
   font-family: 'Geist', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 0.2s, border-color 0.2s;
+  transition: opacity 0.2s, transform 0.2s;
   margin-top: 8px;
 }
 
 .section-btn:hover {
-  opacity: 0.9;
+  opacity: 0.85;
+  transform: translateY(-1px);
 }
 
 .blog-title {
@@ -1049,6 +1060,10 @@ body {
 }
 
 .blog-dots {
+  display: none;
+}
+
+.blog-btn-mobile {
   display: none;
 }
 
@@ -1240,20 +1255,20 @@ body {
 }
 
 .footer-logo-icon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
 .footer-logo-text {
-  font-family: 'Geist', sans-serif;
-  font-size: 18px;
+  font-family: 'Delight', sans-serif;
+  font-size: 24px;
   font-weight: 600;
   color: var(--foreground-primary);
 }
 
 .footer-description {
   font-family: 'Geist', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 22px;
   color: #848483;
@@ -1261,7 +1276,7 @@ body {
 
 .footer-powered {
   font-family: 'Geist', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 18px;
   color: #848483;
@@ -1282,13 +1297,13 @@ body {
 .footer-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
   min-width: 100px;
 }
 
 .footer-col-title {
   font-family: 'Geist', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 18px;
   color: var(--foreground-primary);
@@ -1297,7 +1312,7 @@ body {
 
 .footer-col a {
   font-family: 'Geist', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 18px;
   color: #848483;
@@ -1333,6 +1348,12 @@ body {
   .nav-btn {
     display: none;
   }
+  .nav-logo-desktop {
+    display: none;
+  }
+  .nav-logo-mobile {
+    display: block;
+  }
   .navbar.navbar--scrolled {
     opacity: 0;
     pointer-events: none;
@@ -1341,19 +1362,28 @@ body {
     height: auto;
     min-height: 100vh;
   }
+  .hero-bg {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
   .hero-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 0 40px;
+    padding-top: 140px;
     height: auto;
-    margin-top: 100px;
-    gap: 60px;
+    margin-top: 0;
+    gap: 40px;
     padding-bottom: 60px;
   }
   .hero-text-area {
     height: auto;
     align-items: center;
+    gap: 24px;
   }
   .hero-heading {
     font-size: 44px;
@@ -1366,6 +1396,7 @@ body {
   .hero-text-wrapper {
     max-width: 100%;
     align-items: center;
+    gap: 16px;
   }
   .hero-buttons {
     justify-content: center;
@@ -1382,6 +1413,9 @@ body {
     width: 100%;
     box-sizing: border-box;
   }
+  .connect-wallet-btn {
+    height: 48px;
+  }
   .chains-section {
     padding: 60px 40px;
   }
@@ -1392,20 +1426,13 @@ body {
     font-size: 40px;
     padding: 60px 40px 40px;
   }
-  .how-it-works {
-    height: auto;
-    overflow: visible;
-  }
-  .steps-scroll {
-    overflow: visible;
-  }
-  .steps-track {
-    height: auto;
+  .how-it-works-title.sticky-active {
+    position: static;
   }
   .step-card {
-    position: relative;
-    transform: none !important;
+    height: auto;
     padding: 0;
+    scroll-snap-align: none;
   }
   .step-card-inner {
     flex-direction: column;
@@ -1497,6 +1524,9 @@ body {
     align-items: center;
     max-width: 100%;
   }
+  .btn-tertiary {
+    align-self: center;
+  }
   .footer-logo {
     justify-content: center;
   }
@@ -1530,6 +1560,12 @@ body {
   .nav-btn {
     width: auto;
   }
+  .section-btn {
+    height: 40px;
+    font-size: 13px;
+    padding: 0 14px;
+    border-radius: 10px;
+  }
   .nav-logo-text {
     font-size: 20px;
   }
@@ -1546,8 +1582,8 @@ body {
     border-radius: 10px;
   }
   .hero-content {
-    padding: 0 26px;
-    margin-top: 100px;
+    padding: 80px 26px 0;
+    margin-top: 0;
     gap: 32px;
     padding-bottom: 32px;
     align-items: center;
@@ -1556,9 +1592,11 @@ body {
   .hero-text-area {
     align-items: center;
     text-align: center;
+    gap: 20px;
   }
   .hero-text-wrapper {
     align-items: center;
+    gap: 12px;
   }
   .hero-heading {
     font-size: 32px;
@@ -1567,13 +1605,14 @@ body {
   .hero-description {
     font-size: 16px;
     text-align: center;
+    width: 100%;
     max-width: 100%;
   }
   .hero-buttons {
     flex-direction: row;
     gap: 12px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 0;
     justify-content: center;
   }
   .hero-buttons .btn-primary,
@@ -1589,6 +1628,7 @@ body {
     padding: 16px;
     border-radius: 14px;
     gap: 20px;
+    text-align: left;
   }
   .bridge-form {
     width: 100%;
@@ -1665,25 +1705,14 @@ body {
   .chains-logos {
     height: 40px;
   }
-  .how-it-works {
-    height: auto;
-    overflow: visible;
-  }
-  .steps-scroll {
-    overflow: visible;
-  }
   .steps-track {
-    height: auto;
     gap: 60px;
     padding: 10px 0 40px;
   }
   .step-card {
-    position: relative;
-    transform: none !important;
-    padding: 0;
-    gap: 20px;
     height: auto;
-    min-height: 0;
+    padding: 0;
+    scroll-snap-align: none;
   }
   .step-card-inner {
     padding: 16px;
@@ -1709,7 +1738,15 @@ body {
     border-radius: 8px;
   }
   .blog-section {
-    padding: 32px 16px;
+    padding: 52px 16px 32px;
+  }
+  .blog-header .section-btn {
+    display: none;
+  }
+  .blog-btn-mobile {
+    display: flex;
+    margin: 24px auto 0;
+    width: fit-content;
   }
   .blog-header {
     margin-bottom: 24px;
@@ -1720,10 +1757,6 @@ body {
   }
   .blog-subtitle {
     font-size: 14px;
-  }
-  .blog-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
   .blog-card-title {
     font-size: 18px;
@@ -1781,15 +1814,21 @@ body {
     gap: 20px;
   }
   .footer-col {
-    gap: 8px;
+    gap: 16px;
+  }
+  .footer-description {
+    font-size: 14px;
   }
   .footer-col-title {
-    font-size: 13px;
+    font-size: 14px;
   }
   .footer-col a {
-    font-size: 13px;
+    font-size: 14px;
   }
   .footer-copyright {
-    font-size: 11px;
+    font-size: 14px;
+  }
+  .btn-tertiary {
+    font-size: 14px;
   }
 }

@@ -1,7 +1,7 @@
 (function() {
   var slides = [
     {
-      bg: 'assets/hero-bg.png',
+      bg: 'assets/hero-bg.jpg',
       chain: 'MegaETH',
       chainIcon: 'assets/megaeth-icon.svg',
       token: 'MUSD',
@@ -10,7 +10,7 @@
       hasCompositeIcon: true
     },
     {
-      bg: 'assets/Hero-bg_citrea.png',
+      bg: 'assets/Hero-bg_citrea.jpg',
       chain: 'Citrea Mainnet',
       chainIcon: 'assets/citrea-icon.png',
       token: 'USDC',
@@ -18,7 +18,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_monad.png',
+      bg: 'assets/Hero-bg_monad.jpg',
       chain: 'Monad',
       chainIcon: 'assets/monad-icon.png',
       token: 'USDC',
@@ -26,7 +26,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_optimisim.png',
+      bg: 'assets/Hero-bg_optimisim.jpg',
       chain: 'Optimism',
       chainIcon: 'assets/op-icon.png',
       token: 'USDC',
@@ -34,7 +34,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_polygon.png',
+      bg: 'assets/Hero-bg_polygon.jpg',
       chain: 'Polygon',
       chainIcon: 'assets/polygon-icon.png',
       token: 'USDC',
@@ -42,7 +42,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_arbitrum.png',
+      bg: 'assets/Hero-bg_arbitrum.jpg',
       chain: 'Arbitrum',
       chainIcon: 'assets/arb-icon.png',
       token: 'USDC',
@@ -50,7 +50,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_avalanche.png',
+      bg: 'assets/Hero-bg_avalanche.jpg',
       chain: 'Avalanche',
       chainIcon: 'assets/avax-icon.png',
       token: 'USDC',
@@ -58,7 +58,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_ethereum.png',
+      bg: 'assets/Hero-bg_ethereum.jpg',
       chain: 'Ethereum',
       chainIcon: 'assets/eth-icon.png',
       token: 'USDC',
@@ -66,7 +66,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_hyperliquid.png',
+      bg: 'assets/Hero-bg_hyperliquid.jpg',
       chain: 'Hyperliquid',
       chainIcon: 'assets/hyperliquid-icon.png',
       token: 'USDC',
@@ -74,7 +74,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_base.png',
+      bg: 'assets/Hero-bg_base.jpg',
       chain: 'Base',
       chainIcon: 'assets/base-icon.png',
       token: 'USDC',
@@ -82,7 +82,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_bnb.png',
+      bg: 'assets/Hero-bg_bnb.jpg',
       chain: 'BNB Chain',
       chainIcon: 'assets/bnb-icon.png',
       token: 'USDC',
@@ -90,7 +90,7 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_kaia.png',
+      bg: 'assets/Hero-bg_kaia.jpg',
       chain: 'Kaia',
       chainIcon: 'assets/kaia-icon.png',
       token: 'USDC',
@@ -98,25 +98,9 @@
       hasCompositeIcon: false
     },
     {
-      bg: 'assets/Hero-bg_scroll.png',
+      bg: 'assets/Hero-bg_scroll.jpg',
       chain: 'Scroll',
       chainIcon: 'assets/scroll-icon.png',
-      token: 'USDC',
-      tokenIcon: 'assets/usdc-icon.png',
-      hasCompositeIcon: false
-    },
-    {
-      bg: 'assets/Hero-bg_sophon.png',
-      chain: 'Sophon',
-      chainIcon: 'assets/sophon-icon.png',
-      token: 'USDC',
-      tokenIcon: 'assets/usdc-icon.png',
-      hasCompositeIcon: false
-    },
-    {
-      bg: 'assets/Hero-bg_tron.png',
-      chain: 'Tron',
-      chainIcon: 'assets/tron-icon.png',
       token: 'USDC',
       tokenIcon: 'assets/usdc-icon.png',
       hasCompositeIcon: false
@@ -131,11 +115,12 @@
   var currentSlide = 0;
   var transitioning = false;
 
-  // Preload images
+  // Preload and cache images in memory
+  var imageCache = [];
   slides.forEach(function(s) {
-    new Image().src = s.bg;
-    new Image().src = s.chainIcon;
-    new Image().src = s.tokenIcon;
+    var bg = new Image(); bg.src = s.bg; imageCache.push(bg);
+    var icon = new Image(); icon.src = s.chainIcon; imageCache.push(icon);
+    var token = new Image(); token.src = s.tokenIcon; imageCache.push(token);
   });
 
   function fadeSwap(el, newHTML) {
@@ -187,27 +172,45 @@
     }
   }
 
+  // Pre-create all background images and keep them in DOM (hidden)
+  var bgImages = [];
+  var pixelOverlay = document.getElementById('pixel-overlay');
+  slides.forEach(function(s, i) {
+    var img = document.createElement('img');
+    img.src = s.bg;
+    img.alt = '';
+    img.className = 'hero-bg-img';
+    img.style.opacity = i === 0 ? '1' : '0';
+    img.style.position = i === 0 ? '' : 'absolute';
+    img.style.inset = '0';
+    img.style.transition = 'opacity 0.8s ease-in-out';
+    if (i > 0) {
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+    }
+    heroBg.insertBefore(img, pixelOverlay);
+    bgImages.push(img);
+  });
+  // Remove the original static image from HTML
+  if (currentImg && currentImg !== bgImages[0]) {
+    currentImg.remove();
+  }
+
   function goToSlide(index) {
     if (index === currentSlide || transitioning) return;
     transitioning = true;
     currentSlide = index;
     var slide = slides[index];
 
-    // Crossfade background
-    var newImg = document.createElement('img');
-    newImg.src = slide.bg;
-    newImg.alt = '';
-    newImg.className = 'hero-bg-img hero-bg-img--next';
-    heroBg.insertBefore(newImg, document.getElementById('pixel-overlay'));
-    newImg.offsetHeight;
-    newImg.classList.add('hero-bg-img--visible');
+    // Crossfade: show new, hide old
+    for (var i = 0; i < bgImages.length; i++) {
+      bgImages[i].style.opacity = i === index ? '1' : '0';
+    }
 
     setTimeout(function() {
-      currentImg.remove();
-      newImg.classList.remove('hero-bg-img--next', 'hero-bg-img--visible');
-      currentImg = newImg;
       transitioning = false;
-    }, 1200);
+    }, 800);
 
     // Update card content
     updateCard(slide);

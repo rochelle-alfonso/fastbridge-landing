@@ -5,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastBridge</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" as="image" href="assets/hero-bg.jpg">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-inner">
-      <div class="nav-logo">
-        <img src="assets/fastbridge-icon.svg" alt="" class="nav-logo-icon">
-        <span class="nav-logo-text">fastbridge</span>
-      </div>
-      <button class="btn-primary nav-btn">Bridge Now</button>
-    </div>
-  </nav>
-
   <div class="page">
     <!-- Hero Section -->
     <section class="hero">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="navbar-inner">
+          <div class="nav-logo">
+            <img src="assets/fastbridge-icon.svg" alt="" class="nav-logo-icon">
+            <span class="nav-logo-text">fastbridge</span>
+          </div>
+          <button class="btn-primary nav-btn">Bridge Now</button>
+        </div>
+      </nav>
       <div class="hero-bg">
-        <img src="assets/hero-bg.png" alt="" class="hero-bg-img">
+        <img src="assets/hero-bg.jpg" alt="" class="hero-bg-img">
         <div id="pixel-overlay"></div>
       </div>
 
@@ -32,17 +32,16 @@
         <div class="hero-text-area">
           <div class="hero-text-wrapper">
             <h1 class="hero-heading">
-              Move Funds From<br>
-              Multiple Chains In<br>
-              One Step
+              Move All Your Crypto<br>
+              In One Transaction
             </h1>
             <p class="hero-description">
-              Combine your balances from multiple chains in a single move. No switching networks, no managing gas, no waiting. Arrive ready to transact.
+              Combine your balances from multiple chains in a single move. No switching networks, no managing gas, no waiting. Arrive ready to trade.
             </p>
           </div>
           <div class="hero-buttons">
             <button class="btn-primary">Bridge Now</button>
-            <button class="btn-secondary">Integrate FastBridge </button>
+            <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" class="btn-secondary">Integrate FastBridge</a>
           </div>
         </div>
 
@@ -99,8 +98,6 @@
             <div class="dot" data-slide="10"></div>
             <div class="dot" data-slide="11"></div>
             <div class="dot" data-slide="12"></div>
-            <div class="dot" data-slide="13"></div>
-            <div class="dot" data-slide="14"></div>
           </div>
         </div>
       </div>
@@ -125,11 +122,11 @@
           <div class="chain-logo"><img src="assets/base-logo.png" alt="Base"></div>
           <div class="chain-logo"><img src="assets/scroll-logo.png" alt="Scroll"></div>
           <div class="chain-logo"><img src="assets/kaia-logo.png" alt="Kaia"></div>
-          <div class="chain-logo"><img src="assets/tron-logo.png" alt="Tron"></div>
+
           <div class="chain-logo"><img src="assets/megaeth-logo.png" alt="MegaETH"></div>
           <div class="chain-logo"><img src="assets/monad-logo.png" alt="Monad"></div>
           <div class="chain-logo"><img src="assets/bnb-logo.png" alt="BNB Chain"></div>
-          <div class="chain-logo"><img src="assets/sophon-logo.png" alt="Sophon"></div>
+
           <div class="chain-logo"><img src="assets/citrea-logo.png" alt="Citrea"></div>
           <!-- Duplicate for seamless scroll -->
           <div class="chain-logo"><img src="assets/eth-logo.png" alt="Ethereum"></div>
@@ -141,11 +138,11 @@
           <div class="chain-logo"><img src="assets/base-logo.png" alt="Base"></div>
           <div class="chain-logo"><img src="assets/scroll-logo.png" alt="Scroll"></div>
           <div class="chain-logo"><img src="assets/kaia-logo.png" alt="Kaia"></div>
-          <div class="chain-logo"><img src="assets/tron-logo.png" alt="Tron"></div>
+
           <div class="chain-logo"><img src="assets/megaeth-logo.png" alt="MegaETH"></div>
           <div class="chain-logo"><img src="assets/monad-logo.png" alt="Monad"></div>
           <div class="chain-logo"><img src="assets/bnb-logo.png" alt="BNB Chain"></div>
-          <div class="chain-logo"><img src="assets/sophon-logo.png" alt="Sophon"></div>
+
           <div class="chain-logo"><img src="assets/citrea-logo.png" alt="Citrea"></div>
         </div>
       </div>
@@ -218,7 +215,7 @@
           <h2 class="blog-title">Latest blog posts</h2>
           <p class="blog-subtitle">Discover stories, tips, and resources to inspire your next big idea.</p>
         </div>
-        <a href="#" class="section-btn">View All Posts</a>
+        <a href="https://blog.availproject.org/tag/fastbridge/" target="_blank" class="section-btn">View All Posts</a>
       </div>
       <div class="blog-grid">
         <a href="https://blog.availproject.org/how-to-bridge-to-monad-in-under-60-seconds/" target="_blank" class="blog-card">
@@ -244,6 +241,7 @@
         </a>
       </div>
       <div class="blog-dots"></div>
+      <a href="https://blog.availproject.org/tag/fastbridge/" target="_blank" class="section-btn blog-btn-mobile">View All Posts</a>
     </section>
 
     <!-- FAQ Section -->
@@ -253,7 +251,6 @@
           <h2 class="faq-title">Your Questions. Answered.</h2>
           <p class="faq-subtitle">Answers to all your questions, quickly and clearly</p>
         </div>
-        <a href="#" class="section-btn">View More</a>
       </div>
       <div class="faq-list">
         <div class="faq-item faq-item--open">
@@ -320,30 +317,25 @@
           <div class="footer-brand">
             <div class="footer-logo">
               <img src="assets/fastbridge-icon.svg" alt="Avail" class="footer-logo-icon">
-              <span class="footer-logo-text">avail fastbridge</span>
+              <span class="footer-logo-text">fastbridge</span>
             </div>
-            <p class="footer-description">Integrate FastBridge directly into your dApp using the Avail Nexus SDK. It gives you a configurable bridge widget that handles multi-chain asset routing, gas, and settlement, all without redirecting your users to a third-party bridge. Visit the Avail documentation and get started.</p>
-            <p class="footer-powered">Powered by Avail Project.</p>
-            <a href="#" class="btn-primary footer-cta">Integrate FastBridge</a>
+            <p class="footer-description">Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement. Visit the docs to get started.</p>
+            <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" class="btn-tertiary">Integrate Now &rarr;</a>
           </div>
           <div class="footer-links">
             <div class="footer-col">
               <span class="footer-col-title">Support</span>
-              <a href="#">Docs</a>
-              <a href="#">Discord</a>
-              <a href="#">GitHub</a>
-              <a href="#">Blog</a>
-            </div>
-            <div class="footer-col">
-              <span class="footer-col-title">Press Kit</span>
-              <a href="#">Brand Assets</a>
+              <a href="https://docs.availproject.org/" target="_blank">Docs</a>
+              <a href="https://discord.com/invite/AvailProject" target="_blank">Discord</a>
+              <a href="https://github.com/availproject" target="_blank">GitHub</a>
+              <a href="https://blog.availproject.org/" target="_blank">Blog</a>
             </div>
             <div class="footer-col">
               <span class="footer-col-title">Socials</span>
-              <a href="#">X (Twitter)</a>
-              <a href="#">LinkedIn</a>
-              <a href="#">Telegram</a>
-              <a href="#">YouTube</a>
+              <a href="https://x.com/AvailProject" target="_blank">X (Twitter)</a>
+              <a href="https://www.linkedin.com/company/availproject/" target="_blank">LinkedIn</a>
+              <a href="https://t.me/AvailCommunity" target="_blank">Telegram</a>
+              <a href="https://www.youtube.com/@AvailProject" target="_blank">YouTube</a>
             </div>
           </div>
         </div>
@@ -367,7 +359,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0, rootMargin: '0px 0px 100px 0px' });
       sections.forEach(function(s) { observer.observe(s); });
     })();
   </script>
