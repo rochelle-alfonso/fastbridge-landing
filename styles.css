@@ -1320,11 +1320,11 @@ body {
 /* ========== RESPONSIVE: TABLET (max-width: 1024px) ========== */
 @media (max-width: 1024px) {
   body {
-    padding: 10px;
+    padding: 0;
   }
   .navbar {
-    left: 10px;
-    right: 10px;
+    left: 0;
+    right: 0;
   }
   .navbar-inner {
     justify-content: center;
@@ -1517,11 +1517,11 @@ body {
 /* ========== RESPONSIVE: MOBILE (max-width: 640px) ========== */
 @media (max-width: 640px) {
   body {
-    padding: 10px;
+    padding: 0;
   }
   .navbar {
-    left: 10px;
-    right: 10px;
+    left: 0;
+    right: 0;
     padding: 20px 16px 12px;
   }
   .navbar.navbar--scrolled {
