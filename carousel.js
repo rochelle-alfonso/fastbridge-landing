@@ -24,6 +24,102 @@
       token: 'USDC',
       tokenIcon: 'assets/usdc-icon.png',
       hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_optimisim.png',
+      chain: 'Optimism',
+      chainIcon: 'assets/op-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_polygon.png',
+      chain: 'Polygon',
+      chainIcon: 'assets/polygon-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_arbitrum.png',
+      chain: 'Arbitrum',
+      chainIcon: 'assets/arb-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_avalanche.png',
+      chain: 'Avalanche',
+      chainIcon: 'assets/avax-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_ethereum.png',
+      chain: 'Ethereum',
+      chainIcon: 'assets/eth-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_hyperliquid.png',
+      chain: 'Hyperliquid',
+      chainIcon: 'assets/hyperliquid-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_base.png',
+      chain: 'Base',
+      chainIcon: 'assets/base-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_bnb.png',
+      chain: 'BNB Chain',
+      chainIcon: 'assets/bnb-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_kaia.png',
+      chain: 'Kaia',
+      chainIcon: 'assets/kaia-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_scroll.png',
+      chain: 'Scroll',
+      chainIcon: 'assets/scroll-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_sophon.png',
+      chain: 'Sophon',
+      chainIcon: 'assets/sophon-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
+    },
+    {
+      bg: 'assets/Hero-bg_tron.png',
+      chain: 'Tron',
+      chainIcon: 'assets/tron-icon.png',
+      token: 'USDC',
+      tokenIcon: 'assets/usdc-icon.png',
+      hasCompositeIcon: false
     }
   ];
 
@@ -44,7 +140,7 @@
 
   function fadeSwap(el, newHTML) {
     // Fade out
-    el.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+    el.style.transition = 'opacity 0.15s ease-in-out, transform 0.15s ease-in-out';
     el.style.opacity = '0';
     el.style.transform = 'translateY(4px)';
 
@@ -57,12 +153,12 @@
       requestAnimationFrame(function() {
         requestAnimationFrame(function() {
           // Fade in
-          el.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+          el.style.transition = 'opacity 0.15s ease-in-out, transform 0.15s ease-in-out';
           el.style.opacity = '1';
           el.style.transform = 'translateY(0)';
         });
       });
-    }, 500);
+    }, 150);
   }
 
   function updateCard(slide) {
