@@ -552,6 +552,26 @@ body {
   transform: translateY(-1px);
 }
 
+.powered-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.powered-by span {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #848483;
+}
+
+.powered-by-logo {
+  height: 14px;
+  width: auto;
+}
+
 /* Dots */
 .dots {
   display: flex;
