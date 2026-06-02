@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — FastBridge</title>
+  <link rel="stylesheet" href="base.css?v=21">
+  <link rel="stylesheet" href="blog.css?v=20260601-squeezy">
+</head>
+<body>
+  <main class="page">
+    <section
+      class="blog"
+      id="blog"
+      aria-labelledby="blog-carousel-heading"
+      data-items='[
+        {"id":"fastbridge","imgSrc":"assets/figma-export/blog-featured-card.png","collapsedOffsetX":0,"title":"FastBridge by Avail: The Fastest Way to Move Crypto From Multiple Chains","href":"#","cta":"Read more"},
+        {"id":"citrea","imgSrc":"assets/figma-export/blog-strip-citrea-bg.png","collapsedOffsetX":120,"title":"Citrea Mainnet Is Live: Bridge BTC and Stablecoins in One Step","href":"#","cta":"Read more"},
+        {"id":"liquidity","imgSrc":"assets/figma-export/blog-featured-gradient.jpg","collapsedOffsetX":120,"title":"How FastBridge Routes Liquidity Across L2s","href":"#","cta":"Read more"},
+        {"id":"monad","imgSrc":"assets/figma-export/blog-thumb-monad.png","collapsedOffsetX":80,"title":"Monad Integration: Bridge to Monad in One Transaction","href":"#","cta":"Read more"}
+      ]'
+    >
+      <div class="blog__container">
+        <header class="blog__header" id="blog-carousel-heading">
+          <div class="blog__header-content">
+            <h2 class="blog__title">
+              What's happening
+              <em>Check out the latest from us.</em>
+            </h2>
+          </div>
+          <a href="#" class="section-btn blog__header-btn">View all Blogs</a>
+        </header>
+
+        <div class="blog__body">
+          <div class="squeezy-carousel" id="blog-squeezy">
+            <canvas
+              class="squeezy-carousel__canvas"
+              id="blog-squeezy-canvas"
+              aria-hidden="true"
+            ></canvas>
+
+            <div
+              class="squeezy-carousel__items-details-container"
+              id="blog-meta-container"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="visually-hidden" id="blog-carousel-live" aria-live="polite" aria-atomic="true"></p>
+    </section>
+  </main>
+  <script src="blog-squeezy-canvas.js?v=20260601-squeezy" defer></script>
+  <script src="blog.js?v=20260601-squeezy" defer></script>
+</body>
+</html>
