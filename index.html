@@ -4,383 +4,529 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastBridge</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preload" as="image" href="assets/hero-bg.jpg">
+  <link rel="stylesheet" href="base.css?v=21">
+  <link rel="stylesheet" href="hero.css?v=32">
+  <link rel="stylesheet" href="sections.css?v=16">
+  <link rel="stylesheet" href="hiw.css?v=20">
+  <link rel="stylesheet" href="blog.css?v=20260601-squeezy">
 </head>
 <body>
-  <div class="page">
-    <!-- Hero Section -->
-    <section class="hero">
-      <!-- Navbar -->
-      <nav class="navbar">
-        <div class="navbar-inner">
-          <div class="nav-logo">
-            <img src="assets/fastbridge-icon.svg" alt="" class="nav-logo-icon">
-            <span class="nav-logo-text">fastbridge</span>
-          </div>
-          <button class="btn-primary nav-btn">Bridge Now</button>
+  <main class="page">
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__gradient-wrap">
+          <img
+            src="assets/figma-export/hero-gradient-v2.jpg"
+            alt=""
+            class="hero__gradient"
+            width="1440"
+            height="808"
+            fetchpriority="high"
+          >
         </div>
-      </nav>
-      <div class="hero-bg">
-        <img src="assets/hero-bg.jpg" alt="" class="hero-bg-img">
-        <div id="pixel-overlay"></div>
+        <div class="hero__curve-band">
+          <img
+            src="assets/figma-export/hero-curved-section.png"
+            alt=""
+            class="hero__curve-section"
+            width="1445"
+            height="266"
+          >
+        </div>
       </div>
 
-      <!-- Hero Content -->
-      <div class="hero-content">
-        <!-- Left: Text -->
-        <div class="hero-text-area">
-          <div class="hero-text-wrapper">
-            <h1 class="hero-heading">
-              Move All Your Crypto<br>
-              In One Transaction
-            </h1>
-            <p class="hero-description">
-              Combine your balances from multiple chains in a single move. No switching networks, no managing gas, no waiting. Arrive ready to trade.
-            </p>
-          </div>
-          <div class="hero-buttons">
-            <button class="btn-primary">Bridge Now</button>
-            <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" class="btn-secondary">Integrate FastBridge</a>
-          </div>
-        </div>
+      <div class="hero__inner">
+        <header class="hero__header">
+          <a href="/" class="hero__logo">
+            <img
+              src="assets/figma-hero/logo-icon-white.svg"
+              alt=""
+              class="hero__logo-icon"
+              width="40"
+              height="40"
+            >
+            <span class="hero__logo-text">fastbridge</span>
+          </a>
+          <button type="button" class="btn btn--secondary hero__nav-btn">Bridge Now</button>
+        </header>
 
-        <!-- Right: Bridge Card -->
-        <div class="bridge-card-wrapper">
-          <div class="bridge-card">
-            <div class="bridge-form">
-              <span class="bridge-label">To</span>
-              <div class="bridge-fields">
-                <!-- Chain Selector -->
-                <div class="bridge-field">
-                  <div class="field-left">
-                    <img src="assets/megaeth-icon.svg" alt="MegaETH" class="token-icon">
-                    <span class="field-text">MegaETH</span>
-                  </div>
-                  <img src="assets/dropdown.svg" alt="" class="dropdown-icon">
-                </div>
-                <!-- Token Selector -->
-                <div class="bridge-field">
-                  <div class="field-left">
-                    <div class="musd-icon">
-                      <img src="assets/musd-icon-outer.svg" alt="" class="musd-outer">
-                      <img src="assets/musd-icon-inner.svg" alt="" class="musd-inner">
-                    </div>
-                    <span class="field-text">MUSD</span>
-                  </div>
-                  <img src="assets/dropdown.svg" alt="" class="dropdown-icon">
-                </div>
-                <!-- Amount Input -->
-                <div class="bridge-field">
-                  <span class="field-placeholder">0.00</span>
-                </div>
-              </div>
-              <!-- Add Recipient -->
-              <div class="add-recipient">
-                <img src="assets/pencil-icon.svg" alt="" class="pencil-icon">
-                <span class="recipient-text">Add Recipient Address</span>
-              </div>
-            </div>
-            <button class="connect-wallet-btn">Bridge</button>
-            <div class="powered-by">
-              <span>Powered by</span>
-              <img src="assets/avail-logo.png" alt="Avail" class="powered-by-logo">
-            </div>
-          </div>
-          <!-- Dots -->
-          <div class="dots">
-            <div class="dot dot-active" data-slide="0"></div>
-            <div class="dot" data-slide="1"></div>
-            <div class="dot" data-slide="2"></div>
-            <div class="dot" data-slide="3"></div>
-            <div class="dot" data-slide="4"></div>
-            <div class="dot" data-slide="5"></div>
-            <div class="dot" data-slide="6"></div>
-            <div class="dot" data-slide="7"></div>
-            <div class="dot" data-slide="8"></div>
-            <div class="dot" data-slide="9"></div>
-            <div class="dot" data-slide="10"></div>
-            <div class="dot" data-slide="11"></div>
-            <div class="dot" data-slide="12"></div>
+        <h1 class="hero__title">
+          <span class="hero__title-desktop">Move Your Crypto across chains One Transaction</span>
+          <span class="hero__title-tablet">Move All Your Crypto<br>In One Transaction</span>
+          <span class="hero__title-mobile">
+            <span class="hero__title-line">Move All Your</span>
+            <span class="hero__title-line">Crypto In One</span>
+            <span class="hero__title-line">Transaction</span>
+          </span>
+        </h1>
+
+        <div class="hero__panel">
+          <p class="hero__desc">
+            Combine your balances from multiple chains in a single move. No switching networks, no managing gas, no waiting. Arrive ready to trade.
+          </p>
+          <div class="hero__actions">
+            <button type="button" class="btn btn--primary">Bridge Now</button>
+            <a
+              href="https://docs.availproject.org/docs/nexus/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--secondary"
+            >Add FastBridge</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Supported Chains Section -->
-    <section class="chains-section">
-      <div class="chains-header">
-        <h2 class="chains-title">Supported Chains</h2>
-        <p class="chains-description">
-          Aggregate your stablecoins like USDC, USDT and others across all major EVM chains in seconds with no wrapping and no gas management.
-        </p>
-      </div>
-      <div class="chains-logos">
-        <div class="chains-track">
-          <div class="chain-logo"><img src="assets/eth-logo.png" alt="Ethereum"></div>
-          <div class="chain-logo"><img src="assets/arb-logo.png" alt="Arbitrum"></div>
-          <div class="chain-logo"><img src="assets/op-logo.png" alt="Optimism"></div>
-          <div class="chain-logo"><img src="assets/avax-logo.png" alt="Avalanche"></div>
-          <div class="chain-logo"><img src="assets/polygon-logo.png" alt="Polygon"></div>
-          <div class="chain-logo"><img src="assets/hyperliquid-logo.png" alt="Hyperliquid"></div>
-          <div class="chain-logo"><img src="assets/base-logo.png" alt="Base"></div>
-          <div class="chain-logo"><img src="assets/scroll-logo.png" alt="Scroll"></div>
-          <div class="chain-logo"><img src="assets/kaia-logo.png" alt="Kaia"></div>
+    <section class="chains-strip" id="chains" aria-labelledby="chains-desc">
+      <p class="chains-strip__desc" id="chains-desc">
+        Aggregate and spend your stablecoins like USDC, USDT and others across all major EVM chains in seconds with no gas management.
+      </p>
 
-          <div class="chain-logo"><img src="assets/megaeth-logo.png" alt="MegaETH"></div>
-          <div class="chain-logo"><img src="assets/monad-logo.png" alt="Monad"></div>
-          <div class="chain-logo"><img src="assets/bnb-logo.png" alt="BNB Chain"></div>
+      <div class="chains-strip__logos" aria-hidden="true">
+        <div class="chains-strip__track">
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/ethereum.png" alt="Ethereum" width="136" height="34"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/arbitrum.png" alt="Arbitrum" width="169" height="95"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/optimism.png" alt="Optimism" width="121" height="17"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/avalanche.png" alt="Avalanche" width="148" height="34"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/polygon.png" alt="Polygon" width="109" height="109"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/hyperliquid.png" alt="Hyperliquid" width="166" height="26"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/base.png" alt="Base" width="85" height="48"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/scroll.png" alt="Scroll" width="122" height="61"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/kaia.png" alt="Kaia" width="72" height="46"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/megaeth.png" alt="MegaETH" width="182" height="29"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/monad.png" alt="Monad" width="151" height="85"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/bnb-chain.png" alt="BNB Chain" width="148" height="26"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/citrea.png" alt="Citrea" width="106" height="26"></div>
 
-          <div class="chain-logo"><img src="assets/citrea-logo.png" alt="Citrea"></div>
-          <!-- Duplicate for seamless scroll -->
-          <div class="chain-logo"><img src="assets/eth-logo.png" alt="Ethereum"></div>
-          <div class="chain-logo"><img src="assets/arb-logo.png" alt="Arbitrum"></div>
-          <div class="chain-logo"><img src="assets/op-logo.png" alt="Optimism"></div>
-          <div class="chain-logo"><img src="assets/avax-logo.png" alt="Avalanche"></div>
-          <div class="chain-logo"><img src="assets/polygon-logo.png" alt="Polygon"></div>
-          <div class="chain-logo"><img src="assets/hyperliquid-logo.png" alt="Hyperliquid"></div>
-          <div class="chain-logo"><img src="assets/base-logo.png" alt="Base"></div>
-          <div class="chain-logo"><img src="assets/scroll-logo.png" alt="Scroll"></div>
-          <div class="chain-logo"><img src="assets/kaia-logo.png" alt="Kaia"></div>
-
-          <div class="chain-logo"><img src="assets/megaeth-logo.png" alt="MegaETH"></div>
-          <div class="chain-logo"><img src="assets/monad-logo.png" alt="Monad"></div>
-          <div class="chain-logo"><img src="assets/bnb-logo.png" alt="BNB Chain"></div>
-
-          <div class="chain-logo"><img src="assets/citrea-logo.png" alt="Citrea"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/ethereum.png" alt="Ethereum" width="136" height="34"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/arbitrum.png" alt="Arbitrum" width="169" height="95"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/optimism.png" alt="Optimism" width="121" height="17"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/avalanche.png" alt="Avalanche" width="148" height="34"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/polygon.png" alt="Polygon" width="109" height="109"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/hyperliquid.png" alt="Hyperliquid" width="166" height="26"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/base.png" alt="Base" width="85" height="48"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/scroll.png" alt="Scroll" width="122" height="61"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/kaia.png" alt="Kaia" width="72" height="46"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/megaeth.png" alt="MegaETH" width="182" height="29"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/monad.png" alt="Monad" width="151" height="85"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/bnb-chain.png" alt="BNB Chain" width="148" height="26"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/citrea.png" alt="Citrea" width="106" height="26"></div>
         </div>
       </div>
     </section>
 
-    <!-- How FastBridge Works -->
-    <section class="how-it-works">
-      <h2 class="how-it-works-title">How FastBridge Works</h2>
-      <div class="steps-scroll">
-        <div class="steps-track">
-          <!-- Step 1 -->
-          <div class="step-card">
-            <div class="step-card-inner">
-              <div class="step-text">
-                <div class="step-header">
-                  <span class="step-label">Step 1</span>
-                  <h3 class="step-heading">Select chain, token &amp; amount</h3>
-                </div>
-                <p class="step-description">Choose which chain you want to bridge to, what token you want to hold, and how much you want to receive. FastBridge aggregates your balances across multiple chains automatically, and finds the optimal combination to fill your request. No need to plan which chain your funds are coming from.</p>
-              </div>
-              <div class="step-screen">
-                <video class="step-video" autoplay loop muted playsinline webkit-playsinline>
-                  <source src="assets/flow1.mp4" type="video/mp4">
-                </video>
+<section class="hiw" id="how-it-works" aria-labelledby="hiw-title">
+      <div class="hiw__stage">
+        <div class="hiw__gradient-wrap" aria-hidden="true">
+          <img
+            src="assets/figma-export/hiw-hero-bg.png"
+            alt=""
+            class="hiw__gradient"
+            width="1440"
+            height="683"
+          >
+
+          <div class="hiw__curve-fill">
+            <svg viewBox="0 0 1442 223" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0C794.407 0 1325.01 170.537 1442 223H0V0Z" fill="#FFFFFE"/>
+            </svg>
+          </div>
+
+          <div class="hiw__curve-wave">
+            <img
+              src="assets/figma-export/hiw-curve-wave.png"
+              alt=""
+              width="1440"
+              height="227"
+            >
+          </div>
+        </div>
+
+        <h2 class="hiw__title" id="hiw-title">How FastBridge Works</h2>
+
+        <div class="hiw__product-wrap">
+          <div class="product-card" id="hiw-panel" role="tabpanel" aria-labelledby="hiw-step-0" aria-hidden="true">
+            <div class="product-card__header">
+              <span class="product-card__title">Swap/Bridge</span>
+              <div class="product-card__actions">
+                <span class="product-card__icon-btn">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 4V8L10.5 9.5" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M14 8C14 11.314 11.314 14 8 14C4.686 14 2 11.314 2 8C2 4.686 4.686 2 8 2C10.196 2 12.117 3.179 13.163 4.936" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/>
+                    <path d="M13.5 2V5H10.5" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="product-card__icon-btn">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M4 4L12 12M12 4L4 12" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/>
+                  </svg>
+                </span>
               </div>
             </div>
-          </div>
-          <!-- Step 2 -->
-          <div class="step-card">
-            <div class="step-card-inner">
-              <div class="step-text">
-                <div class="step-header">
-                  <span class="step-label">Step 2</span>
-                  <h3 class="step-heading">Verify your request</h3>
+
+            <div class="product-card__body">
+              <div class="product-card__field">
+                <div class="product-card__field-head">
+                  <span class="product-card__field-label">Send</span>
+                  <span class="product-card__add-asset">+ Add asset</span>
                 </div>
-                <p class="step-description">Review how your balances will be used and how the transaction will be routed. You can deselect individual source chains if you want to control which balances are included. FastBridge updates automatically.</p>
-              </div>
-              <div class="step-screen">
-                <video class="step-video" autoplay loop muted playsinline webkit-playsinline>
-                  <source src="assets/flow2.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-          <!-- Step 3 -->
-          <div class="step-card">
-            <div class="step-card-inner">
-              <div class="step-text">
-                <div class="step-header">
-                  <span class="step-label">Step 3</span>
-                  <h3 class="step-heading">One approval. Ready to trade.</h3>
+                <div class="product-card__field-row">
+                  <span class="product-card__amount">0</span>
+                  <span class="product-card__pill">Select asset</span>
                 </div>
-                <p class="step-description">Sign just one transaction. FastBridge's intent-based execution layer routes, settles, and delivers your funds to the destination in ~20 seconds and with 0 native gas needed.</p>
+                <div class="product-card__fiat">≈ $0.00</div>
               </div>
-              <div class="step-screen">
-                <video class="step-video" autoplay loop muted playsinline webkit-playsinline>
-                  <source src="assets/flow3.mp4" type="video/mp4">
-                </video>
+
+              <div class="product-card__field product-card__field--receive">
+                <span class="product-card__field-label">Receive</span>
+                <div class="product-card__field-row">
+                  <span class="product-card__amount">0</span>
+                  <span class="product-card__pill">Select asset</span>
+                </div>
+                <div class="product-card__fiat">≈ $0.00</div>
+                <div class="product-card__divider" aria-hidden="true"></div>
+                <span class="product-card__field-label">Recipient</span>
+                <div class="product-card__recipient-row">
+                  <span class="product-card__address">0xF3a1…9b2E</span>
+                  <span class="product-card__edit">Edit</span>
+                </div>
               </div>
+
+              <span class="product-card__cta">Add assets to send</span>
             </div>
           </div>
         </div>
+
+        <ol class="hiw__steps" role="tablist" aria-label="How it works steps">
+          <li role="presentation">
+            <button
+              type="button"
+              class="hiw-step hiw-step--active"
+              id="hiw-step-0"
+              role="tab"
+              aria-selected="true"
+              tabindex="0"
+            >
+              <span class="hiw-step__num" aria-hidden="true">01</span>
+              <span class="hiw-step__label">STEP 01</span>
+              <span class="hiw-step__heading">Select chain, token &amp; amount</span>
+              <p class="hiw-step__desc">Choose destination and amount. Balances aggregate automatically.</p>
+            </button>
+          </li>
+          <li role="presentation">
+            <button
+              type="button"
+              class="hiw-step"
+              id="hiw-step-1"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <span class="hiw-step__num" aria-hidden="true">02</span>
+              <span class="hiw-step__label">STEP 02</span>
+              <span class="hiw-step__heading">Verify your request</span>
+              <p class="hiw-step__desc">Review routing. Deselect chains for manual control.</p>
+            </button>
+          </li>
+          <li role="presentation">
+            <button
+              type="button"
+              class="hiw-step"
+              id="hiw-step-2"
+              role="tab"
+              aria-selected="false"
+              tabindex="-1"
+            >
+              <span class="hiw-step__num" aria-hidden="true">03</span>
+              <span class="hiw-step__label">STEP 03</span>
+              <span class="hiw-step__heading">Bridge in one move</span>
+              <p class="hiw-step__desc">One signature. Combined delivery to destination.</p>
+            </button>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- Blog Section -->
-    <section class="blog-section">
-      <div class="blog-header">
-        <div>
-          <h2 class="blog-title">Latest blog posts</h2>
-          <p class="blog-subtitle">Discover stories, tips, and resources to inspire your next big idea.</p>
+<section
+      class="blog"
+      id="blog"
+      aria-labelledby="blog-carousel-heading"
+      data-items='[
+        {"id":"fastbridge","imgSrc":"assets/figma-export/blog-featured-card.png","collapsedOffsetX":0,"title":"FastBridge by Avail: The Fastest Way to Move Crypto From Multiple Chains","href":"#","cta":"Read more"},
+        {"id":"citrea","imgSrc":"assets/figma-export/blog-strip-citrea-bg.png","collapsedOffsetX":120,"title":"Citrea Mainnet Is Live: Bridge BTC and Stablecoins in One Step","href":"#","cta":"Read more"},
+        {"id":"liquidity","imgSrc":"assets/figma-export/blog-featured-gradient.jpg","collapsedOffsetX":120,"title":"How FastBridge Routes Liquidity Across L2s","href":"#","cta":"Read more"},
+        {"id":"monad","imgSrc":"assets/figma-export/blog-thumb-monad.png","collapsedOffsetX":80,"title":"Monad Integration: Bridge to Monad in One Transaction","href":"#","cta":"Read more"}
+      ]'
+    >
+      <div class="blog__container">
+        <header class="blog__header" id="blog-carousel-heading">
+          <div class="blog__header-content">
+            <h2 class="blog__title">
+              What's happening
+              <em>Check out the latest from us.</em>
+            </h2>
+          </div>
+          <a href="#" class="section-btn blog__header-btn">View all Blogs</a>
+        </header>
+
+        <div class="blog__body">
+          <div class="squeezy-carousel" id="blog-squeezy">
+            <canvas
+              class="squeezy-carousel__canvas"
+              id="blog-squeezy-canvas"
+              aria-hidden="true"
+            ></canvas>
+
+            <div
+              class="squeezy-carousel__items-details-container"
+              id="blog-meta-container"
+            ></div>
+          </div>
         </div>
-        <a href="https://blog.availproject.org/tag/fastbridge/" target="_blank" class="section-btn">View All Posts</a>
       </div>
-      <div class="blog-grid">
-        <a href="https://blog.availproject.org/how-to-bridge-to-monad-in-under-60-seconds/" target="_blank" class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://storage.ghost.io/c/27/aa/27aae9e1-3aa4-4c20-b62f-4fe146313235/content/images/size/w760/format/webp/2026/04/How-to-Bridge-to-Monad-in-Under-60-Seconds--MK_1684---4--1.png" alt="How to Bridge to Monad">
-          </div>
-          <h3 class="blog-card-title">How to Bridge to Monad in Under 60 Seconds</h3>
-          <p class="blog-card-meta">April 6, 2026 &middot; 3 min read</p>
-        </a>
-        <a href="https://blog.availproject.org/bridge-to-citrea-in-real-time/" target="_blank" class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://storage.ghost.io/c/27/aa/27aae9e1-3aa4-4c20-b62f-4fe146313235/content/images/size/w760/format/webp/2026/04/Bridge_to_Citrea_in_Real_Time_-MK_1685-_Option_1.jpeg" alt="Bridge to Citrea">
-          </div>
-          <h3 class="blog-card-title">Bridge to Citrea in Real Time</h3>
-          <p class="blog-card-meta">April 6, 2026 &middot; 3 min read</p>
-        </a>
-        <a href="https://blog.availproject.org/fastbridge-vs-canonical-bridge-why-7-days-is-too-long-for-defi/" target="_blank" class="blog-card">
-          <div class="blog-card-image">
-            <img src="https://storage.ghost.io/c/27/aa/27aae9e1-3aa4-4c20-b62f-4fe146313235/content/images/size/w760/format/webp/2026/04/FastBridge-vs-Canonical-Bridge--MK_1678--1.png" alt="FastBridge vs Canonical Bridge">
-          </div>
-          <h3 class="blog-card-title">FastBridge vs Canonical Bridge: Why 7 Days Is Too Long for DeFi</h3>
-          <p class="blog-card-meta">April 2, 2026 &middot; 4 min read</p>
-        </a>
-      </div>
-      <div class="blog-dots"></div>
-      <a href="https://blog.availproject.org/tag/fastbridge/" target="_blank" class="section-btn blog-btn-mobile">View All Posts</a>
+
+      <p class="visually-hidden" id="blog-carousel-live" aria-live="polite" aria-atomic="true"></p>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-      <div class="faq-header">
-        <div>
-          <h2 class="faq-title">Your Questions. Answered.</h2>
-          <p class="faq-subtitle">Answers to all your questions, quickly and clearly</p>
+<section class="faq is-visible" id="faq" aria-labelledby="faq-title">
+      <header class="faq__intro">
+        <div class="faq__heading">
+          <h2 class="faq__title" id="faq-title">
+            All your questions
+            <em>Answered here</em>
+          </h2>
+          <p class="faq__subtitle faq__subtitle--desktop">
+            Answers to all your questions, quickly and clearly
+          </p>
+          <p class="faq__subtitle faq__subtitle--mobile">
+            Discover guides, tips, and resources to inspire your next big idea.
+          </p>
         </div>
-        <a href="faqs.html" class="section-btn">View More</a>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item faq-item--open">
-          <button class="faq-question">
-            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="#" class="section-btn faq__header-btn">View More</a>
+      </header>
+
+      <div class="faq__list">
+        <article class="faq-item faq-item--open">
+          <button
+            type="button"
+            class="faq-item__question"
+            aria-expanded="true"
+            aria-controls="faq-answer-1"
+            id="faq-question-1"
+          >
+            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <span>What is Avail FastBridge?</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-item__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
             <p>FastBridge is a unified cross-chain bridge that lets you move stablecoins and tokens from multiple source chains to any supported destination chain in a single transaction. Unlike traditional bridges, you don't need to manage gas on each chain or bridge one chain at a time; FastBridge aggregates your balances so you arrive ready to trade.</p>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </article>
+
+        <article class="faq-item">
+          <button
+            type="button"
+            class="faq-item__question"
+            aria-expanded="false"
+            aria-controls="faq-answer-2"
+            id="faq-question-2"
+          >
+            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <span>What is the relationship between Avail and FastBridge?</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-item__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden>
             <p>FastBridge is built by Avail as a fully standalone bridging interface you can use today to move stablecoins across any supported EVM chain in seconds. At the same time, FastBridge is also a live demonstration of what Avail Nexus is capable of, which is why developers can embed the same bridging experience directly into their own apps via the Nexus SDK. The Avail team continues to build secure and scalable infrastructure for the next generation of both applications and users through its products: Avail Nexus, Avail DA and now, FastBridge.</p>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </article>
+
+        <article class="faq-item">
+          <button
+            type="button"
+            class="faq-item__question"
+            aria-expanded="false"
+            aria-controls="faq-answer-3"
+            id="faq-question-3"
+          >
+            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <span>How is FastBridge different from other bridges?</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-item__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" hidden>
             <p>Most bridges move funds from one chain to one other chain. FastBridge aggregates your balances across multiple source chains and settles them at the destination chain in a single transaction. Avail Nexus' protocol handles routing and settlement through intent-based execution, which allows users to pay gas in stablecoins. No need to hold native gas tokens on each source chain.</p>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </article>
+
+        <article class="faq-item">
+          <button
+            type="button"
+            class="faq-item__question"
+            aria-expanded="false"
+            aria-controls="faq-answer-4"
+            id="faq-question-4"
+          >
+            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <span>Do I need to hold gas tokens on every chain I'm bridging from?</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-item__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" hidden>
             <p>No. You only need the stablecoins you want to bridge. Gas fees are deducted directly from your stablecoin balance, so if you're bridging 5 USDC to Citrea, you'd pay a small additional fee in USDC to cover gas. No ETH, no AVAX, no native gas tokens required on any source chain.</p>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </article>
+
+        <article class="faq-item">
+          <button
+            type="button"
+            class="faq-item__question"
+            aria-expanded="false"
+            aria-controls="faq-answer-5"
+            id="faq-question-5"
+          >
+            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <span>Which wallets are supported?</span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-item__answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" hidden>
             <p>FastBridge supports any EVM-compatible wallet, including MetaMask, Rabby, Coinbase Wallet, and WalletConnect-compatible wallets. If your wallet works with EVM chains, it works with FastBridge.</p>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">
-            <svg class="faq-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </article>
+
+        <article class="faq-item">
+          <button
+            type="button"
+            class="faq-item__question"
+            aria-expanded="false"
+            aria-controls="faq-answer-6"
+            id="faq-question-6"
+          >
+            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
             <span>How long does a bridge transaction take?</span>
           </button>
-          <div class="faq-answer">
-            <p>Most transactions settle in approx. 10-20 seconds. Settlement time can vary slightly depending on the destination chain's block confirmation speed, but FastBridge is designed for near-instant delivery compared to traditional lock-and-mint bridges that can take minutes to hours.</p>
+          <div class="faq-item__answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6" hidden>
+            <p>Most transactions settle in approx. 10–20 seconds. Settlement time can vary slightly depending on the destination chain's block confirmation speed, but FastBridge is designed for near-instant delivery compared to traditional lock-and-mint bridges that can take minutes to hours.</p>
           </div>
-        </div>
+        </article>
       </div>
-      <a href="faqs.html" class="section-btn faq-btn-mobile">View More</a>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <div class="footer-logo">
-              <img src="assets/fastbridge-icon.svg" alt="Avail" class="footer-logo-icon">
-              <span class="footer-logo-text">fastbridge</span>
-            </div>
-            <p class="footer-description">Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement. Visit the docs to get started.</p>
-            <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" class="btn-tertiary">Integrate Now &rarr;</a>
-          </div>
-          <div class="footer-links">
-            <div class="footer-col">
-              <span class="footer-col-title">Support</span>
-              <a href="https://docs.availproject.org/" target="_blank">Docs</a>
-              <a href="faqs.html">FAQs</a>
-              <a href="https://blog.availproject.org/" target="_blank">Blog</a>
-              <a href="https://discord.com/invite/AvailProject" target="_blank">Discord</a>
-              <a href="https://github.com/availproject" target="_blank">GitHub</a>
-              <a href="#" target="_blank">Get in Touch</a>
-            </div>
-            <div class="footer-col">
-              <span class="footer-col-title">Socials</span>
-              <a href="https://x.com/AvailProject" target="_blank">X (Twitter)</a>
-              <a href="https://www.linkedin.com/company/availproject/" target="_blank">LinkedIn</a>
-              <a href="https://t.me/AvailCommunity" target="_blank">Telegram</a>
-              <a href="https://www.youtube.com/@AvailProject" target="_blank">YouTube</a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div class="footer-powered">
-            <span>Powered by</span>
-            <img src="assets/avail-logo.png" alt="Avail" class="footer-avail-logo">
-          </div>
-          <div class="footer-legal">
-            <a href="https://www.availproject.org/privacy-policy" target="_blank">Privacy Policy</a>
-            <span class="footer-legal-dot">&middot;</span>
-            <span class="footer-copyright">Copyright &copy; Avail Project. All rights reserved.</span>
-          </div>
+<footer class="site-footer is-visible" id="footer">
+      <div class="site-footer__glow-wrap" aria-hidden="true">
+        <div class="site-footer__glow-clip">
+          <img
+            src="assets/figma-export/footer-bg-desktop.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--desktop"
+            width="1024"
+            height="359"
+          >
+          <img
+            src="assets/figma-export/footer-bg-tablet.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--tablet"
+            width="1024"
+            height="909"
+          >
+          <img
+            src="assets/figma-export/footer-bg-mobile.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--mobile"
+            width="653"
+            height="1024"
+          >
         </div>
       </div>
+
+      <div class="site-footer__inner">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <a href="/" class="site-footer__logo">
+              <img
+                src="assets/figma-hero/logo-icon-white.svg"
+                alt=""
+                class="site-footer__logo-icon"
+                width="40"
+                height="40"
+              >
+              <span class="site-footer__logo-text">fastbridge</span>
+            </a>
+
+            <p class="site-footer__desc site-footer__desc--desktop">
+              Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement. Visit the docs to get started.
+            </p>
+            <p class="site-footer__desc site-footer__desc--compact">
+              Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement.
+            </p>
+
+            <a
+              href="https://docs.availproject.org/docs/nexus/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="site-footer__cta"
+            >Integrate Now <strong aria-hidden="true">→</strong></a>
+
+            <p class="site-footer__legal site-footer__legal--desktop">
+              Copyright © Avail Project. All rights reserved.
+            </p>
+            <p class="site-footer__legal site-footer__legal--inline">
+              Copyright © Avail Project. All rights reserved.
+            </p>
+          </div>
+
+          <nav class="site-footer__links" aria-label="Footer">
+            <div class="site-footer__col">
+              <span class="site-footer__col-title">Support</span>
+              <a href="https://docs.availproject.org/" target="_blank" rel="noopener noreferrer">Docs</a>
+              <a href="faq.html">FAQs</a>
+              <a href="https://discord.com/invite/AvailProject" target="_blank" rel="noopener noreferrer">Discord</a>
+              <a href="https://github.com/availproject" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.availproject.org/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              <a href="#" class="site-footer__contact">Get in Touch</a>
+            </div>
+
+            <div class="site-footer__col site-footer__col--socials">
+              <span class="site-footer__col-title">Socials</span>
+              <a href="https://www.availproject.org/" target="_blank" rel="noopener noreferrer">Avail Website</a>
+              <a href="https://blog.availproject.org/" target="_blank" rel="noopener noreferrer">Blog</a>
+              <a href="https://x.com/AvailProject" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+              <a href="https://www.linkedin.com/company/availproject/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://t.me/AvailCommunity" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="https://www.youtube.com/@AvailProject" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="site-footer__watermark" aria-hidden="true">
+        <picture>
+          <source
+            media="(max-width: 390px)"
+            srcset="assets/figma-export/footer-watermark-mobile.svg"
+          >
+          <source
+            media="(max-width: 768px)"
+            srcset="assets/figma-export/footer-watermark-tablet.svg"
+          >
+          <img
+            src="assets/figma-export/footer-watermark-desktop.svg"
+            alt=""
+            class="site-footer__watermark-img"
+            width="1240"
+            height="163"
+          >
+        </picture>
+      </div>
     </footer>
-  </div>
-  <script src="pixel-overlay.js"></script>
-  <script src="navbar-scroll.js"></script>
-  <script src="carousel.js"></script>
-  <script src="blog-carousel.js"></script>
-  <script src="logo-scroll.js"></script>
-  <script src="faq.js"></script>
-  <script src="steps-scroll.js"></script>
-  <script>
-    (function() {
-      var sections = document.querySelectorAll('.chains-section, .blog-section, .faq-section, .footer');
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0, rootMargin: '0px 0px 100px 0px' });
-      sections.forEach(function(s) { observer.observe(s); });
-    })();
-  </script>
+  </main>
+  <script src="sections.js?v=3"></script>
+  <script src="hiw.js?v=6"></script>
+  <script src="blog-squeezy-canvas.js?v=20260601-squeezy" defer></script>
+  <script src="blog.js?v=20260601-squeezy" defer></script>
 </body>
 </html>
