@@ -8,23 +8,25 @@
   var panel = section.querySelector('#hiw-panel');
   if (!steps.length) return;
 
-  var video = section.querySelector('#hiw-widget-video');
+  var widget = section.querySelector('.hiw__widget');
   var STEP_VIDEOS = [
     'assets/hiw-step-1.webm?v=2',
     'assets/hiw-step-2.webm?v=2',
     'assets/hiw-step-3.webm?v=2'
   ];
 
-  // Fallback step length, used only when the cinematic video can't drive the
-  // sequence (missing element, load/decode error, or play() rejection).
+  // Fallback step length, used only when the cinematic videos can't drive the
+  // sequence (missing elements, load/decode error, or play() rejection).
   var STEP_DURATION = 6000;
   var currentIndex = 0;
   var timerId = null;
   var timerEndsAt = 0;
   var isVisible = false;
-  var useVideo = !!video;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobileQuery = window.matchMedia('(max-width: 768px)');
+
+  var videos = [];
+  var useVideo = false;
 
   function getMobileStepOrder(activeIndex, total) {
     var order = [activeIndex];
@@ -76,32 +78,39 @@
     scheduleAdvance(STEP_DURATION);
   }
 
-  // ----- Video playback -----
-  function playVideo() {
+  // ----- Video playback (stacked, crossfaded, preloaded) -----
+  function pauseVideos() {
+    videos.forEach(function (v) {
+      v.pause();
+    });
+  }
+
+  // Show the active step's video on top; the others stay loaded but hidden so
+  // switching is an opacity crossfade, never an empty/black reload.
+  function showActiveVideo() {
+    if (!useVideo) return;
+    videos.forEach(function (v, i) {
+      if (i === currentIndex) {
+        v.classList.add('hiw__widget-video--active');
+      } else {
+        v.classList.remove('hiw__widget-video--active');
+        v.pause();
+      }
+    });
+  }
+
+  function playActiveVideo() {
     if (!useVideo || !isVisible || reducedMotion) return;
-    var p = video.play();
+    var v = videos[currentIndex];
+    if (!v) return;
+    try { v.currentTime = 0; } catch (e) {}
+    var p = v.play();
     if (p && typeof p.catch === 'function') {
       p.catch(function () {
         // Autoplay blocked or decode failed — keep the sequence moving.
         fallBackToTimer();
       });
     }
-  }
-
-  function loadStepVideo(index) {
-    if (!useVideo) return;
-    var src = STEP_VIDEOS[index];
-    if (!src) {
-      fallBackToTimer();
-      return;
-    }
-    if (video.getAttribute('src') !== src) {
-      video.setAttribute('src', src);
-      video.load();
-    } else {
-      try { video.currentTime = 0; } catch (e) {}
-    }
-    playVideo();
   }
 
   function setActiveStep(index) {
@@ -119,6 +128,7 @@
     }
 
     updateStepOrder(index);
+    showActiveVideo();
   }
 
   function goToStep(index) {
@@ -126,18 +136,38 @@
     clearTimer();
     setActiveStep(index);
     if (useVideo) {
-      loadStepVideo(index);
+      playActiveVideo();
     } else {
       scheduleAdvance(STEP_DURATION);
     }
   }
 
-  if (useVideo) {
-    video.addEventListener('ended', function () {
-      if (reducedMotion) return;
-      goToStep((currentIndex + 1) % steps.length);
+  // Build one preloaded <video> per step, stacked inside the widget frame.
+  if (widget) {
+    widget.innerHTML = '';
+    STEP_VIDEOS.forEach(function (src, i) {
+      var v = document.createElement('video');
+      v.className = 'hiw__widget-video' + (i === 0 ? ' hiw__widget-video--active' : '');
+      v.muted = true;
+      v.defaultMuted = true;
+      v.loop = false;
+      v.preload = 'auto';
+      v.setAttribute('muted', '');
+      v.setAttribute('playsinline', '');
+      v.playsInline = true;
+      v.setAttribute('aria-hidden', 'true');
+      v.src = src;
+
+      v.addEventListener('ended', function () {
+        if (reducedMotion) return;
+        if (i === currentIndex) goToStep((currentIndex + 1) % steps.length);
+      });
+      v.addEventListener('error', fallBackToTimer);
+
+      widget.appendChild(v);
+      videos.push(v);
     });
-    video.addEventListener('error', fallBackToTimer);
+    useVideo = videos.length === steps.length;
   }
 
   steps.forEach(function (step, index) {
@@ -182,7 +212,7 @@
 
         if (!isVisible && wasVisible) {
           clearTimer();
-          if (useVideo) video.pause();
+          if (useVideo) pauseVideos();
         }
       });
     }, { threshold: 0.55 });
@@ -193,10 +223,10 @@
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
       clearTimer();
-      if (useVideo) video.pause();
+      if (useVideo) pauseVideos();
     } else if (isVisible && !reducedMotion) {
       if (useVideo) {
-        playVideo();
+        playActiveVideo();
       } else if (!timerId) {
         goToStep(currentIndex);
       }
