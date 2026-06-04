@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastBridge</title>
-  <link rel="stylesheet" href="base.css?v=22">
-  <link rel="stylesheet" href="hero.css?v=53">
-  <link rel="stylesheet" href="sections.css?v=27">
-  <link rel="stylesheet" href="hiw.css?v=38">
-  <link rel="stylesheet" href="blog.css?v=20260604b">
+  <link rel="stylesheet" href="base.css?v=21">
+  <link rel="stylesheet" href="hero.css?v=32">
+  <link rel="stylesheet" href="sections.css?v=16">
+  <link rel="stylesheet" href="hiw.css?v=20">
+  <link rel="stylesheet" href="blog.css?v=20260601-squeezy">
 </head>
 <body>
   <main class="page">
@@ -23,17 +23,15 @@
             height="808"
             fetchpriority="high"
           >
-          <video
-            class="hero__video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
-            poster="assets/figma-export/hero-gradient-v2.jpg"
+        </div>
+        <div class="hero__curve-band">
+          <img
+            src="assets/figma-export/hero-curved-section.png"
+            alt=""
+            class="hero__curve-section"
+            width="1445"
+            height="266"
           >
-            <source src="assets/hero-bg-video-v2.mp4?v=4x" type="video/mp4">
-          </video>
         </div>
       </div>
 
@@ -53,10 +51,7 @@
         </header>
 
         <h1 class="hero__title">
-          <span class="hero__title-desktop">
-            <span class="hero__title-line">Move Your Crypto across</span>
-            <span class="hero__title-line">chains in One Transaction</span>
-          </span>
+          <span class="hero__title-desktop">Move Your Crypto across chains One Transaction</span>
           <span class="hero__title-tablet">Move All Your Crypto<br>In One Transaction</span>
           <span class="hero__title-mobile">
             <span class="hero__title-line">Move All Your</span>
@@ -70,12 +65,12 @@
             Combine your balances from multiple chains in a single move. No switching networks, no managing gas, no waiting. Arrive ready to trade.
           </p>
           <div class="hero__actions">
-            <button type="button" class="btn btn--secondary">Bridge Now</button>
+            <button type="button" class="btn btn--primary">Bridge Now</button>
             <a
               href="https://docs.availproject.org/docs/nexus/get-started"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn--primary"
+              class="btn btn--secondary"
             >Add FastBridge</a>
           </div>
         </div>
@@ -147,20 +142,9 @@
           </div>
         </div>
 
-        <h2 class="hiw__title" id="hiw-title"><span class="hiw__title-word">How</span> <span class="hiw__title-word">FastBridge</span> <span class="hiw__title-word">Works</span></h2>
+        <h2 class="hiw__title" id="hiw-title">How FastBridge Works</h2>
 
         <div class="hiw__product-wrap">
-          <div class="hiw__widget">
-            <video
-              class="hiw__widget-video"
-              id="hiw-widget-video"
-              muted
-              playsinline
-              preload="auto"
-              poster="assets/hiw-step-1-poster.jpg?v=2"
-              aria-hidden="true"
-            ></video>
-          </div>
           <div class="product-card" id="hiw-panel" role="tabpanel" aria-labelledby="hiw-step-0" aria-hidden="true">
             <div class="product-card__header">
               <span class="product-card__title">Swap/Bridge</span>
@@ -268,10 +252,10 @@
       id="blog"
       aria-labelledby="blog-carousel-heading"
       data-items='[
-        {"id":"megaeth","imgSrc":"assets/figma-export/blog-megaeth.jpg","collapsedOffsetX":0,"title":"The Fastest Chain Just Got the Fastest Bridge","href":"#","cta":"Read more"},
-        {"id":"multichain","imgSrc":"assets/figma-export/blog-multichain.jpg?v=3","collapsedOffsetX":120,"title":"The Only Bridge Built For Multichain DeFi","href":"#","cta":"Read more"},
-        {"id":"monad","imgSrc":"assets/figma-export/blog-monad.jpg?v=3","collapsedOffsetX":120,"title":"Bridge to Monad From Multiple Chains, In One Transaction","href":"#","cta":"Read more"},
-        {"id":"canonical","imgSrc":"assets/figma-export/blog-canonical.jpg?v=3","collapsedOffsetX":80,"title":"FastBridge vs Canonical Bridge","href":"#","cta":"Read more"}
+        {"id":"fastbridge","imgSrc":"assets/figma-export/blog-featured-card.png","collapsedOffsetX":0,"title":"FastBridge by Avail: The Fastest Way to Move Crypto From Multiple Chains","href":"#","cta":"Read more"},
+        {"id":"citrea","imgSrc":"assets/figma-export/blog-strip-citrea-bg.png","collapsedOffsetX":120,"title":"Citrea Mainnet Is Live: Bridge BTC and Stablecoins in One Step","href":"#","cta":"Read more"},
+        {"id":"liquidity","imgSrc":"assets/figma-export/blog-featured-gradient.jpg","collapsedOffsetX":120,"title":"How FastBridge Routes Liquidity Across L2s","href":"#","cta":"Read more"},
+        {"id":"monad","imgSrc":"assets/figma-export/blog-thumb-monad.png","collapsedOffsetX":80,"title":"Monad Integration: Bridge to Monad in One Transaction","href":"#","cta":"Read more"}
       ]'
     >
       <div class="blog__container">
@@ -297,13 +281,6 @@
               class="squeezy-carousel__items-details-container"
               id="blog-meta-container"
             ></div>
-          </div>
-
-          <ul class="blog__scroller" id="blog-scroller"></ul>
-
-          <div class="blog__footer">
-            <div class="blog__dots" id="blog-dots" aria-hidden="true"></div>
-            <a href="#" class="section-btn blog__footer-btn">View all Blogs</a>
           </div>
         </div>
       </div>
@@ -437,10 +414,6 @@
           </div>
         </article>
       </div>
-
-      <div class="faq__footer">
-        <a href="#" class="section-btn faq__footer-btn">View More</a>
-      </div>
     </section>
 
 <footer class="site-footer is-visible" id="footer">
@@ -552,8 +525,8 @@
     </footer>
   </main>
   <script src="sections.js?v=3"></script>
-  <script src="hiw.js?v=9"></script>
-  <script src="blog-squeezy-canvas.js?v=20260602b" defer></script>
-  <script src="blog.js?v=20260604c" defer></script>
+  <script src="hiw.js?v=6"></script>
+  <script src="blog-squeezy-canvas.js?v=20260601-squeezy" defer></script>
+  <script src="blog.js?v=20260601-squeezy" defer></script>
 </body>
 </html>

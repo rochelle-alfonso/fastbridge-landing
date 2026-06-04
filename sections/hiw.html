@@ -1,0 +1,131 @@
+<section class="hiw" id="how-it-works" aria-labelledby="hiw-title">
+  <div class="hiw__stage">
+    <div class="hiw__gradient-wrap" aria-hidden="true">
+      <img
+        src="assets/figma-export/hiw-hero-bg.png"
+        alt=""
+        class="hiw__gradient"
+        width="1440"
+        height="683"
+      >
+
+      <div class="hiw__curve-fill">
+        <svg viewBox="0 0 1442 223" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0C794.407 0 1325.01 170.537 1442 223H0V0Z" fill="#FFFFFE"/>
+        </svg>
+      </div>
+
+      <div class="hiw__curve-wave">
+        <img
+          src="assets/figma-export/hiw-curve-wave.png"
+          alt=""
+          width="1440"
+          height="227"
+        >
+      </div>
+    </div>
+
+    <h2 class="hiw__title" id="hiw-title">How FastBridge Works</h2>
+
+    <div class="hiw__product-wrap">
+      <div class="product-card" id="hiw-panel" role="tabpanel" aria-labelledby="hiw-step-0" aria-hidden="true">
+        <div class="product-card__header">
+          <span class="product-card__title">Swap/Bridge</span>
+          <div class="product-card__actions">
+            <span class="product-card__icon-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 4V8L10.5 9.5" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M14 8C14 11.314 11.314 14 8 14C4.686 14 2 11.314 2 8C2 4.686 4.686 2 8 2C10.196 2 12.117 3.179 13.163 4.936" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M13.5 2V5H10.5" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="product-card__icon-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 4L12 12M12 4L4 12" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="product-card__body">
+          <div class="product-card__field">
+            <div class="product-card__field-head">
+              <span class="product-card__field-label">Send</span>
+              <span class="product-card__add-asset">+ Add asset</span>
+            </div>
+            <div class="product-card__field-row">
+              <span class="product-card__amount">0</span>
+              <span class="product-card__pill">Select asset</span>
+            </div>
+            <div class="product-card__fiat">≈ $0.00</div>
+          </div>
+
+          <div class="product-card__field product-card__field--receive">
+            <span class="product-card__field-label">Receive</span>
+            <div class="product-card__field-row">
+              <span class="product-card__amount">0</span>
+              <span class="product-card__pill">Select asset</span>
+            </div>
+            <div class="product-card__fiat">≈ $0.00</div>
+            <div class="product-card__divider" aria-hidden="true"></div>
+            <span class="product-card__field-label">Recipient</span>
+            <div class="product-card__recipient-row">
+              <span class="product-card__address">0xF3a1…9b2E</span>
+              <span class="product-card__edit">Edit</span>
+            </div>
+          </div>
+
+          <span class="product-card__cta">Add assets to send</span>
+        </div>
+      </div>
+    </div>
+
+    <ol class="hiw__steps" role="tablist" aria-label="How it works steps">
+      <li role="presentation">
+        <button
+          type="button"
+          class="hiw-step hiw-step--active"
+          id="hiw-step-0"
+          role="tab"
+          aria-selected="true"
+          tabindex="0"
+        >
+          <span class="hiw-step__num" aria-hidden="true">01</span>
+          <span class="hiw-step__label">STEP 01</span>
+          <span class="hiw-step__heading">Select chain, token &amp; amount</span>
+          <p class="hiw-step__desc">Choose destination and amount. Balances aggregate automatically.</p>
+        </button>
+      </li>
+      <li role="presentation">
+        <button
+          type="button"
+          class="hiw-step"
+          id="hiw-step-1"
+          role="tab"
+          aria-selected="false"
+          tabindex="-1"
+        >
+          <span class="hiw-step__num" aria-hidden="true">02</span>
+          <span class="hiw-step__label">STEP 02</span>
+          <span class="hiw-step__heading">Verify your request</span>
+          <p class="hiw-step__desc">Review routing. Deselect chains for manual control.</p>
+        </button>
+      </li>
+      <li role="presentation">
+        <button
+          type="button"
+          class="hiw-step"
+          id="hiw-step-2"
+          role="tab"
+          aria-selected="false"
+          tabindex="-1"
+        >
+          <span class="hiw-step__num" aria-hidden="true">03</span>
+          <span class="hiw-step__label">STEP 03</span>
+          <span class="hiw-step__heading">Bridge in one move</span>
+          <p class="hiw-step__desc">One signature. Combined delivery to destination.</p>
+        </button>
+      </li>
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,228 @@
+:root {
+  --sg-bg: #07070d;
+  --sg-bg-elev: #0e0f17;
+  --sg-bg-elev-2: #14151f;
+  --sg-border: #1d1f2a;
+  --sg-text: #e9ecf2;
+  --sg-text-dim: #8a8f9d;
+  --sg-accent: #5a8bff;
+  --sg-accent-hot: #ff3d89;
+  --sg-radius: 10px;
+}
+
+html,
+body {
+  background: var(--sg-bg);
+  color: var(--sg-text);
+  font-family: 'Geist', 'Google Sans Flex', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.sg {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: 100vh;
+}
+
+.sg-panel {
+  background: var(--sg-bg-elev);
+  border-right: 1px solid var(--sg-border);
+  padding: 18px 18px 28px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.sg-head {
+  margin-bottom: 18px;
+}
+
+.sg-head h1 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.sg-lede {
+  margin: 0;
+  color: var(--sg-text-dim);
+  font-size: 12px;
+}
+
+.sg-section {
+  border-top: 1px solid var(--sg-border);
+  padding: 14px 0 8px;
+}
+
+.sg-section h2 {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sg-text-dim);
+}
+
+.sg-field {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px 10px;
+  margin-bottom: 8px;
+}
+
+.sg-field label {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  color: var(--sg-text);
+}
+
+.sg-field input[type="range"] {
+  grid-column: 1 / 2;
+  width: 100%;
+  accent-color: var(--sg-accent);
+  height: 16px;
+}
+
+.sg-field input[type="color"] {
+  grid-column: 1 / 2;
+  width: 100%;
+  height: 30px;
+  background: transparent;
+  border: 1px solid var(--sg-border);
+  border-radius: 6px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.sg-field .val {
+  grid-column: 2 / 3;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  color: var(--sg-text-dim);
+  text-align: right;
+  min-width: 44px;
+}
+
+.sg-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--sg-text);
+  margin-bottom: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sg-toggle input {
+  accent-color: var(--sg-accent);
+}
+
+.sg-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.sg-btn {
+  appearance: none;
+  background: var(--sg-bg-elev-2);
+  color: var(--sg-text);
+  border: 1px solid var(--sg-border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.sg-btn:hover {
+  background: #1b1d28;
+  border-color: #2a2d3a;
+}
+
+.sg-btn:active {
+  transform: translateY(1px);
+}
+
+.sg-btn--primary {
+  background: var(--sg-accent);
+  border-color: var(--sg-accent);
+  color: #fff;
+}
+
+.sg-btn--primary:hover {
+  background: #6f9bff;
+  border-color: #6f9bff;
+}
+
+.sg-json {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  background: #060710;
+  border: 1px solid var(--sg-border);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: #b5b9c7;
+  white-space: pre-wrap;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.sg-preview {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sg-preview-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--sg-border);
+  background: var(--sg-bg-elev);
+  font-size: 12px;
+  color: var(--sg-text-dim);
+}
+
+.sg-status {
+  font-variant-numeric: tabular-nums;
+}
+
+.sg-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: auto;
+  background:
+    radial-gradient(900px 600px at 50% 40%, rgba(40, 50, 90, 0.18), transparent 70%),
+    var(--sg-bg);
+}
+
+#canvas {
+  width: min(100%, 1440px);
+  height: auto;
+  aspect-ratio: 1440 / 924;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--sg-border);
+}
+
+@media (max-width: 880px) {
+  .sg {
+    grid-template-columns: 1fr;
+  }
+  .sg-panel {
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid var(--sg-border);
+  }
+}

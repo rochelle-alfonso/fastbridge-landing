@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swap In — FastBridge Prototype</title>
+  <link rel="stylesheet" href="styles.css?v=paper12">
+</head>
+<body>
+  <noscript>
+    <p style="max-width:480px;margin:2rem auto;padding:1rem;font-family:system-ui,sans-serif">
+      JavaScript is required for this prototype. Enable JS and reload.
+    </p>
+  </noscript>
+  <div id="boot-error" class="boot-error hidden" role="alert"></div>
+  <nav class="devbar" id="devbar" aria-label="Dev navigation"></nav>
+
+  <div class="stage">
+    <div class="frame" id="frame">
+      <!-- HOME -->
+      <section class="screen panel panel--padded is-active" id="screen-home" data-screen="home">
+        <header class="panel-header">
+          <span class="panel-header__title">Swap</span>
+          <div class="panel-header__actions">
+            <button type="button" class="icon-btn" aria-label="History"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 4V8L10.5 9.5" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/><path d="M14 8C14 11.314 11.314 14 8 14C4.686 14 2 11.314 2 8C2 4.686 4.686 2 8 2C10.196 2 12.117 3.179 13.163 4.936" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/><path d="M13.5 2V5H10.5" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <button type="button" class="icon-btn" aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+          </div>
+        </header>
+
+        <div class="send-card" id="home-send-card">
+          <div class="send-card__head">
+            <div class="send-card__head-left" id="home-send-head-left">
+              <span class="label-cap">Send</span>
+              <span class="badge" id="home-asset-count">3 assets</span>
+            </div>
+            <button type="button" class="add-asset" id="btn-add-asset">
+              <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 2.5V9.5M2.5 6H9.5" stroke="#1F1F1F" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Add asset
+            </button>
+          </div>
+          <div class="asset-rows" id="home-send-rows"></div>
+          <div class="send-total" id="home-send-total">
+            <span class="send-total__amount" id="bind-send-total">≈ $400.50</span>
+            <span class="label-cap">Total</span>
+          </div>
+        </div>
+
+        <div class="receive-card" id="home-receive-card">
+          <span class="label-cap">Receive</span>
+          <div class="receive-card__row">
+            <span class="receive-card__amount" id="bind-receive-amount">400.50</span>
+            <button type="button" class="token-pill" id="btn-receive-token">
+              <span class="token-pill__icon" id="home-receive-icon"></span>
+              <span id="bind-receive-symbol">USDT</span>
+              <svg class="token-pill__caret" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="#8E8E89" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+            </button>
+          </div>
+          <div class="receive-card__fiat-row">
+            <span id="bind-receive-usd">≈ $500.50</span>
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2L4 10M4 10L1.5 7.5M4 10L6.5 7.5M8 10L8 2M8 2L10.5 4.5M8 2L5.5 4.5" stroke="#8E8E89" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="receive-card__hr"></div>
+          <span class="label-cap">Recipient</span>
+          <div class="recipient-row">
+            <input type="text" class="recipient-row__addr" id="recipient-input" value="0xF3a1…9b2E" aria-label="Recipient address">
+            <button type="button" class="btn-pill" id="btn-edit-recipient">Edit</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="btn-review">Review swap</button>
+      </section>
+
+      <!-- SOURCE PICKER -->
+      <section class="screen screen--picker panel" id="screen-source" data-screen="source">
+        <div class="picker__header">
+          <span class="picker__title">Swap</span>
+          <div class="panel-header__actions">
+            <button type="button" class="icon-btn icon-btn--round" aria-label="History"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 4V8L10.5 9.5" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <button type="button" class="icon-btn icon-btn--round" id="source-close" aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <div class="picker__body">
+          <div class="picker__sectionhead">
+            <button type="button" class="picker__sectionhead__back" id="source-back" aria-label="Back"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M8.5 3L4.5 7L8.5 11" stroke="#5B5B5A" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg></button>
+            <div>
+              <div class="picker__sectionhead__title">Choose assets to send</div>
+              <div class="picker__sectionhead__sub">Select token and chain</div>
+            </div>
+          </div>
+          <div class="search">
+            <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="8" cy="8" r="5.5" stroke="#848483" stroke-width="1.5" fill="none"/><path d="M12.5 12.5L15.5 15.5" stroke="#848483" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <input type="search" id="source-search" placeholder="Search token, chain or address" autocomplete="off">
+            <div class="chain-select" id="source-chain-select">
+              <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" stroke="#161615" stroke-width="1.3" fill="none"/><ellipse cx="7" cy="7" rx="2.5" ry="5.5" stroke="#161615" stroke-width="1.3" fill="none"/><path d="M1.5 7H12.5" stroke="#161615" stroke-width="1.3"/></svg>
+              <span id="source-chain-label">All chains</span>
+              <svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="#848483" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+              <div class="chain-select__menu" id="source-chain-menu"></div>
+            </div>
+          </div>
+          <div class="seg-filter" id="source-tabs"></div>
+          <div class="token-list" id="source-list"></div>
+          <button type="button" class="btn-primary" id="source-done">Done</button>
+        </div>
+      </section>
+
+      <!-- DESTINATION PICKER -->
+      <section class="screen screen--picker panel" id="screen-dest" data-screen="dest">
+        <div class="picker__header">
+          <span class="picker__title">Swap</span>
+          <div class="panel-header__actions">
+            <button type="button" class="icon-btn icon-btn--round" aria-label="History"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 4V8L10.5 9.5" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+            <button type="button" class="icon-btn icon-btn--round" id="dest-close" aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <div class="picker__body">
+          <div class="picker__sectionhead">
+            <button type="button" class="picker__sectionhead__back" id="dest-back" aria-label="Back"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M8.5 3L4.5 7L8.5 11" stroke="#5B5B5A" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg></button>
+            <div>
+              <div class="picker__sectionhead__title">Choose asset to receive</div>
+              <div class="picker__sectionhead__sub">Select token and destination chain</div>
+            </div>
+          </div>
+          <div class="search">
+            <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="8" cy="8" r="5.5" stroke="#848483" stroke-width="1.5" fill="none"/><path d="M12.5 12.5L15.5 15.5" stroke="#848483" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <input type="search" id="dest-search" placeholder="Search token, chain or address" autocomplete="off">
+            <div class="chain-select" id="dest-chain-select">
+              <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" stroke="#161615" stroke-width="1.3" fill="none"/><ellipse cx="7" cy="7" rx="2.5" ry="5.5" stroke="#161615" stroke-width="1.3" fill="none"/><path d="M1.5 7H12.5" stroke="#161615" stroke-width="1.3"/></svg>
+              <span id="dest-chain-label">All chains</span>
+              <svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="#848483" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+              <div class="chain-select__menu" id="dest-chain-menu"></div>
+            </div>
+          </div>
+          <div class="seg-filter" id="dest-tabs"></div>
+          <div class="token-list" id="dest-list"></div>
+          <button type="button" class="btn-primary" id="dest-done">Done</button>
+        </div>
+      </section>
+
+      <!-- CONFIRM -->
+      <section class="screen panel panel--padded" id="screen-confirm" data-screen="confirm">
+        <header class="panel-header">
+          <button type="button" class="icon-btn" id="confirm-back" aria-label="Back"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M10 4L6 8L10 12" stroke="#161615" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg></button>
+          <span class="panel-header__title--small" style="flex:1;text-align:center">Confirm Swap</span>
+          <button type="button" class="icon-btn" id="confirm-close" aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+        </header>
+
+        <div class="confirm__hero">
+          <div class="confirm__hero__col">
+            <div><span class="confirm__hero__amount" id="bind-confirm-send">499.50</span><span class="confirm__hero__unit">USD</span></div>
+            <div class="confirm__hero__sub" id="bind-confirm-send-sub">2 assets</div>
+          </div>
+          <div class="confirm__hero__dots"><span></span><span></span><span></span><span></span></div>
+          <div class="confirm__hero__col" style="text-align:right">
+            <div><span class="confirm__hero__amount" id="bind-confirm-receive">499.50</span><span class="confirm__hero__unit" id="bind-confirm-receive-unit">USDT</span></div>
+            <div class="confirm__hero__sub" id="bind-confirm-receive-sub">on Arbitrum</div>
+          </div>
+        </div>
+
+        <div class="confirm__list">
+          <div class="confirm-row is-expanded" id="confirm-swap-row">
+            <div>
+              <div class="confirm-row__label">You Swap</div>
+              <div class="confirm-row__sub" id="bind-confirm-swap-tokens">USDC, ETH</div>
+            </div>
+            <div style="text-align:right">
+              <div class="confirm-row__val confirm-row__val--num" id="bind-confirm-swap-usd">499.50 USD</div>
+              <button type="button" class="confirm-row__view is-open" id="toggle-swap-details">Hide Details <svg width="10" height="10" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></button>
+            </div>
+            <div class="confirm__send-detail confirm-row__details" id="confirm-swap-details"></div>
+          </div>
+          <div class="confirm-row">
+            <div>
+              <div class="confirm-row__label">You Receive</div>
+              <div class="confirm-row__sub" id="bind-confirm-receive-line">USDT on Arbitrum</div>
+            </div>
+            <div>
+              <div class="confirm-row__val confirm-row__val--num" id="bind-confirm-receive-usd">499.50 USD</div>
+              <div class="confirm-row__sub" style="text-align:right" id="bind-confirm-receive-amt">499.50 USDT</div>
+            </div>
+          </div>
+          <div class="confirm-row" id="confirm-fees-row">
+            <div>
+              <div class="confirm-row__label">Total Fees</div>
+              <div class="confirm-row__sub">Network &amp; protocol</div>
+            </div>
+            <div style="text-align:right">
+              <div class="confirm-row__val confirm-row__val--num">-0.15 USD</div>
+              <button type="button" class="confirm-row__view" id="toggle-fees-details">View Details <svg width="10" height="10" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></button>
+            </div>
+            <div class="confirm-row__details" id="confirm-fees-details">
+              <div class="confirm-row__details-line"><span>Network fee</span><strong>-0.10 USD</strong></div>
+              <div class="confirm-row__details-line"><span>Protocol fee</span><strong>-0.05 USD</strong></div>
+            </div>
+          </div>
+          <div class="confirm-row is-expanded" id="confirm-impact-row">
+            <div>
+              <div class="confirm-row__label">Price Impact</div>
+              <div class="confirm-row__sub">USDT · estimated</div>
+            </div>
+            <div style="text-align:right">
+              <div class="confirm-row__val confirm-row__val--num">-0.15 USD</div>
+              <button type="button" class="confirm-row__view is-open" id="toggle-impact-details">Hide Details <svg width="10" height="10" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></button>
+            </div>
+            <div class="confirm-row__details" id="confirm-impact-details">
+              <div class="confirm-row__details-line"><span>Swap Impact</span><span class="good">-0.04%</span></div>
+              <div class="confirm-row__details-line"><span>Max. Slippage</span><strong>Auto</strong></div>
+              <div class="confirm-row__details-line"><span>Min. Received</span><strong id="bind-min-received">11.18 USDT</strong></div>
+            </div>
+          </div>
+          <div class="confirm-row">
+            <div>
+              <div class="confirm-row__label">Swap Buffer</div>
+              <div class="confirm-row__sub" style="max-width:220px">Temporary buffer collected to ensure successful swaps. Excess funds are refunded</div>
+            </div>
+            <div class="confirm-row__val confirm-row__val--num">3.00 USD</div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="btn-swap-now">Swap now</button>
+      </section>
+
+      <!-- IN-FLIGHT -->
+      <section class="screen panel panel--padded" id="screen-inflight" data-screen="inflight">
+        <div class="inflight__hero">
+          <div class="inflight__hero__topline">
+            <span class="label" id="bind-inflight-label">USDC, ETH</span>
+            <span class="amount" id="bind-inflight-usd">$499.50</span>
+          </div>
+          <div class="inflight__dots" aria-hidden="true"></div>
+          <canvas class="inflight__dots inflight__dots--canvas hidden" id="inflight-canvas" width="380" height="170" aria-hidden="true"></canvas>
+          <div class="inflight__hero__bottomline">
+            <div class="row">
+              <span class="token-pill__icon" id="inflight-token-icon" style="width:34px;height:34px"></span>
+              <span class="amount" id="bind-inflight-amount">499.50</span>
+            </div>
+            <span class="sub" id="bind-inflight-chain">on Arbitrum</span>
+          </div>
+        </div>
+        <div class="inflight__steps" id="inflight-steps">
+          <div class="inflight__steps__head" id="inflight-steps-toggle">
+            <div class="inflight__steps__head__left">
+              <div class="inflight__step__indicator" id="inflight-active-indicator"></div>
+              <div>
+                <div class="inflight__steps__title" id="bind-inflight-step-title">Verifying intent</div>
+                <div class="inflight__steps__sub" id="bind-inflight-step-sub">Confirming on Arbitrum…</div>
+              </div>
+            </div>
+            <svg class="inflight__chevron" width="14" height="14" viewBox="0 0 14 14"><path d="M3 5L7 9L11 5" stroke="#5B5B5A" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+          </div>
+          <div class="inflight__steps__list" id="inflight-steps-list"></div>
+        </div>
+      </section>
+
+      <!-- SUCCESS -->
+      <section class="screen panel panel--padded" id="screen-success" data-screen="success" style="position:relative">
+        <canvas class="confetti" id="confetti-canvas" aria-hidden="true"></canvas>
+        <header class="panel-header">
+          <span class="panel-header__title--small">Swap Complete</span>
+          <button type="button" class="icon-btn" id="success-close" aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4L12 12M12 4L4 12" stroke="#161615" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+        </header>
+
+        <div class="success__hero">
+          <div class="success__icon" id="success-token-icon"></div>
+          <div style="text-align:center">
+            <div class="success__label">You received</div>
+            <div class="success__amount-row">
+              <span class="success__amount" id="bind-success-amount">499.50</span>
+              <span class="success__amount-unit" id="bind-success-symbol">USDT</span>
+            </div>
+            <div class="success__amount-usd" id="bind-success-usd">≈ $499.50</div>
+          </div>
+          <div class="success__meta" id="bind-success-meta">on Arbitrum · completed in 12s</div>
+        </div>
+
+        <div class="success__list">
+          <div class="success__row">
+            <span class="success__row__label">You swapped</span>
+            <div class="success__row__val">
+              <span class="success__row__num" id="bind-success-swapped">499.50 USD</span>
+              <span class="success__row__link">11 assets <svg width="10" height="10" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
+            </div>
+          </div>
+          <div class="success__row">
+            <span class="success__row__label">Intent explorer</span>
+            <a href="#" class="success__row__link success__row__link--big" onclick="return false">Intent #3113 <svg width="12" height="12" viewBox="0 0 12 12"><path d="M4 3H9V8M9 3L3 9" stroke="currentColor" stroke-width="1.3" fill="none"/></svg></a>
+          </div>
+          <div class="success__row">
+            <span class="success__row__label">Final Transaction</span>
+            <a href="#" class="success__row__link success__row__link--big" onclick="return false">View Explorer <svg width="12" height="12" viewBox="0 0 12 12"><path d="M4 3H9V8M9 3L3 9" stroke="currentColor" stroke-width="1.3" fill="none"/></svg></a>
+          </div>
+          <div class="success__row">
+            <span class="success__row__label">Total fees</span>
+            <span class="success__row__num">0.15 USDT</span>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="btn-success-done">Done</button>
+      </section>
+
+      <div class="onboarding-layer hidden" id="onboarding-layer" aria-hidden="true">
+        <div class="onboarding-cutout" id="onboarding-cutout">
+          <div class="onboarding-cutout__panel onboarding-cutout__panel--top"></div>
+          <div class="onboarding-cutout__panel onboarding-cutout__panel--bottom"></div>
+          <div class="onboarding-cutout__panel onboarding-cutout__panel--left"></div>
+          <div class="onboarding-cutout__panel onboarding-cutout__panel--right"></div>
+          <div class="onboarding-cutout__ring" id="onboarding-ring"></div>
+        </div>
+        <div class="coach-mark" id="coach-mark">
+          <span class="coach-mark__arrow" id="coach-mark-arrow" aria-hidden="true"></span>
+          <span class="coach-mark__step" id="coach-mark-step">1 of 5</span>
+          <h3 class="coach-mark__title" id="coach-mark-title">Send from multiple assets</h3>
+          <p class="coach-mark__body" id="coach-mark-body"></p>
+          <div class="coach-mark__example hidden" id="coach-mark-example" aria-hidden="true">
+            <div class="coach-mark__example-label">Example · Send</div>
+            <div class="coach-mark__example-card">
+              <div class="coach-mark__example-row">
+                <span class="coach-mark__example-amt">0.05</span>
+                <span class="token-pill token-pill--static" aria-hidden="true">
+                  <span class="token-pill__icon">
+                    <img class="token-mark" src="assets/tokens/eth.png" alt="" width="20" height="20">
+                    <span class="chain-badge" style="background-image:url('assets/chains/optimism.png')"></span>
+                  </span>
+                  <span>ETH</span>
+                  <svg class="token-pill__caret" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="#8E8E89" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                </span>
+              </div>
+              <div class="coach-mark__example-row">
+                <span class="coach-mark__example-amt">250</span>
+                <span class="token-pill token-pill--static" aria-hidden="true">
+                  <span class="token-pill__icon">
+                    <img class="token-mark" src="assets/tokens/usdc.png" alt="" width="20" height="20">
+                    <span class="chain-badge" style="background-image:url('assets/chains/arbitrum.png')"></span>
+                  </span>
+                  <span>USDC</span>
+                  <svg class="token-pill__caret" viewBox="0 0 12 12"><path d="M3 4.5L6 7.5L9 4.5" stroke="#8E8E89" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                </span>
+              </div>
+              <div class="coach-mark__example-total">≈ $400.50 total · 2 assets</div>
+            </div>
+          </div>
+          <div class="coach-mark__footer">
+            <button type="button" class="coach-mark__skip" id="coach-skip">Skip tour</button>
+            <button type="button" class="coach-mark__next" id="coach-next">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js?v=paper11"></script>
+  <script src="app.js?v=paper11"></script>
+</body>
+</html>

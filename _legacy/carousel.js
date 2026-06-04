@@ -1,7 +1,10 @@
 (function() {
+  var isFigmaHero = !!document.querySelector('.hero--figma');
+
   var slides = [
     {
       bg: 'assets/hero-bg.jpg',
+      useShader: true,
       chain: 'MegaETH',
       chainIcon: 'assets/megaeth-icon.svg',
       token: 'MUSD',
@@ -147,6 +150,7 @@
   }
 
   function updateCard(slide) {
+    if (!chainField || !tokenField) return;
     // Update chain field with fade
     var chainLeft = chainField.querySelector('.field-left');
     fadeSwap(chainLeft,
@@ -172,29 +176,49 @@
     }
   }
 
-  // Pre-create all background images and keep them in DOM (hidden)
+  function setShaderVisible(show) {
+    var ctrl = window.heroShaderController;
+    if (!ctrl) return;
+    if (show) ctrl.show();
+    else ctrl.hide();
+  }
+
+  // Pre-create hero background images (legacy hero only; Figma hero uses static gradient)
   var bgImages = [];
-  var pixelOverlay = document.getElementById('pixel-overlay');
-  slides.forEach(function(s, i) {
-    var img = document.createElement('img');
-    img.src = s.bg;
-    img.alt = '';
-    img.className = 'hero-bg-img';
-    img.style.opacity = i === 0 ? '1' : '0';
-    img.style.position = i === 0 ? '' : 'absolute';
-    img.style.inset = '0';
-    img.style.transition = 'opacity 0.8s ease-in-out';
-    if (i > 0) {
+  if (!isFigmaHero && heroBg) {
+    var pixelOverlay = document.getElementById('pixel-overlay');
+    slides.forEach(function(s, i) {
+      if (s.useShader) {
+        bgImages.push(null);
+        return;
+      }
+      var img = document.createElement('img');
+      img.src = s.bg;
+      img.alt = '';
+      img.className = 'hero-bg-img';
+      img.style.opacity = '0';
+      img.style.position = 'absolute';
+      img.style.inset = '0';
       img.style.width = '100%';
       img.style.height = '100%';
       img.style.objectFit = 'cover';
-    }
-    heroBg.insertBefore(img, pixelOverlay);
-    bgImages.push(img);
-  });
-  // Remove the original static image from HTML
-  if (currentImg && currentImg !== bgImages[0]) {
-    currentImg.remove();
+      img.style.transition = 'opacity 0.8s ease-in-out';
+      if (pixelOverlay) {
+        heroBg.insertBefore(img, pixelOverlay);
+      } else {
+        heroBg.appendChild(img);
+      }
+      bgImages.push(img);
+    });
+    if (currentImg) currentImg.remove();
+
+    syncShaderForCurrentSlide();
+    window.addEventListener('hero-shader-ready', syncShaderForCurrentSlide);
+  }
+
+  function syncShaderForCurrentSlide() {
+    if (isFigmaHero) return;
+    setShaderVisible(slides[currentSlide].useShader === true);
   }
 
   function goToSlide(index) {
@@ -203,9 +227,15 @@
     currentSlide = index;
     var slide = slides[index];
 
-    // Crossfade: show new, hide old
-    for (var i = 0; i < bgImages.length; i++) {
-      bgImages[i].style.opacity = i === index ? '1' : '0';
+    if (!isFigmaHero) {
+      setShaderVisible(slide.useShader === true);
+    }
+
+    // Crossfade: show new, hide old (legacy hero only)
+    if (!isFigmaHero) {
+      for (var i = 0; i < bgImages.length; i++) {
+        if (bgImages[i]) bgImages[i].style.opacity = i === index ? '1' : '0';
+      }
     }
 
     setTimeout(function() {
@@ -247,8 +277,11 @@
     startTimer();
   }
 
+  if (!dots.length || !chainField) return;
+
   // Watch hero visibility
   var hero = document.querySelector('.hero');
+  if (!hero) return;
   var wasVisible = true;
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {

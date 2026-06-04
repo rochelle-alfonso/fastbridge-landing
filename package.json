@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "serve": "python3 -m http.server 9294",
+    "serve:blog": "python3 -m http.server 9294",
+    "prototype:swap-in": "python3 -m http.server ${PORT:-8888}",
+    "export:chain-gradients": "node tools/hero-gradient/export-chain-gradients.mjs",
+    "assemble:landing": "node tools/assemble-landing.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.88.13",
+    "@react-three/fiber": "^8.15.11",
+    "@shadergradient/react": "^2.0.20",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.156.1",
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^1.0.0",
+    "@types/node": "^20.19.41",
+    "@types/react": "^18.3.29",
+    "@types/react-dom": "^18.3.7",
+    "@types/three": "^0.156.0",
+    "typescript": "^5.9.3"
+  }
+}

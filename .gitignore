@@ -1,2 +1,13 @@
+node_modules/
 .DS_Store
 screenshot*.png
+dist/
+build/
+.next/
+
+# Editor / recording artifacts
+.cursor-rec-frames/
+.cursorignore
+
+# Accidental doubled-extension image dupes
+*.png.png

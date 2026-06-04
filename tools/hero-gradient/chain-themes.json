@@ -1,0 +1,172 @@
+{
+  "lightSwapBase": {
+    "renderEngine": "mesh",
+    "mode": "light",
+    "lightBg": "#f4f5f7",
+    "meshThreshold": 0.08,
+    "meshSoftness": 0.12,
+    "tintStrength": 0.72,
+    "meshIntensity": 0.85,
+    "horizon": 0.42,
+    "grain": 0.012,
+    "vignette": 0.08
+  },
+  "chains": {
+    "citrea": {
+      "label": "Citrea Mainnet",
+      "primary": "#1A1A1A",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#C5C5C5" },
+        { "pos": 0.16, "color": "#D4D4D4" },
+        { "pos": 0.28, "color": "#E2E2E2" },
+        { "pos": 0.55, "color": "#ECECEC" },
+        { "pos": 0.85, "color": "#F2F2F2" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "ethereum": {
+      "label": "Ethereum Mainnet",
+      "primary": "#627EEA",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#A8B8F5" },
+        { "pos": 0.16, "color": "#B8C4F7" },
+        { "pos": 0.28, "color": "#CBD3FA" },
+        { "pos": 0.55, "color": "#DDE3FC" },
+        { "pos": 0.85, "color": "#EEF1FE" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "optimism": {
+      "label": "OP Mainnet",
+      "primary": "#FF0420",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#FF8A9A" },
+        { "pos": 0.16, "color": "#FFA8B3" },
+        { "pos": 0.28, "color": "#FFBFC7" },
+        { "pos": 0.55, "color": "#FFD5DA" },
+        { "pos": 0.85, "color": "#FFEAEC" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "polygon": {
+      "label": "Polygon PoS",
+      "primary": "#8247E5",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#C4A8F2" },
+        { "pos": 0.16, "color": "#D0B8F5" },
+        { "pos": 0.28, "color": "#DECCF9" },
+        { "pos": 0.55, "color": "#EADDFB" },
+        { "pos": 0.85, "color": "#F3EDFD" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "arbitrum": {
+      "label": "Arbitrum One",
+      "primary": "#28A0F0",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#8CCBF7" },
+        { "pos": 0.16, "color": "#A5D7F9" },
+        { "pos": 0.28, "color": "#BFE3FB" },
+        { "pos": 0.55, "color": "#D4EDFC" },
+        { "pos": 0.85, "color": "#E9F6FE" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "avalanche": {
+      "label": "Avalanche C-Chain",
+      "primary": "#E84142",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#F59899" },
+        { "pos": 0.16, "color": "#F8B0B1" },
+        { "pos": 0.28, "color": "#FAC8C9" },
+        { "pos": 0.55, "color": "#FCDFE0" },
+        { "pos": 0.85, "color": "#FEF0F0" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "hyperevm": {
+      "label": "HyperEVM",
+      "primary": "#50E3C2",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#A8F1E0" },
+        { "pos": 0.16, "color": "#BDF5E8" },
+        { "pos": 0.28, "color": "#D0F8EF" },
+        { "pos": 0.55, "color": "#E2FBF5" },
+        { "pos": 0.85, "color": "#F0FDF9" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "kaia": {
+      "label": "Kaia Mainnet",
+      "primary": "#31C48D",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#9AE8C4" },
+        { "pos": 0.16, "color": "#B8F0D4" },
+        { "pos": 0.28, "color": "#C8F5E0" },
+        { "pos": 0.55, "color": "#DCF8EC" },
+        { "pos": 0.85, "color": "#EEFBF4" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "monad": {
+      "label": "Monad",
+      "primary": "#836EF9",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#C4B8FB" },
+        { "pos": 0.16, "color": "#D0C8FC" },
+        { "pos": 0.28, "color": "#DDD8FD" },
+        { "pos": 0.55, "color": "#E9E6FE" },
+        { "pos": 0.85, "color": "#F4F2FF" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "megaeth": {
+      "label": "MegaETH",
+      "primary": "#2B2B2B",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#C8C8C8" },
+        { "pos": 0.16, "color": "#D6D6D6" },
+        { "pos": 0.28, "color": "#E3E3E3" },
+        { "pos": 0.55, "color": "#EDEDED" },
+        { "pos": 0.85, "color": "#F3F3F3" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "base": {
+      "label": "Base",
+      "primary": "#0052FF",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#80A9FF" },
+        { "pos": 0.16, "color": "#99BBFF" },
+        { "pos": 0.28, "color": "#B3CCFF" },
+        { "pos": 0.55, "color": "#CCDDFF" },
+        { "pos": 0.85, "color": "#E5EEFF" }
+      ],
+      "shadow": { "near": "0A", "mid": "29", "far": "26" }
+    },
+    "scroll": {
+      "label": "Scroll",
+      "primary": "#C4A882",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#E8DDD0" },
+        { "pos": 0.16, "color": "#EDE5DB" },
+        { "pos": 0.28, "color": "#F2ECE4" },
+        { "pos": 0.55, "color": "#F6F2EC" },
+        { "pos": 0.85, "color": "#F9F7F4" }
+      ],
+      "shadow": { "near": "0A", "mid": "24", "far": "22" }
+    },
+    "bnb": {
+      "label": "BNB Smart Chain",
+      "primary": "#F3BA2F",
+      "gradientStops": [
+        { "pos": 0.08, "color": "#F9DF94" },
+        { "pos": 0.16, "color": "#FAE7AB" },
+        { "pos": 0.28, "color": "#FBEFC2" },
+        { "pos": 0.55, "color": "#FCF5D8" },
+        { "pos": 0.85, "color": "#FDF9EA" }
+      ],
+      "shadow": { "near": "0A", "mid": "24", "far": "1A" }
+    }
+  }
+}

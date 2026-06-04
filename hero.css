@@ -1,0 +1,471 @@
+/* FastBridge hero — Figma "Desktop · Fastbridge Hero" (226:2690) */
+
+.hero {
+  --hero-pad-x: 100px;
+  --hero-pad-top: 50px;
+  --hero-height: 809px;
+  --hero-title-size: 75px;
+  --hero-title-lh: 89.842px;
+  --hero-title-tracking: 1.4974px;
+  --hero-title-max: 913px;
+  --hero-title-gap: 96px;
+  --hero-panel-max: 667px;
+  --hero-panel-bottom: 298px;
+  --hero-panel-top: 35px;
+  --hero-panel-gap: 24px;
+
+  position: relative;
+  width: 100%;
+  height: max(var(--hero-height), 100svh);
+  min-height: max(var(--hero-height), 100svh);
+  overflow: hidden;
+  background: #0a0a12;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__gradient-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero__gradient-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(132.24deg, rgba(0, 0, 0, 0.2) 26.76%, rgba(0, 0, 0, 0) 39.94%);
+  pointer-events: none;
+}
+
+.hero__gradient {
+  position: absolute;
+  left: 50%;
+  top: -23.28%;
+  width: 100.02%;
+  height: 147.93%;
+  max-width: none;
+  transform: translateX(-50%);
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero__video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__video {
+    display: none;
+  }
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: var(--hero-pad-top) var(--hero-pad-x) 0;
+}
+
+.hero__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.hero__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5.374px;
+  color: #fffffe;
+  text-decoration: none;
+}
+
+.hero__logo-icon {
+  width: 39.97px;
+  height: 39.97px;
+  flex-shrink: 0;
+}
+
+.hero__logo-text {
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 30.731px;
+  font-weight: 400;
+  line-height: 1;
+  color: #fffffe;
+}
+
+.hero__nav-btn {
+  width: 165px;
+  min-width: 165px;
+  max-width: 165px;
+  padding: 0;
+}
+
+.hero__title {
+  margin: var(--hero-title-gap) auto 0;
+  max-width: var(--hero-title-max);
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: var(--hero-title-size);
+  font-weight: 400;
+  line-height: var(--hero-title-lh);
+  letter-spacing: var(--hero-title-tracking);
+  color: #fffffe;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.hero__title-tablet,
+.hero__title-mobile {
+  display: none;
+}
+
+.hero__title-desktop {
+  display: block;
+}
+
+.hero__title-desktop .hero__title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero__panel {
+  position: relative;
+  margin: var(--hero-panel-top) auto 0;
+  width: var(--hero-panel-max);
+  max-width: calc(100% - 2 * var(--hero-pad-x));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--hero-panel-gap);
+}
+
+.hero__desc {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fffffe;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.55), 0 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(85, 85, 85, 0.05);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Add FastBridge — translucent glass-dark button (Figma 342:2399) */
+.hero .btn--primary {
+  width: 160px;
+  min-width: 160px;
+  border: 1px solid rgba(255, 255, 254, 0.19);
+  background: rgba(22, 22, 21, 0.61);
+  color: #fffffe;
+  box-shadow: 0 1px 4px rgba(85, 85, 85, 0.05);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.hero .btn--primary:hover {
+  background: rgba(22, 22, 21, 0.78);
+  border-color: rgba(255, 255, 254, 0.32);
+}
+
+/* Bridge Now — solid white button (Figma 342:2401) */
+.hero .btn--secondary {
+  width: 160px;
+  min-width: 160px;
+  border: 1px solid #e8e8e7;
+  background: #fffffe;
+  color: #161615;
+}
+
+.hero .btn--secondary:hover {
+  background: #f2f2f0;
+  border-color: #d8d8d6;
+}
+
+/* Scale down on narrower desktop viewports */
+@media (max-width: 1440px) {
+  .hero {
+    --hero-title-size: clamp(2.75rem, 5.2vw, 75px);
+    --hero-title-lh: 1.198;
+  }
+}
+
+/* Tablet — Figma "Tablet Section / Hero" (226:2714) */
+@media (max-width: 768px) {
+  .hero {
+    --hero-pad-x: 48px;
+    --hero-pad-top: 40px;
+    --hero-height: 924px;
+    --hero-panel-bottom: 184px;
+    --hero-title-size: 61.328px;
+    --hero-title-lh: 73.464px;
+    --hero-title-tracking: 1.2244px;
+    --hero-title-max: 628px;
+    --hero-title-gap: 43px;
+    --hero-panel-gap: 30px;
+    --hero-desc-max: 539px;
+
+    height: var(--hero-height);
+    min-height: var(--hero-height);
+    background: #0a0a12;
+  }
+
+  /* Dark streak background fills the whole hero (Figma 226:2716) */
+  .hero__gradient-wrap {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__gradient-wrap::after {
+    display: none;
+  }
+
+  .hero__gradient {
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero .hero__nav-btn {
+    display: none;
+  }
+
+  .hero__inner {
+    position: relative;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: var(--hero-pad-top) var(--hero-pad-x) 0;
+  }
+
+  .hero__header {
+    justify-content: center;
+  }
+
+  .hero__title {
+    margin: var(--hero-title-gap) auto 0;
+    max-width: var(--hero-title-max);
+    text-align: center;
+    text-transform: none;
+  }
+
+  .hero__title-desktop {
+    display: none;
+  }
+
+  .hero__title-tablet {
+    display: block;
+  }
+
+  .hero__title-mobile {
+    display: none;
+  }
+
+  .hero__panel {
+    position: absolute;
+    left: 50%;
+    right: auto;
+    bottom: var(--hero-panel-bottom);
+    width: var(--hero-desc-max);
+    max-width: calc(100% - 2 * var(--hero-pad-x));
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--hero-panel-gap);
+    isolation: auto;
+  }
+
+  .hero__panel::before {
+    display: none;
+  }
+
+  .hero__desc {
+    margin: 0;
+    max-width: var(--hero-desc-max);
+    color: #fffffe;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .hero__actions {
+    position: static;
+    justify-content: center;
+    gap: 24px;
+  }
+}
+
+/* Mobile — Figma "Mobile Section / Hero" (226:2731) */
+@media (max-width: 390px) {
+  .hero {
+    --hero-pad-x: 24px;
+    --hero-pad-top: 37px;
+    --hero-pad-bottom: 55px;
+    --hero-height: 780px;
+    --hero-title-size: 42px;
+    --hero-title-lh: 55.967px;
+    --hero-title-tracking: 0.9328px;
+    --hero-title-max: 314px;
+    --hero-title-gap: 42px;
+    --hero-panel-top: 32px;
+  }
+
+  .hero__gradient {
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero__header {
+    justify-content: center;
+  }
+
+  .hero .hero__nav-btn {
+    display: none;
+  }
+
+  .hero__logo {
+    gap: 4.031px;
+  }
+
+  .hero__logo-icon {
+    width: 29.977px;
+    height: 29.977px;
+  }
+
+  .hero__logo-text {
+    font-size: 23.048px;
+  }
+
+  .hero__title-tablet {
+    display: none;
+  }
+
+  .hero__title-mobile {
+    display: block;
+  }
+
+  .hero__title-line {
+    display: block;
+  }
+
+  .hero__title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .hero__panel {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    margin: var(--hero-panel-top) auto 0;
+    width: 100%;
+    max-width: calc(100% - 2 * var(--hero-pad-x));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .hero__desc {
+    margin: 0;
+    width: 326px;
+    max-width: 100%;
+    color: #fffffe;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero__actions {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /* Compact CTAs over the dark image (Figma 343:52) */
+  .hero .btn {
+    height: 48px;
+    font-size: 14px;
+  }
+
+  .hero .btn--primary,
+  .hero .btn--secondary {
+    width: 152px;
+    min-width: 152px;
+  }
+}
+
+@media (max-height: 860px) and (min-width: 769px) {
+  .hero {
+    --hero-pad-top: 40px;
+    --hero-title-size: clamp(2.25rem, 4.2vw, 75px);
+    --hero-title-lh: 1.198;
+    --hero-title-gap: 72px;
+    --hero-panel-top: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .btn {
+    transition: none;
+  }
+}

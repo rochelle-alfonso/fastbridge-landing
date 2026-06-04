@@ -1,0 +1,597 @@
+/* Static gallery — step 1 review layout (all Paper screens visible) */
+
+body.static-mode {
+  background:
+    radial-gradient(1200px 800px at 50% 0%, #E7F0FF 0%, transparent 70%),
+    linear-gradient(180deg, #F5F7FB 0%, #ECEFF5 100%);
+}
+
+.static-mode .stage {
+  display: block;
+  padding: 48px 32px 96px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.static-mode .static-intro {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.static-mode .static-intro h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 0.02em;
+  color: var(--c-ink);
+}
+
+.static-mode .static-intro p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--c-muted);
+}
+
+.static-mode .static-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  align-items: center;
+}
+
+.static-mode .static-gallery__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.static-mode .static-gallery__label {
+  font-family: var(--font-text);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-muted-3);
+}
+
+.static-mode .static-gallery__label span {
+  color: var(--c-blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.static-mode .frame {
+  margin: 0 auto;
+}
+
+/* Show every screen; disable transition animations in review mode */
+.static-mode .screen {
+  display: flex;
+  flex-direction: column;
+  animation: none;
+}
+
+.static-mode .screen--picker.is-active {
+  animation: none;
+}
+
+/* Confirm: expanded rows (Paper 9Z7-0) */
+.static-mode #static-confirm .confirm-row.is-expanded .confirm-row__details {
+  display: flex;
+}
+
+/* Paper 9Z7-0 — unified confirm card */
+.static-mode #static-confirm-list {
+  width: var(--content-w);
+  max-width: 100%;
+  border: 0;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: var(--c-bg);
+}
+
+.static-mode .confirm__hero--inset {
+  border-radius: 0;
+  margin: 0;
+  padding: 24px 22px 18px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 80%, #E8EBF0 100%);
+}
+
+.static-mode .confirm__hero__col--right {
+  text-align: right;
+}
+
+.static-mode .confirm__swap-block {
+  border-top: 1px solid var(--c-border-3);
+}
+
+.static-mode .confirm__swap-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+}
+
+.static-mode .confirm__swap-head__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.static-mode .confirm__send-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+  background: #F9F9F8;
+}
+
+.static-mode .confirm__send-panel .confirm__send-line {
+  padding: 0 16px;
+}
+
+.static-mode .confirm__send-panel .confirm__send-line__usd {
+  color: #7C7C8A;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.static-mode .confirm__send-panel .confirm__send-line__amt {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.static-mode .confirm-row--paper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-top: 1px solid var(--c-border-3);
+  border-bottom: 0;
+}
+
+.static-mode .confirm-row--paper.confirm-row--start {
+  align-items: flex-start;
+}
+
+.static-mode .confirm-row--paper .confirm-row__label {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.static-mode .confirm-row--paper .confirm-row__val {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.static-mode .confirm-row__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.static-mode .confirm-row__sub--wrap {
+  max-width: 294px;
+  line-height: 20px;
+}
+
+.static-mode .confirm-row--buffer .confirm-row__val {
+  flex-shrink: 0;
+}
+
+/* Paper 9IM-0 — success layout */
+.static-mode #static-success {
+  gap: 16px;
+}
+
+.static-mode #static-success .success__hero {
+  width: var(--content-w);
+  max-width: 100%;
+  padding: 16px;
+  gap: 12px;
+  box-shadow: #3C286426 0px 0px 2px;
+}
+
+.static-mode #static-success .success__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.static-mode #static-success .success__meta {
+  margin-top: 8px;
+}
+
+.static-mode #static-success .success__list {
+  width: var(--content-w);
+  max-width: 100%;
+  border: 0;
+  box-shadow: var(--shadow-card);
+}
+
+.static-mode #static-success .success__row:first-child {
+  min-height: 78px;
+  align-items: flex-start;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.static-mode #static-success .success__row__label {
+  text-transform: capitalize;
+}
+
+/* In-flight: collapsed steps (Paper BKI-0) */
+.static-mode #static-inflight .inflight__steps__list {
+  display: none;
+}
+
+.static-mode .asset-row__amount[readonly] {
+  cursor: default;
+}
+
+.static-mode .recipient-row__addr {
+  display: inline;
+}
+
+/* Paper 8AZ-0 — idle send rows (amount + pill on one line) */
+.static-mode .asset-row--idle .asset-row__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.static-mode .asset-row--idle .asset-row__line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 40px;
+}
+
+.static-mode .asset-row--idle .asset-row__amount {
+  flex-shrink: 0;
+}
+
+/* Paper 8AZ-0 — focused send row (amount col | control col) */
+.static-mode .asset-row--focused .asset-row__focused {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.static-mode .asset-row--focused .asset-row__amount-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 62px;
+  flex-shrink: 0;
+}
+
+.static-mode .asset-row--focused .asset-row__control-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  width: 304px;
+  flex-shrink: 0;
+}
+
+.static-mode .asset-row--focused .asset-row__meta {
+  width: 258px;
+}
+
+/* Paper A46-0 — destination row hover */
+.static-mode .token-list__row.is-hover {
+  background: #F4F4F3;
+}
+
+/* Paper 9Z7-0 — hero progress dots (5 × 6px) */
+.static-mode .confirm__hero__dots span {
+  width: 6px;
+  height: 6px;
+}
+.static-mode .confirm__hero__dots span:nth-child(5) { background: #3D7BFF; }
+
+/* ------------------------------------------------------------
+   Onboarding · Swap In coach marks (ONB-1, ONB-2)
+   ------------------------------------------------------------ */
+.static-mode .static-gallery__section {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(22, 22, 21, 0.08);
+}
+
+.static-mode .static-gallery__section-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+  color: var(--c-ink);
+}
+
+.static-mode .static-gallery__section-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--c-muted);
+}
+
+.static-mode .static-gallery__section-desc span {
+  color: var(--c-blue);
+  font-weight: 600;
+}
+
+.static-mode .screen--onboarding {
+  position: relative;
+  overflow: hidden;
+}
+
+.static-mode .onboarding-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.static-mode .onboarding-cutout {
+  position: absolute;
+  inset: 0;
+}
+
+.static-mode .onboarding-cutout__panel {
+  position: absolute;
+  background: rgba(22, 22, 21, 0.45);
+}
+
+/* ONB-1 · hole over + Add asset */
+.static-mode .onboarding-cutout--onb1 .onboarding-cutout__panel--top {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 74px;
+}
+.static-mode .onboarding-cutout--onb1 .onboarding-cutout__panel--bottom {
+  left: 0;
+  top: 110px;
+  width: 100%;
+  bottom: 0;
+}
+.static-mode .onboarding-cutout--onb1 .onboarding-cutout__panel--left {
+  left: 0;
+  top: 74px;
+  width: 366px;
+  height: 36px;
+}
+.static-mode .onboarding-cutout--onb1 .onboarding-cutout__panel--right {
+  left: 476px;
+  top: 74px;
+  right: 0;
+  height: 36px;
+}
+.static-mode .onboarding-cutout--onb1 .onboarding-cutout__ring {
+  left: 364px;
+  top: 72px;
+  width: 114px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+/* ONB-2 · hole over entire send card (empty home) */
+.static-mode .onboarding-cutout--onb2 .onboarding-cutout__panel--top {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 62px;
+}
+.static-mode .onboarding-cutout--onb2 .onboarding-cutout__panel--bottom {
+  left: 0;
+  top: 190px;
+  width: 100%;
+  bottom: 0;
+}
+.static-mode .onboarding-cutout--onb2 .onboarding-cutout__panel--left {
+  left: 0;
+  top: 62px;
+  width: 18px;
+  height: 128px;
+}
+.static-mode .onboarding-cutout--onb2 .onboarding-cutout__panel--right {
+  left: 482px;
+  top: 62px;
+  right: 0;
+  height: 128px;
+}
+.static-mode .onboarding-cutout--onb2 .onboarding-cutout__ring {
+  left: 16px;
+  top: 60px;
+  width: 468px;
+  height: 132px;
+  border-radius: 14px;
+}
+
+.static-mode .onboarding-cutout__ring {
+  position: absolute;
+  border: 2px solid var(--c-blue);
+  box-shadow: 0 0 0 4px rgba(61, 123, 255, 0.24);
+  pointer-events: none;
+}
+
+.static-mode .coach-mark {
+  position: absolute;
+  z-index: 32;
+  width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: auto;
+  text-align: left;
+}
+
+.static-mode .coach-mark__arrow {
+  position: absolute;
+  top: -8px;
+  right: 28px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+.static-mode .coach-mark__arrow--right {
+  top: 50%;
+  right: -8px;
+  left: auto;
+  transform: translateY(-50%);
+  border-bottom: 7px solid transparent;
+  border-top: 7px solid transparent;
+  border-left: 8px solid #fff;
+  border-right: 0;
+}
+
+.static-mode .coach-mark__step {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--c-muted-3);
+}
+
+.static-mode .coach-mark__title {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--c-ink);
+}
+
+.static-mode .coach-mark__body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--c-muted-3);
+}
+
+.static-mode .coach-mark__body strong {
+  font-weight: 500;
+  color: var(--c-ink-2);
+}
+
+.static-mode .coach-mark__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.static-mode .coach-mark__skip {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: var(--font-text);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--c-muted-3);
+  cursor: default;
+}
+
+.static-mode .coach-mark__next {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: var(--font-text);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #fff;
+  background: var(--c-blue);
+  cursor: default;
+}
+
+/* Step 1 — tooltip below Add asset (with multi-asset example) */
+.static-mode .coach-mark--step1 {
+  width: 304px;
+  top: 108px;
+  right: 16px;
+}
+
+/* Step 2 — tooltip below send card */
+.static-mode .coach-mark--step2 {
+  top: 206px;
+  left: 16px;
+}
+
+.static-mode .coach-mark--step2 .coach-mark__arrow {
+  left: 132px;
+  right: auto;
+  transform: none;
+}
+
+/* Empty swap home (98V-0) — onboarding base */
+.static-mode .send-card--empty {
+  gap: 10px;
+}
+
+.static-mode .asset-row__amount--placeholder,
+.static-mode .receive-card__amount--placeholder {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 32px;
+  color: var(--c-disabled);
+}
+
+.static-mode .token-pill__icon--placeholder {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--c-disabled);
+  flex-shrink: 0;
+}
+
+.static-mode .frame--empty .screen--onboarding {
+  min-height: 509px;
+}
+
+.static-mode .static-gallery__flow-note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--c-muted);
+  text-align: center;
+}
+
+.static-mode .static-gallery__flow-note span {
+  color: var(--c-blue);
+  font-weight: 600;
+}

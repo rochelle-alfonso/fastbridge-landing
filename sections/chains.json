@@ -1,0 +1,15 @@
+[
+  { "slug": "ethereum", "name": "Ethereum", "width": 136, "height": 34 },
+  { "slug": "arbitrum", "name": "Arbitrum", "width": 169, "height": 95 },
+  { "slug": "optimism", "name": "Optimism", "width": 121, "height": 17 },
+  { "slug": "avalanche", "name": "Avalanche", "width": 148, "height": 34 },
+  { "slug": "polygon", "name": "Polygon", "width": 109, "height": 109 },
+  { "slug": "hyperliquid", "name": "Hyperliquid", "width": 166, "height": 26 },
+  { "slug": "base", "name": "Base", "width": 85, "height": 48 },
+  { "slug": "scroll", "name": "Scroll", "width": 122, "height": 61 },
+  { "slug": "kaia", "name": "Kaia", "width": 72, "height": 46 },
+  { "slug": "megaeth", "name": "MegaETH", "width": 182, "height": 29 },
+  { "slug": "monad", "name": "Monad", "width": 151, "height": 85 },
+  { "slug": "bnb-chain", "name": "BNB Chain", "width": 148, "height": 26 },
+  { "slug": "citrea", "name": "Citrea", "width": 106, "height": 26 }
+]

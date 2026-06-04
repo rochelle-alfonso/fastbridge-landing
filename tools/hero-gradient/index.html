@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero ribbon gradient tool · FastBridge</title>
+  <link rel="stylesheet" href="../../base.css">
+  <link rel="stylesheet" href="hero-gradient-tool.css">
+</head>
+<body>
+  <div class="tool">
+    <aside class="tool-panel">
+      <h1>Hero ribbon gradient</h1>
+      <p class="lede">Shader mode: animated mesh like ShaderGradient, masked to the hero ribbon. Mesh: static exact PNG.</p>
+
+      <div class="tool-section">
+        <h2>Engine</h2>
+        <label class="toggle"><input type="radio" name="render-engine" value="shader" checked> Shader (animated · reference shape)</label>
+        <label class="toggle"><input type="radio" name="render-engine" value="mesh"> Mesh (static exact PNG)</label>
+        <label class="toggle"><input type="radio" name="render-engine" value="procedural"> Procedural (approximate)</label>
+      </div>
+
+      <div class="tool-section" id="shader-controls">
+        <h2>Shader · ShaderGradient-style</h2>
+        <label class="toggle"><input type="checkbox" id="shader-animate" checked> Animate</label>
+        <div class="btn-row">
+          <button type="button" class="btn" id="freeze-frame">Freeze frame</button>
+        </div>
+        <div class="field">
+          <label for="color1">Color 1 (warm)</label>
+          <input type="color" id="color1" value="#ff2a8a">
+        </div>
+        <div class="field">
+          <label for="color2">Color 2 (mid)</label>
+          <input type="color" id="color2" value="#ff9a3d">
+        </div>
+        <div class="field">
+          <label for="color3">Color 3 (cool)</label>
+          <input type="color" id="color3" value="#5ec8ff">
+        </div>
+        <div class="field">
+          <label for="shader-frequency">Frequency</label>
+          <input type="range" id="shader-frequency" min="1" max="12" step="0.1" value="5.5">
+          <span class="val" id="shader-frequency-val">5.5</span>
+        </div>
+        <div class="field">
+          <label for="shader-speed">Speed</label>
+          <input type="range" id="shader-speed" min="0" max="2" step="0.05" value="0.4">
+          <span class="val" id="shader-speed-val">0.4</span>
+        </div>
+        <div class="field">
+          <label for="shader-strength">Strength</label>
+          <input type="range" id="shader-strength" min="1" max="8" step="0.1" value="4">
+          <span class="val" id="shader-strength-val">4</span>
+        </div>
+        <div class="field">
+          <label for="shader-density">Density</label>
+          <input type="range" id="shader-density" min="0.5" max="3" step="0.05" value="1.3">
+          <span class="val" id="shader-density-val">1.3</span>
+        </div>
+        <div class="field">
+          <label for="shader-amplitude">Amplitude</label>
+          <input type="range" id="shader-amplitude" min="0" max="3" step="0.1" value="1">
+          <span class="val" id="shader-amplitude-val">1</span>
+        </div>
+        <div class="field">
+          <label for="shader-brightness">Brightness</label>
+          <input type="range" id="shader-brightness" min="0.6" max="2" step="0.05" value="1.2">
+          <span class="val" id="shader-brightness-val">1.2</span>
+        </div>
+        <div class="field">
+          <label for="shader-rotation">Rotation Z</label>
+          <input type="range" id="shader-rotation" min="0" max="90" step="1" value="50">
+          <span class="val" id="shader-rotation-val">50°</span>
+        </div>
+        <p class="lede" style="margin:0">Uses hero-gradient-layer.png as the ribbon mask (same shape as reference).</p>
+      </div>
+
+      <div class="tool-section" id="mesh-controls">
+        <h2>Mesh</h2>
+        <div class="field">
+          <label for="tint-strength">Ribbon tint</label>
+          <input type="range" id="tint-strength" min="0" max="1" step="0.02" value="0.35">
+          <span class="val" id="tint-strength-val">0.35</span>
+        </div>
+        <p class="lede" style="margin:0">0 = original PNG colors · 1 = full stop colors</p>
+        <div class="field">
+          <label for="mesh-threshold">Dark cutoff</label>
+          <input type="range" id="mesh-threshold" min="0.04" max="0.22" step="0.01" value="0.1">
+          <span class="val" id="mesh-threshold-val">0.10</span>
+        </div>
+        <div class="field">
+          <label for="mesh-softness">Edge softness</label>
+          <input type="range" id="mesh-softness" min="0.04" max="0.3" step="0.01" value="0.14">
+          <span class="val" id="mesh-softness-val">0.14</span>
+        </div>
+        <div class="field">
+          <label for="mesh-intensity">Glow strength</label>
+          <input type="range" id="mesh-intensity" min="0.5" max="1.2" step="0.02" value="1">
+          <span class="val" id="mesh-intensity-val">1.00</span>
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <h2>Presets</h2>
+        <div class="preset-row">
+          <button type="button" class="btn" id="preset-dark">Shader hero</button>
+          <button type="button" class="btn" id="preset-mesh">Static mesh</button>
+          <button type="button" class="btn" id="preset-light">Light swap</button>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <label for="chain-preset">Chain theme</label>
+          <select id="chain-preset" class="chain-preset-select">
+            <option value="">— pick chain —</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <h2>Mode</h2>
+        <label class="toggle"><input type="radio" name="mode" value="dark" checked> Dark (screen blend)</label>
+        <label class="toggle"><input type="radio" name="mode" value="light"> Light (soft on white)</label>
+      </div>
+
+      <div class="tool-section">
+        <h2>Background</h2>
+        <div class="field">
+          <label for="bg-top">Dark · top</label>
+          <input type="color" id="bg-top" value="#0a0a12">
+        </div>
+        <div class="field">
+          <label for="bg-bottom">Dark · bottom</label>
+          <input type="color" id="bg-bottom" value="#020308">
+        </div>
+        <div class="field">
+          <label for="bg-glow">Dark · center glow</label>
+          <input type="color" id="bg-glow" value="#12182a">
+        </div>
+        <div class="field">
+          <label for="light-bg">Light mode fill</label>
+          <input type="color" id="light-bg" value="#f4f5f7">
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <h2>Ribbon colors</h2>
+        <div class="stops" id="stops"></div>
+        <div class="btn-row">
+          <button type="button" class="btn" id="add-stop">+ Stop</button>
+        </div>
+      </div>
+
+      <div class="tool-section" id="procedural-controls">
+        <h2>Shape (procedural only)</h2>
+        <div class="field">
+          <label for="horizon">Horizon line</label>
+          <input type="range" id="horizon" min="0.3" max="0.65" step="0.01" value="0.5">
+          <span class="val" id="horizon-val">50%</span>
+        </div>
+        <div class="field">
+          <label for="glow-spread">Glow height</label>
+          <input type="range" id="glow-spread" min="0.1" max="0.5" step="0.01" value="0.32">
+          <span class="val" id="glow-spread-val">0.32</span>
+        </div>
+        <div class="field">
+          <label for="left-bloom">Left bloom</label>
+          <input type="range" id="left-bloom" min="0.5" max="1.8" step="0.05" value="1.15">
+          <span class="val" id="left-bloom-val">1.15</span>
+        </div>
+        <div class="field">
+          <label for="right-taper">Right taper</label>
+          <input type="range" id="right-taper" min="0.15" max="0.8" step="0.02" value="0.42">
+          <span class="val" id="right-taper-val">0.42</span>
+        </div>
+        <div class="field">
+          <label for="core-intensity">Intensity</label>
+          <input type="range" id="core-intensity" min="0.3" max="1.5" step="0.05" value="1.05">
+          <span class="val" id="core-intensity-val">1.05</span>
+        </div>
+        <div class="field">
+          <label for="core-width">Core line</label>
+          <input type="range" id="core-width" min="0.5" max="3" step="0.1" value="1.5">
+          <span class="val" id="core-width-val">1.5</span>
+        </div>
+        <label class="toggle"><input type="checkbox" id="reflect" checked> Mirror reflection</label>
+        <div class="field">
+          <label for="reflect-opacity">Reflection strength</label>
+          <input type="range" id="reflect-opacity" min="0" max="1" step="0.02" value="0.78">
+          <span class="val" id="reflect-opacity-val">78%</span>
+        </div>
+        <div class="field">
+          <label for="reflect-blur">Reflection blur</label>
+          <input type="range" id="reflect-blur" min="4" max="28" step="1" value="14">
+          <span class="val" id="reflect-blur-val">14px</span>
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <h2>Finish</h2>
+        <label class="toggle"><input type="checkbox" id="arcs" checked> Edge arc strokes</label>
+        <div class="field">
+          <label for="arc-opacity">Arc opacity</label>
+          <input type="range" id="arc-opacity" min="0" max="0.6" step="0.02" value="0.22">
+          <span class="val" id="arc-opacity-val">0.22</span>
+        </div>
+        <div class="field">
+          <label for="vignette">Vignette</label>
+          <input type="range" id="vignette" min="0" max="0.8" step="0.02" value="0.35">
+          <span class="val" id="vignette-val">0.35</span>
+        </div>
+        <div class="field">
+          <label for="grain">Film grain</label>
+          <input type="range" id="grain" min="0" max="0.08" step="0.002" value="0.028">
+          <span class="val" id="grain-val">0.028</span>
+        </div>
+      </div>
+
+      <div class="tool-section">
+        <h2>Compare</h2>
+        <label class="toggle"><input type="checkbox" id="show-reference"> Overlay reference PNG (45%)</label>
+      </div>
+
+      <div class="tool-section">
+        <h2>Export</h2>
+        <div class="btn-row">
+          <button type="button" class="btn btn--primary" id="download-png">Download PNG</button>
+          <button type="button" class="btn" id="copy-json">Copy JSON</button>
+          <button type="button" class="btn" id="import-json">Import JSON</button>
+        </div>
+        <pre class="json-out" id="json-out"></pre>
+      </div>
+    </aside>
+
+    <main class="tool-preview">
+      <div class="preview-toolbar">
+        <span class="dims">Preview 1440 × 924 · export at full resolution</span>
+      </div>
+      <div class="preview-stage">
+        <div class="preview-frame is-shader">
+          <canvas id="gradient-canvas-gl" width="1440" height="924" aria-label="Shader gradient preview"></canvas>
+          <canvas id="gradient-canvas" width="1440" height="924" aria-label="Gradient preview"></canvas>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="hero-gradient-shader.js"></script>
+  <script src="hero-gradient-tool.js"></script>
+</body>
+</html>

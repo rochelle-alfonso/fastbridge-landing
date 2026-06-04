@@ -1,0 +1,616 @@
+/* How FastBridge Works — Figma Section / HowItWorks / desktop (1440 × 809) */
+
+.hiw {
+  background: transparent;
+  overflow-x: clip;
+  opacity: 1;
+  transform: none;
+}
+
+.hiw__stage {
+  position: relative;
+  width: 100%;
+  max-width: var(--section-max);
+  height: 809px;
+  margin: 0 auto;
+  background: transparent;
+  isolation: isolate;
+}
+
+/* ========== Background layers (match Figma node order) ========== */
+
+.hiw__gradient-wrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 688px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hiw__gradient {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hiw__curve-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 227px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hiw__curve-fill svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hiw__curve-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 227px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hiw__curve-wave img {
+  position: absolute;
+  top: -0.17%;
+  left: -0.28%;
+  width: 100.28%;
+  height: 100.34%;
+  max-width: none;
+  object-fit: fill;
+}
+
+/* ========== Title + product card ========== */
+
+.hiw__title {
+  position: absolute;
+  z-index: 3;
+  top: 80px;
+  left: var(--section-pad-x);
+  margin: 0;
+  max-width: 459px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--brand-white);
+}
+
+/* Desktop: each word on its own line (How / FastBridge / Works) */
+.hiw__title-word {
+  display: block;
+}
+
+.hiw__product-wrap {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 632px;
+  max-width: calc(100% - 2 * var(--section-pad-x));
+  --hiw-widget-height: 460px;
+}
+
+/* ========== Steps — absolute on white section bg, no extra band ========== */
+
+.hiw__steps {
+  position: absolute;
+  z-index: 4;
+  top: 564px;
+  left: var(--section-pad-x);
+  right: var(--section-pad-x);
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  list-style: none;
+}
+
+.hiw__steps > li {
+  margin: 0;
+  min-width: 0;
+  display: flex;
+}
+
+.hiw-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 243px;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 28px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: opacity 0.35s ease;
+}
+
+/* Loader / timer bar — shown on the active step only */
+.hiw-step--active::before,
+.hiw-step--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.hiw-step--active::before {
+  width: 100%;
+  background: rgba(0, 101, 255, 0.16);
+}
+
+.hiw-step--active::after {
+  width: 0;
+  background: var(--brand-blue);
+  animation: hiw-loader 6s linear forwards;
+}
+
+@keyframes hiw-loader {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hiw-step--active::after {
+    animation: none;
+    width: 100%;
+  }
+}
+
+.hiw-step:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.hiw-step:not(.hiw-step--active) {
+  opacity: 0.6;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.hiw-step__num {
+  display: block;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 84px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--step-num-active);
+  transition: font-size 0.35s ease;
+}
+
+.hiw-step:not(.hiw-step--active) .hiw-step__num {
+  font-size: 40px;
+}
+
+.hiw-step__label {
+  display: block;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.66px;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+}
+
+.hiw-step__heading {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--fg-primary);
+  max-width: 340px;
+}
+
+.hiw-step__desc {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--fg-body);
+  max-width: 340px;
+}
+
+/* ========== Product card ========== */
+
+/* Cinematic per-step widget video — replaces the static card (animated card).
+   The video is a card composed on a dark backdrop with empty margins; the
+   .hiw__widget frame clips + zooms it so the card itself reads larger, and a
+   soft glow + edge fade blend it into the gradient (no hard rectangle). */
+.hiw__widget {
+  height: 600px;
+  width: auto;
+  max-width: 100%;
+  aspect-ratio: 1256 / 1660;
+  overflow: hidden;
+  background: transparent;
+  /* No box-shadow / border-radius frame. Instead fade all four edges so the
+     webm's dark backdrop melts into the gradient with no defined edge — the
+     card (with its own baked shadow) just floats. */
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0, #000 4%, #000 91%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0, #000 4%, #000 91%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.hiw__widget-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Mild zoom only — keep enough backdrop margin that the edge fade lands on
+     the backdrop, never on the card. */
+  transform: scale(1.12);
+}
+
+/* When the cinematic video is present, the hand-built card is the
+   reduced-motion / no-JS fallback only. */
+.hiw__product-wrap .product-card {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hiw__widget {
+    display: none;
+  }
+  .hiw__product-wrap .product-card {
+    display: block;
+  }
+}
+
+.product-card {
+  width: min(100%, 459px);
+  background: var(--brand-white);
+  border-radius: 22px;
+  box-shadow:
+    0 -5.93px 58.764px rgba(69, 103, 255, 0.15),
+    0 11.018px 22.037px rgba(69, 202, 255, 0.16),
+    0 1.836px 3.673px rgba(85, 176, 255, 0.04),
+    0 0 0 12.855px rgba(242, 246, 255, 0.55),
+    inset 0 0.918px 0 rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+.product-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 18px 0;
+  min-height: 39px;
+}
+
+.product-card__title {
+  font-family: 'Geist', sans-serif;
+  font-size: 15.6px;
+  font-weight: 600;
+  color: #1f1f1f;
+  letter-spacing: -0.234px;
+}
+
+.product-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-card__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+  padding: 0;
+  border: 0.918px solid rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  background: var(--brand-white);
+  box-shadow:
+    0 1.836px 1.836px rgba(60, 40, 100, 0.04),
+    0 0.918px 0.918px rgba(60, 40, 100, 0.06);
+}
+
+.product-card__body {
+  padding: 0 9px 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 11px;
+  min-height: var(--hiw-widget-height, 460px);
+}
+
+.product-card__field {
+  background: var(--brand-white);
+  border-radius: 11px;
+  padding: 18px;
+  box-shadow: 0 0 0.918px rgba(60, 40, 100, 0.15);
+}
+
+.product-card__field-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 11px;
+}
+
+.product-card__field-label {
+  display: block;
+  font-size: 10.1px;
+  font-weight: 600;
+  letter-spacing: 1.01px;
+  text-transform: uppercase;
+  color: #8e8e89;
+}
+
+.product-card__add-asset {
+  font-family: 'Geist', sans-serif;
+  font-size: 12.9px;
+  font-weight: 500;
+  color: #9e9e9c;
+}
+
+.product-card__field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.product-card__amount {
+  font-family: 'Geist', sans-serif;
+  font-size: 40.4px;
+  font-weight: 500;
+  color: #c8c8c8;
+  letter-spacing: -1.414px;
+  line-height: 1;
+}
+
+.product-card__fiat {
+  margin-top: 11px;
+  font-family: 'Geist', sans-serif;
+  font-size: 11.9px;
+  color: #8e8e89;
+}
+
+.product-card__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5.5px 13px 5.5px 5.5px;
+  background: var(--brand-white);
+  border: 0.918px solid rgba(0, 0, 0, 0.04);
+  border-radius: 999px;
+  font-size: 13.8px;
+  font-weight: 600;
+  color: #1f1f1f;
+  box-shadow:
+    0 1.836px 3.673px rgba(60, 40, 100, 0.04),
+    0 0.918px 0.918px rgba(60, 40, 100, 0.06);
+}
+
+.product-card__pill::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border: 1.377px dashed #c8c8c7;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.product-card__field--receive .product-card__field-label {
+  margin-bottom: 11px;
+}
+
+.product-card__divider {
+  height: 1px;
+  margin: 11px 0;
+  background: #f6f6f6;
+}
+
+.product-card__recipient-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-card__address {
+  font-family: 'Geist', sans-serif;
+  font-size: 13.8px;
+  font-weight: 500;
+  color: var(--brand-blue);
+  letter-spacing: -0.069px;
+}
+
+.product-card__edit {
+  font-family: 'Geist', sans-serif;
+  font-size: 11.9px;
+  font-weight: 500;
+  color: #1f1f1f;
+  padding: 5.5px 13px;
+  border: 0.918px solid rgba(0, 0, 0, 0.04);
+  border-radius: 999px;
+  box-shadow: 0 0.918px 0.918px rgba(60, 40, 100, 0.06);
+}
+
+.product-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 18px);
+  margin: 0 auto 6px;
+  height: 48px;
+  border-radius: 13px;
+  background: #eff0f3;
+  color: #9e9e9c;
+  font-family: 'Geist', sans-serif;
+  font-size: 14.7px;
+  font-weight: 500;
+}
+
+/* ========== TABLET ≤768px ========== */
+
+@media (max-width: 768px) {
+  .hiw__stage {
+    height: auto;
+    padding-bottom: 0;
+  }
+
+  .hiw__gradient-wrap {
+    height: clamp(480px, 72vw, 564px);
+  }
+
+  .hiw__curve-fill {
+    top: auto;
+    bottom: 0;
+    height: clamp(80px, 14vw, 120px);
+  }
+
+  .hiw__curve-wave {
+    top: auto;
+    bottom: 0;
+    height: clamp(80px, 14vw, 120px);
+  }
+
+  .hiw__title {
+    position: relative;
+    top: auto;
+    left: auto;
+    max-width: none;
+    padding: 48px var(--section-pad-x) 0;
+    font-size: 48px;
+    text-align: center;
+  }
+
+  /* Flow words inline again on tablet/mobile (centered, natural wrap) */
+  .hiw__title-word {
+    display: inline;
+  }
+
+  .hiw__product-wrap {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: min(96%, 560px);
+    margin: 10px auto 0;
+  }
+
+  /* Size by width; crop the universally-empty backdrop below the card (the
+     card is top-anchored in the source) so it stops reserving blank space. */
+  .hiw__widget {
+    height: auto;
+    width: 100%;
+    /* Crop to the card region — trims the empty backdrop both above and
+       below the top-anchored card so it doesn't pad the layout. */
+    aspect-ratio: 1256 / 1345;
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0, #000 3%, #000 97%, transparent 100%),
+      linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to bottom, transparent 0, #000 3%, #000 97%, transparent 100%),
+      linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+    mask-composite: intersect;
+  }
+
+  .hiw__widget-video {
+    transform: none;
+    object-position: 50% 37%;
+  }
+
+  .product-card__body {
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .hiw__steps {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    /* Tuck steps up into the widget's faded empty backdrop below the card. */
+    margin-top: -8px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 var(--section-pad-x) 64px;
+  }
+
+  .hiw__steps > li {
+    order: var(--step-order, 0);
+  }
+
+  .hiw-step {
+    min-height: auto;
+  }
+
+  .hiw-step:not(.hiw-step--active) {
+    justify-content: flex-start;
+  }
+}
+
+/* ========== MOBILE ≤390px ========== */
+
+@media (max-width: 390px) {
+  .hiw__title {
+    padding-top: 40px;
+    font-size: 32px;
+  }
+
+  .hiw__product-wrap {
+    width: calc(100% - 24px);
+    max-width: none;
+  }
+
+  .hiw__steps {
+    padding-bottom: 48px;
+  }
+
+  .hiw-step__num {
+    font-size: 56px;
+  }
+
+  .hiw-step:not(.hiw-step--active) .hiw-step__num {
+    font-size: 32px;
+  }
+
+  .hiw-step__heading {
+    font-size: 18px;
+  }
+}
