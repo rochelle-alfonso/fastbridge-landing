@@ -1,0 +1,213 @@
+/* Scroll animations lab — catalog UI */
+
+.demo-shell {
+  min-height: 100vh;
+  background: var(--surface-muted);
+}
+
+.demo-top {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248, 248, 247, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 20px max(24px, calc((100% - 960px) / 2));
+}
+
+.demo-top__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.demo-top__title {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--fg-primary);
+}
+
+.demo-top__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.demo-link {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: var(--fg-primary);
+  color: var(--brand-white);
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.demo-link:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.demo-link--ghost {
+  background: transparent;
+  color: var(--fg-primary);
+  border: 1px solid var(--border);
+}
+
+.demo-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.demo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(22, 22, 21, 0.04);
+}
+
+.demo-card__head {
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid var(--border-faq);
+}
+
+.demo-card__num {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+}
+
+.demo-card__head h2 {
+  margin: 0 0 8px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.demo-card__head p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg-muted);
+  max-width: 56ch;
+}
+
+.demo-card__stage {
+  padding: 32px 28px 36px;
+  background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+}
+
+.demo-card__stage--dark {
+  background: #0a0a12;
+  color: #fffffe;
+}
+
+/* Mini playgrounds */
+.play-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.play-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.play-btn--dark {
+  background: var(--fg-primary);
+  color: var(--brand-white);
+}
+
+.play-btn--light {
+  background: #fffffe;
+  color: var(--fg-primary);
+  border: 1px solid var(--border);
+}
+
+.play-btn--ghost {
+  background: rgba(255, 255, 254, 0.12);
+  color: #fffffe;
+  border: 1px solid rgba(255, 255, 254, 0.2);
+}
+
+.reveal-box {
+  width: 100%;
+  max-width: 320px;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-family: 'Google Sans Flex', sans-serif;
+}
+
+.reveal-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.reveal-stack .reveal-box {
+  max-width: none;
+}
+
+.stagger-list {
+  display: grid;
+  gap: 8px;
+}
+
+.stagger-list__item {
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border-faq);
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 15px;
+}
+
+.demo-hint {
+  margin: 16px 0 0;
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
+.demo-scroll-spacer {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-muted);
+  font-size: 14px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+}

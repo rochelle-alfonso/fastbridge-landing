@@ -183,6 +183,11 @@
     animation: none;
     width: 100%;
   }
+
+  .hiw-step:not(.hiw-step--active):hover .hiw-step__num {
+    font-size: 40px;
+    color: var(--step-num-active);
+  }
 }
 
 .hiw-step:focus-visible {
@@ -197,6 +202,10 @@
   gap: 12px;
 }
 
+.hiw-step:not(.hiw-step--active):hover {
+  opacity: 0.9;
+}
+
 .hiw-step__num {
   display: block;
   font-family: 'Google Sans Flex', sans-serif;
@@ -204,11 +213,16 @@
   font-weight: 400;
   line-height: 1;
   color: var(--step-num-active);
-  transition: font-size 0.35s ease;
+  transition: font-size 0.35s ease, color 0.25s ease;
 }
 
 .hiw-step:not(.hiw-step--active) .hiw-step__num {
   font-size: 40px;
+}
+
+.hiw-step:not(.hiw-step--active):hover .hiw-step__num {
+  font-size: 56px;
+  color: #a8c8f8;
 }
 
 .hiw-step__label {
@@ -619,6 +633,10 @@
 
   .hiw-step:not(.hiw-step--active) .hiw-step__num {
     font-size: 32px;
+  }
+
+  .hiw-step:not(.hiw-step--active):hover .hiw-step__num {
+    font-size: 44px;
   }
 
   .hiw-step__heading {

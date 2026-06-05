@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastBridge — HIW Step Hover Options</title>
+  <link rel="stylesheet" href="../../base.css">
+  <link rel="stylesheet" href="hiw-hover.css">
+</head>
+<body class="demo-shell">
+  <header class="demo-top">
+    <div class="demo-top__inner">
+      <h1 class="demo-top__title">HIW step hover options</h1>
+      <nav class="demo-top__links" aria-label="Preview links">
+        <a class="demo-link" href="../../index.html#how-it-works">Live section</a>
+        <a class="demo-link demo-link--ghost" href="../button-hover/index.html">Button hovers</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="demo-main">
+    <p class="demo-intro">
+      Seven hover treatments for the How It Works steps. Step 01 is active — hover steps 02 and 03 to compare.
+      Click any step to switch the active state.
+    </p>
+
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">01</span>
+        <h2>Opacity lift</h2>
+        <p>Inactive steps brighten to full opacity — minimal, lets the dimmed state do the work.</p>
+      </div>
+      <div class="demo-stage">
+        <ol class="hiw-demo-steps hiw-hover--opacity" data-hiw-demo>
+          <li><button type="button" class="hiw-demo-step is-active" data-step="0"><span class="hiw-demo-step__num">01</span><span class="hiw-demo-step__label">Step 01</span><span class="hiw-demo-step__heading">Select chain, token &amp; amount</span><p class="hiw-demo-step__desc">Choose destination and amount. Balances aggregate automatically.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="1"><span class="hiw-demo-step__num">02</span><span class="hiw-demo-step__label">Step 02</span><span class="hiw-demo-step__heading">Verify your request</span><p class="hiw-demo-step__desc">Review routing. Deselect chains for manual control.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="2"><span class="hiw-demo-step__num">03</span><span class="hiw-demo-step__label">Step 03</span><span class="hiw-demo-step__heading">Bridge in one move</span><p class="hiw-demo-step__desc">One signature. Combined delivery to destination.</p></button></li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">02</span>
+        <h2>Underline preview</h2>
+        <p>Blue underline sweeps in from the left — previews the active state without switching step.</p>
+      </div>
+      <div class="demo-stage">
+        <ol class="hiw-demo-steps hiw-hover--underline" data-hiw-demo>
+          <li><button type="button" class="hiw-demo-step is-active" data-step="0"><span class="hiw-demo-step__num">01</span><span class="hiw-demo-step__label">Step 01</span><span class="hiw-demo-step__heading">Select chain, token &amp; amount</span><p class="hiw-demo-step__desc">Choose destination and amount. Balances aggregate automatically.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="1"><span class="hiw-demo-step__num">02</span><span class="hiw-demo-step__label">Step 02</span><span class="hiw-demo-step__heading">Verify your request</span><p class="hiw-demo-step__desc">Review routing. Deselect chains for manual control.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="2"><span class="hiw-demo-step__num">03</span><span class="hiw-demo-step__label">Step 03</span><span class="hiw-demo-step__heading">Bridge in one move</span><p class="hiw-demo-step__desc">One signature. Combined delivery to destination.</p></button></li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="demo-card is-live">
+      <div class="demo-card__head">
+        <span class="demo-card__num">03 · Live on landing</span>
+        <h2>Number grow</h2>
+        <p>The background number scales up and brightens — echoes the active/inactive size transition.</p>
+      </div>
+      <div class="demo-stage">
+        <ol class="hiw-demo-steps hiw-hover--num-grow" data-hiw-demo>
+          <li><button type="button" class="hiw-demo-step is-active" data-step="0"><span class="hiw-demo-step__num">01</span><span class="hiw-demo-step__label">Step 01</span><span class="hiw-demo-step__heading">Select chain, token &amp; amount</span><p class="hiw-demo-step__desc">Choose destination and amount. Balances aggregate automatically.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="1"><span class="hiw-demo-step__num">02</span><span class="hiw-demo-step__label">Step 02</span><span class="hiw-demo-step__heading">Verify your request</span><p class="hiw-demo-step__desc">Review routing. Deselect chains for manual control.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="2"><span class="hiw-demo-step__num">03</span><span class="hiw-demo-step__label">Step 03</span><span class="hiw-demo-step__heading">Bridge in one move</span><p class="hiw-demo-step__desc">One signature. Combined delivery to destination.</p></button></li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">04</span>
+        <h2>Content nudge</h2>
+        <p>Label, heading, and description shift 6px right — subtle directional cue.</p>
+      </div>
+      <div class="demo-stage">
+        <ol class="hiw-demo-steps hiw-hover--nudge" data-hiw-demo>
+          <li><button type="button" class="hiw-demo-step is-active" data-step="0"><span class="hiw-demo-step__num">01</span><span class="hiw-demo-step__label">Step 01</span><span class="hiw-demo-step__heading">Select chain, token &amp; amount</span><p class="hiw-demo-step__desc">Choose destination and amount. Balances aggregate automatically.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="1"><span class="hiw-demo-step__num">02</span><span class="hiw-demo-step__label">Step 02</span><span class="hiw-demo-step__heading">Verify your request</span><p class="hiw-demo-step__desc">Review routing. Deselect chains for manual control.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="2"><span class="hiw-demo-step__num">03</span><span class="hiw-demo-step__label">Step 03</span><span class="hiw-demo-step__heading">Bridge in one move</span><p class="hiw-demo-step__desc">One signature. Combined delivery to destination.</p></button></li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">05</span>
+        <h2>Grey fill rise</h2>
+        <p>Same fill-rise as your buttons — grey background rises from the bottom of the step block.</p>
+      </div>
+      <div class="demo-stage">
+        <ol class="hiw-demo-steps hiw-hover--fill" data-hiw-demo>
+          <li><button type="button" class="hiw-demo-step is-active" data-step="0"><span class="hiw-demo-step__num">01</span><span class="hiw-demo-step__label">Step 01</span><span class="hiw-demo-step__heading">Select chain, token &amp; amount</span><p class="hiw-demo-step__desc">Choose destination and amount. Balances aggregate automatically.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="1"><span class="hiw-demo-step__num">02</span><span class="hiw-demo-step__label">Step 02</span><span class="hiw-demo-step__heading">Verify your request</span><p class="hiw-demo-step__desc">Review routing. Deselect chains for manual control.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="2"><span class="hiw-demo-step__num">03</span><span class="hiw-demo-step__label">Step 03</span><span class="hiw-demo-step__heading">Bridge in one move</span><p class="hiw-demo-step__desc">One signature. Combined delivery to destination.</p></button></li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">06</span>
+        <h2>Blue heading</h2>
+        <p>Heading tints brand blue on hover — quick scan affordance without layout shift.</p>
+      </div>
+      <div class="demo-stage">
+        <ol class="hiw-demo-steps hiw-hover--blue-head" data-hiw-demo>
+          <li><button type="button" class="hiw-demo-step is-active" data-step="0"><span class="hiw-demo-step__num">01</span><span class="hiw-demo-step__label">Step 01</span><span class="hiw-demo-step__heading">Select chain, token &amp; amount</span><p class="hiw-demo-step__desc">Choose destination and amount. Balances aggregate automatically.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="1"><span class="hiw-demo-step__num">02</span><span class="hiw-demo-step__label">Step 02</span><span class="hiw-demo-step__heading">Verify your request</span><p class="hiw-demo-step__desc">Review routing. Deselect chains for manual control.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="2"><span class="hiw-demo-step__num">03</span><span class="hiw-demo-step__label">Step 03</span><span class="hiw-demo-step__heading">Bridge in one move</span><p class="hiw-demo-step__desc">One signature. Combined delivery to destination.</p></button></li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">07 · Recommended</span>
+        <h2>Combo — opacity + underline + blue heading</h2>
+        <p>Layers three subtle cues together. Grey underline on hover, soft blue at full width.</p>
+      </div>
+      <div class="demo-stage">
+        <ol class="hiw-demo-steps hiw-hover--combo" data-hiw-demo>
+          <li><button type="button" class="hiw-demo-step is-active" data-step="0"><span class="hiw-demo-step__num">01</span><span class="hiw-demo-step__label">Step 01</span><span class="hiw-demo-step__heading">Select chain, token &amp; amount</span><p class="hiw-demo-step__desc">Choose destination and amount. Balances aggregate automatically.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="1"><span class="hiw-demo-step__num">02</span><span class="hiw-demo-step__label">Step 02</span><span class="hiw-demo-step__heading">Verify your request</span><p class="hiw-demo-step__desc">Review routing. Deselect chains for manual control.</p></button></li>
+          <li><button type="button" class="hiw-demo-step" data-step="2"><span class="hiw-demo-step__num">03</span><span class="hiw-demo-step__label">Step 03</span><span class="hiw-demo-step__heading">Bridge in one move</span><p class="hiw-demo-step__desc">One signature. Combined delivery to destination.</p></button></li>
+        </ol>
+        <p class="demo-hint">Click a step to make it active and test hover on the others.</p>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    document.querySelectorAll('[data-hiw-demo]').forEach(function (list) {
+      list.addEventListener('click', function (e) {
+        var btn = e.target.closest('.hiw-demo-step');
+        if (!btn || !list.contains(btn)) return;
+        list.querySelectorAll('.hiw-demo-step').forEach(function (s) {
+          s.classList.remove('is-active');
+        });
+        btn.classList.add('is-active');
+      });
+    });
+  </script>
+</body>
+</html>

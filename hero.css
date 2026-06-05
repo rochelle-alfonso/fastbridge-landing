@@ -176,6 +176,9 @@
 }
 
 .hero .btn {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -191,7 +194,31 @@
   cursor: pointer;
   flex-shrink: 0;
   box-shadow: 0 1px 2px rgba(85, 85, 85, 0.05);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.1s ease;
+}
+
+.hero .btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero .btn:hover::before {
+  transform: scaleY(1);
+}
+
+.hero .btn:active {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
 }
 
 /* Add FastBridge — translucent glass-dark button (Figma 342:2399) */
@@ -206,9 +233,12 @@
   backdrop-filter: blur(8px);
 }
 
+.hero .btn--primary::before {
+  background: rgba(255, 255, 254, 0.14);
+}
+
 .hero .btn--primary:hover {
-  background: rgba(22, 22, 21, 0.78);
-  border-color: rgba(255, 255, 254, 0.32);
+  border-color: rgba(255, 255, 254, 0.45);
 }
 
 /* Bridge Now — solid white button (Figma 342:2401) */
@@ -220,9 +250,14 @@
   color: #161615;
 }
 
+.hero .btn--secondary::before {
+  background: #161615;
+}
+
 .hero .btn--secondary:hover {
-  background: #f2f2f0;
-  border-color: #d8d8d6;
+  color: #fffffe;
+  border-color: #161615;
+  background: transparent;
 }
 
 /* Scale down on narrower desktop viewports */
@@ -466,6 +501,23 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero .btn {
-    transition: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .hero .btn::before {
+    display: none;
+  }
+
+  .hero .btn--secondary:hover {
+    background: #161615;
+    color: #fffffe;
+  }
+
+  .hero .btn--primary:hover {
+    background: rgba(22, 22, 21, 0.78);
+  }
+
+  .hero .btn:active {
+    transform: none;
   }
 }

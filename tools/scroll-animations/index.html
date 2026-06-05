@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastBridge — Scroll Animation Lab</title>
+  <link rel="stylesheet" href="../../base.css">
+  <link rel="stylesheet" href="../../animations.css">
+  <link rel="stylesheet" href="scroll-animations.css">
+</head>
+<body class="demo-shell">
+  <header class="demo-top">
+    <div class="demo-top__inner">
+      <h1 class="demo-top__title">Scroll animation lab</h1>
+      <nav class="demo-top__links" aria-label="Preview links">
+        <a class="demo-link" href="../../index-animated.html">Full animated landing</a>
+        <a class="demo-link demo-link--ghost" href="../../index.html">Production landing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="demo-main">
+    <p class="demo-hint" style="margin:0">Four scroll effects only. Scroll down to trigger reveals, or open the full preview.</p>
+
+    <div class="demo-scroll-spacer">↓ Scroll to trigger reveals</div>
+
+    <!-- 1. Hero entrance -->
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">01 · Load animation</span>
+        <h2>Hero entrance</h2>
+        <p>Staggered title lines and CTA on page load — no scroll required.</p>
+      </div>
+      <div class="demo-card__stage demo-card__stage--dark" data-hero-animate>
+        <p style="margin:0 0 8px;font-size:14px;opacity:0.7">Move Your Crypto Across</p>
+        <h3 style="margin:0 0 20px;font-family:'Google Sans Flex',sans-serif;font-size:32px;font-weight:400">
+          <span class="hero__title-line" style="display:block">Chains In One</span>
+          <span class="hero__title-line" style="display:block">Transaction</span>
+        </h3>
+        <div class="play-row hero__actions">
+          <button type="button" class="play-btn play-btn--light">Bridge Now</button>
+          <button type="button" class="play-btn play-btn--ghost">Add FastBridge</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. Hero parallax -->
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">02 · Scroll effect</span>
+        <h2>Hero parallax</h2>
+        <p>Background shifts subtly as you scroll past the hero. See it on the full landing preview.</p>
+      </div>
+      <div class="demo-card__stage">
+        <p style="margin:0;color:var(--fg-muted)">Open <a href="../../index-animated.html">index-animated.html</a> and scroll slowly past the hero video.</p>
+      </div>
+    </article>
+
+    <!-- 3. Section reveals -->
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">03 · Scroll reveal</span>
+        <h2>Section reveals</h2>
+        <p>Fade-up, slide, and scale as sections enter the viewport.</p>
+      </div>
+      <div class="demo-card__stage">
+        <div class="reveal-stack">
+          <div class="reveal-box" data-reveal>Fade up</div>
+          <div class="reveal-box" data-reveal="slide-left">Slide from right</div>
+          <div class="reveal-box" data-reveal="scale">Scale in</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. Stagger -->
+    <article class="demo-card">
+      <div class="demo-card__head">
+        <span class="demo-card__num">04 · Scroll reveal</span>
+        <h2>Staggered list</h2>
+        <p>FAQ rows and chains strip reveal one after another.</p>
+      </div>
+      <div class="demo-card__stage">
+        <div class="stagger-list" data-reveal-stagger>
+          <div class="stagger-list__item" data-reveal-child>What is Avail FastBridge?</div>
+          <div class="stagger-list__item" data-reveal-child>How is it different from other bridges?</div>
+          <div class="stagger-list__item" data-reveal-child>Do I need gas on every chain?</div>
+        </div>
+      </div>
+    </article>
+
+    <div class="demo-scroll-spacer">End of lab — open full preview →</div>
+    <div class="play-row" style="justify-content:center">
+      <a class="demo-link" href="../../index-animated.html">Open full animated landing</a>
+    </div>
+  </main>
+
+  <script src="../../animations.js"></script>
+</body>
+</html>

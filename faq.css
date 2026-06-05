@@ -110,6 +110,44 @@
   color: rgba(255, 255, 254, 0.74);
 }
 
+/* Social buttons in the banner */
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.page-hero__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fffffe;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.page-hero__social:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.page-hero__social svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
 /* ========== FAQ list (standalone, centered) ========== */
 .faq-page__list {
   width: 100%;
@@ -213,6 +251,10 @@
   .page-hero__subtitle {
     max-width: none;
     font-size: 16px;
+  }
+
+  .page-hero__actions {
+    justify-content: center;
   }
 
   /* Filter pills: single horizontal row, swipeable, with a soft right-edge

@@ -1,0 +1,482 @@
+/* Button hover options lab */
+
+.demo-shell {
+  min-height: 100vh;
+  background: var(--surface-muted);
+}
+
+.demo-top {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248, 248, 247, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 20px max(24px, calc((100% - 960px) / 2));
+}
+
+.demo-top__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.demo-top__title {
+  margin: 0;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.demo-top__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.demo-link {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: var(--fg-primary);
+  color: var(--brand-white);
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.demo-link--ghost {
+  background: transparent;
+  color: var(--fg-primary);
+  border: 1px solid var(--border);
+}
+
+.demo-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.demo-intro {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg-muted);
+}
+
+.demo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.demo-card.is-live {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 1px rgba(0, 101, 255, 0.15);
+}
+
+.demo-card__head {
+  padding: 20px 24px 12px;
+  border-bottom: 1px solid var(--border-faq);
+}
+
+.demo-card__head-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.demo-card__num {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+}
+
+.demo-card__badge {
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(0, 101, 255, 0.1);
+  color: var(--brand-blue);
+}
+
+.demo-card__head h2 {
+  margin: 0 0 6px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.demo-card__head p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
+
+/* Hero-like stage */
+.demo-stage {
+  position: relative;
+  padding: 48px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(0, 101, 255, 0.55), transparent),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(0, 40, 120, 0.6), transparent),
+    linear-gradient(135deg, #0a1628 0%, #0d3d8f 45%, #1a6fd4 100%);
+}
+
+/* Base demo buttons — match hero sizing */
+.demo-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 56px;
+  width: 160px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  flex-shrink: 0;
+}
+
+.demo-btn--white {
+  background: #fffffe;
+  color: #161615;
+  border-color: #e8e8e7;
+  box-shadow: 0 1px 2px rgba(85, 85, 85, 0.05);
+}
+
+.demo-btn--glass {
+  background: rgba(22, 22, 21, 0.61);
+  color: #fffffe;
+  border-color: rgba(255, 255, 254, 0.19);
+  box-shadow: 0 1px 4px rgba(85, 85, 85, 0.05);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.demo-btn__arrow {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  font-size: 14px;
+}
+
+/* ========== OPTION 1: Lift + shadow (live on landing) ========== */
+
+.hover--lift .demo-btn {
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease;
+}
+
+.hover--lift .demo-btn:hover {
+  transform: translateY(-2px);
+}
+
+.hover--lift .demo-btn--white:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+}
+
+.hover--lift .demo-btn--glass:hover {
+  background: rgba(22, 22, 21, 0.78);
+  border-color: rgba(255, 255, 254, 0.42);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hover--lift .demo-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ========== OPTION 2: Soft scale ========== */
+
+.hover--scale .demo-btn {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hover--scale .demo-btn:hover {
+  transform: scale(1.04);
+}
+
+.hover--scale .demo-btn--white:hover {
+  background: #fffffe;
+}
+
+.hover--scale .demo-btn--glass:hover {
+  background: rgba(22, 22, 21, 0.78);
+  border-color: rgba(255, 255, 254, 0.35);
+}
+
+.hover--scale .demo-btn:active {
+  transform: scale(0.98);
+}
+
+/* ========== OPTION 3: Glow ring ========== */
+
+.hover--glow .demo-btn {
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hover--glow .demo-btn--white:hover {
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 254, 0.35),
+    0 0 24px rgba(255, 255, 254, 0.25);
+}
+
+.hover--glow .demo-btn--glass:hover {
+  background: rgba(22, 22, 21, 0.72);
+  border-color: rgba(255, 255, 254, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 254, 0.2),
+    0 0 28px rgba(0, 101, 255, 0.35);
+}
+
+.hover--glow .demo-btn:active {
+  box-shadow: none;
+}
+
+/* ========== OPTION 4: Shimmer sweep ========== */
+
+.hover--shimmer .demo-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 70%
+  );
+  transform: skewX(-18deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.hover--shimmer .demo-btn--glass::after {
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 254, 0.18) 50%,
+    transparent 70%
+  );
+}
+
+.hover--shimmer .demo-btn {
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.hover--shimmer .demo-btn:hover::after {
+  animation: btn-shimmer 0.65s ease forwards;
+}
+
+.hover--shimmer .demo-btn--white:hover {
+  background: #fffffe;
+}
+
+.hover--shimmer .demo-btn--glass:hover {
+  border-color: rgba(255, 255, 254, 0.38);
+}
+
+@keyframes btn-shimmer {
+  to { left: 140%; }
+}
+
+/* ========== OPTION 5: Fill rise ========== */
+
+.hover--fill .demo-btn {
+  z-index: 0;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.hover--fill .demo-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hover--fill .demo-btn--white::before {
+  background: #161615;
+}
+
+.hover--fill .demo-btn--glass::before {
+  background: rgba(255, 255, 254, 0.14);
+}
+
+.hover--fill .demo-btn--white:hover {
+  color: #fffffe;
+  border-color: #161615;
+}
+
+.hover--fill .demo-btn--white:hover::before {
+  transform: scaleY(1);
+}
+
+.hover--fill .demo-btn--glass:hover {
+  border-color: rgba(255, 255, 254, 0.45);
+}
+
+.hover--fill .demo-btn--glass:hover::before {
+  transform: scaleY(1);
+}
+
+/* ========== OPTION 6: Arrow nudge ========== */
+
+.hover--arrow .demo-btn {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.22s ease,
+    padding 0.22s ease;
+}
+
+.hover--arrow .demo-btn--white:hover {
+  background: #f2f2f0;
+  padding-right: 20px;
+}
+
+.hover--arrow .demo-btn--glass:hover {
+  background: rgba(22, 22, 21, 0.78);
+  border-color: rgba(255, 255, 254, 0.35);
+  padding-right: 18px;
+}
+
+.hover--arrow .demo-btn:hover .demo-btn__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hover--arrow .demo-btn:active {
+  transform: scale(0.98);
+}
+
+/* ========== OPTION 7: Spring pop ========== */
+
+.hover--spring .demo-btn {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover--spring .demo-btn:hover {
+  transform: scale(1.06);
+}
+
+.hover--spring .demo-btn--white:hover {
+  background: #fffffe;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.hover--spring .demo-btn--glass:hover {
+  background: rgba(22, 22, 21, 0.8);
+  border-color: rgba(255, 255, 254, 0.4);
+}
+
+.hover--spring .demo-btn:active {
+  transform: scale(0.96);
+  transition-duration: 0.12s;
+}
+
+/* ========== OPTION 8: Border draw ========== */
+
+.hover--border .demo-btn {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hover--border .demo-btn--white {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1.5px #e8e8e7;
+}
+
+.hover--border .demo-btn--glass {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 254, 0.25);
+}
+
+.hover--border .demo-btn:hover {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.hover--border .demo-btn--white:hover {
+  color: #161615;
+  background: rgba(255, 255, 254, 0.95);
+}
+
+.hover--border .demo-btn--glass:hover {
+  color: #fffffe;
+  background: rgba(22, 22, 21, 0.75);
+}
+
+.hover--border .demo-btn:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-btn,
+  .demo-btn::before,
+  .demo-btn::after,
+  .demo-btn__arrow {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .hover--shimmer .demo-btn::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-stage {
+    padding: 36px 16px;
+    gap: 16px;
+  }
+
+  .demo-btn {
+    width: 152px;
+    height: 48px;
+    font-size: 14px;
+  }
+}
