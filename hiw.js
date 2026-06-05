@@ -12,30 +12,29 @@
   var STEP_VIDEOS = [
     {
       webm: 'assets/hiw-step-1.webm?v=3',
-      hevc: 'assets/hiw-step-1-hevc.mp4?v=1'
+      hevc: 'assets/hiw-step-1-hevc.mov?v=2'
     },
     {
       webm: 'assets/hiw-step-2.webm?v=3',
-      hevc: 'assets/hiw-step-2-hevc.mp4?v=1'
+      hevc: 'assets/hiw-step-2-hevc.mov?v=2'
     },
     {
       webm: 'assets/hiw-step-3.webm?v=3',
-      hevc: 'assets/hiw-step-3-hevc.mp4?v=1'
+      hevc: 'assets/hiw-step-3-hevc.mov?v=2'
     }
   ];
 
   // Safari / iOS: WebM VP9 alpha composites poorly — use HEVC (hvc1) with alpha.
+  // Do not gate on canPlayType; iOS Safari often returns "" before a file is loaded.
   function useHevcHiwVideos() {
-    var probe = document.createElement('video');
-    if (probe.canPlayType('video/mp4; codecs="hvc1"') === '') return false;
     var ua = navigator.userAgent;
-    var isIOS = /iPhone|iPad|iPod/i.test(ua);
-    var isSafari = /Safari/i.test(ua) && !/Chrome|CriOS|Chromium|Edg|OPR|FxiOS/i.test(ua);
-    return isIOS || isSafari;
+    if (/iPhone|iPad|iPod/i.test(ua)) return true;
+    return /Safari/i.test(ua) && !/Chrome|CriOS|Chromium|Edg|OPR|FxiOS|Firefox/i.test(ua);
   }
 
-  function getStepVideoSrc(step) {
-    return useHevcHiwVideos() ? step.hevc : step.webm;
+  function getStepVideoSrc(step, preferWebm) {
+    if (preferWebm || !useHevcHiwVideos()) return step.webm;
+    return step.hevc;
   }
 
   // Fallback step length, used only when the cinematic videos can't drive the
@@ -185,7 +184,19 @@
         if (reducedMotion) return;
         if (i === currentIndex) goToStep((currentIndex + 1) % steps.length);
       });
-      v.addEventListener('error', fallBackToTimer);
+      v.addEventListener('error', function () {
+        if (!v.dataset.webmFallback && useHevcHiwVideos()) {
+          v.dataset.webmFallback = '1';
+          v.src = step.webm;
+          v.load();
+          if (i === currentIndex && isVisible && !reducedMotion) {
+            var p = v.play();
+            if (p && typeof p.catch === 'function') p.catch(fallBackToTimer);
+          }
+          return;
+        }
+        fallBackToTimer();
+      });
 
       widget.appendChild(v);
       videos.push(v);
