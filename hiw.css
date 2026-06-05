@@ -549,6 +549,8 @@
     transform: none;
     width: min(96%, 560px);
     margin: 10px auto 0;
+    z-index: 2;
+    isolation: isolate;
   }
 
   /* Size by width; crop the universally-empty backdrop below the card (the
@@ -570,7 +572,7 @@
   }
 
   .hiw__widget-video {
-    transform: none;
+    transform: translateZ(0);
     object-position: 50% 37%;
   }
 
@@ -590,6 +592,7 @@
     top: auto;
     left: auto;
     right: auto;
+    z-index: 1;
     /* Tuck steps up into the widget's faded empty backdrop below the card. */
     margin-top: -8px;
     grid-template-columns: 1fr;
@@ -641,5 +644,23 @@
 
   .hiw-step__heading {
     font-size: 18px;
+  }
+}
+
+/* Safari iOS — dual mask-composite on <video> is unreliable; use a single
+   vertical fade and keep the widget above overlapping step numbers. */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 768px) {
+    .hiw__widget {
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 3%, #000 97%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0, #000 3%, #000 97%, transparent 100%);
+      -webkit-mask-composite: source-over;
+      mask-composite: add;
+    }
+
+    .hiw__widget-video {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
   }
 }
