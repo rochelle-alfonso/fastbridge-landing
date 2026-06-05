@@ -63,16 +63,6 @@
 [data-reveal-stagger].is-revealed > [data-reveal-child]:nth-child(6) { transition-delay: calc(var(--motion-stagger) * 5); }
 [data-reveal-stagger].is-revealed > [data-reveal-child]:nth-child(n+7) { transition-delay: calc(var(--motion-stagger) * 6); }
 
-/* Override legacy section reveal when enhanced animations are active */
-html.has-enhanced-animations .chains-strip,
-html.has-enhanced-animations .blog,
-html.has-enhanced-animations .faq,
-html.has-enhanced-animations .site-footer {
-  opacity: 1;
-  transform: none;
-  transition: none;
-}
-
 /* ========== 1. HERO ENTRANCE ========== */
 
 html.has-enhanced-animations [data-hero-animate] .hero__header,

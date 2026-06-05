@@ -37,6 +37,11 @@
     });
   });
 
+  /* Scroll reveal — skip when enhanced animations handle it */
+  if (document.documentElement.classList.contains('has-enhanced-animations')) {
+    return;
+  }
+
   /* Scroll reveal — show sections already in view on load */
   var reveal = document.querySelectorAll('.chains-strip, .blog, .faq, .site-footer');
 
