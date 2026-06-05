@@ -91,6 +91,7 @@
 .contact-form__submit {
   border: none;
   cursor: pointer;
+  font: inherit;
 }
 
 .contact-form__note {

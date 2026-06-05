@@ -63,19 +63,33 @@
   padding: 0 24px;
   border: 1px solid #e8e8e7;
   border-radius: 8px;
-  background: #fffffe;
+  background-color: #fffffe;
+  background-image: linear-gradient(#161615, #161615);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% 0%;
   color: #161615;
   font-family: 'Google Sans Flex', sans-serif;
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   box-shadow: 0 1px 2px rgba(85, 85, 85, 0.05);
-  transition: background 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-size 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.1s ease;
 }
 
 .page-hero__cta:hover {
-  background: #f2f2f0;
-  border-color: #d8d8d6;
+  background-size: 100% 100%;
+  color: #fffffe;
+  border-color: #161615;
+}
+
+.page-hero__cta:active {
+  transform: scale(0.98);
 }
 
 .page-hero__content {
@@ -169,7 +183,11 @@
   padding: 9px 18px;
   border: 1px solid #e3e3e1;
   border-radius: 999px;
-  background: #fffffe;
+  background-color: #fffffe;
+  background-image: linear-gradient(#e8e8e7, #e8e8e7);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% 0%;
   color: var(--fg-muted, #6b7280);
   font-family: 'Google Sans Flex', sans-serif;
   font-size: 14px;
@@ -177,17 +195,35 @@
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  overflow: hidden;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-size 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.1s ease;
 }
 
-.faq-filter:hover {
+.faq-filter:not(.faq-filter--active):hover {
+  background-size: 100% 100%;
+  color: var(--fg-primary, #161615);
   border-color: #c9c9c6;
 }
 
+.faq-filter:active {
+  transform: scale(0.98);
+}
+
 .faq-filter--active {
-  background: var(--fg-primary, #161615);
+  background-image: none;
+  background-color: var(--fg-primary, #161615);
+  background-size: 100% 100%;
   color: #fffffe;
   border-color: var(--fg-primary, #161615);
+}
+
+.faq-filter--active:hover {
+  background-color: var(--fg-primary, #161615);
+  color: #fffffe;
 }
 
 .faq-groups {
@@ -279,5 +315,22 @@
     flex-shrink: 0;
     padding: 8px 14px;
     font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hero__cta,
+  .faq-filter {
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .page-hero__cta:hover,
+  .faq-filter:not(.faq-filter--active):hover {
+    background-size: 100% 100%;
+  }
+
+  .page-hero__cta:active,
+  .faq-filter:active {
+    transform: none;
   }
 }
