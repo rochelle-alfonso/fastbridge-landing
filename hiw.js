@@ -10,10 +10,33 @@
 
   var widget = section.querySelector('.hiw__widget');
   var STEP_VIDEOS = [
-    'assets/hiw-step-1.webm?v=2',
-    'assets/hiw-step-2.webm?v=2',
-    'assets/hiw-step-3.webm?v=2'
+    {
+      webm: 'assets/hiw-step-1.webm?v=3',
+      hevc: 'assets/hiw-step-1-hevc.mp4?v=1'
+    },
+    {
+      webm: 'assets/hiw-step-2.webm?v=3',
+      hevc: 'assets/hiw-step-2-hevc.mp4?v=1'
+    },
+    {
+      webm: 'assets/hiw-step-3.webm?v=3',
+      hevc: 'assets/hiw-step-3-hevc.mp4?v=1'
+    }
   ];
+
+  // Safari / iOS: WebM VP9 alpha composites poorly — use HEVC (hvc1) with alpha.
+  function useHevcHiwVideos() {
+    var probe = document.createElement('video');
+    if (probe.canPlayType('video/mp4; codecs="hvc1"') === '') return false;
+    var ua = navigator.userAgent;
+    var isIOS = /iPhone|iPad|iPod/i.test(ua);
+    var isSafari = /Safari/i.test(ua) && !/Chrome|CriOS|Chromium|Edg|OPR|FxiOS/i.test(ua);
+    return isIOS || isSafari;
+  }
+
+  function getStepVideoSrc(step) {
+    return useHevcHiwVideos() ? step.hevc : step.webm;
+  }
 
   // Fallback step length, used only when the cinematic videos can't drive the
   // sequence (missing elements, load/decode error, or play() rejection).
@@ -145,7 +168,7 @@
   // Build one preloaded <video> per step, stacked inside the widget frame.
   if (widget) {
     widget.innerHTML = '';
-    STEP_VIDEOS.forEach(function (src, i) {
+    STEP_VIDEOS.forEach(function (step, i) {
       var v = document.createElement('video');
       v.className = 'hiw__widget-video' + (i === 0 ? ' hiw__widget-video--active' : '');
       v.muted = true;
@@ -156,7 +179,7 @@
       v.setAttribute('playsinline', '');
       v.playsInline = true;
       v.setAttribute('aria-hidden', 'true');
-      v.src = src;
+      v.src = getStepVideoSrc(step);
 
       v.addEventListener('ended', function () {
         if (reducedMotion) return;
