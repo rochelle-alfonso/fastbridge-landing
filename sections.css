@@ -586,8 +586,8 @@
   }
 }
 
-/* ========== MOBILE ≤440px ========== */
-@media (max-width: 440px) {
+/* ========== MOBILE ≤460px ========== */
+@media (max-width: 460px) {
   .chains-strip {
     padding: 32px 32px 40px;
     gap: 12px;

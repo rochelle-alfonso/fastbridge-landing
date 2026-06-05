@@ -306,7 +306,7 @@
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 460px) {
   .blog {
     --blog-pad-x: 32px;
   }
