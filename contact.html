@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — FastBridge</title>
+  <link rel="stylesheet" href="base.css?v=22">
+  <link rel="stylesheet" href="hero.css?v=53">
+  <link rel="stylesheet" href="sections.css?v=27">
+  <link rel="stylesheet" href="faq.css?v=8">
+  <link rel="stylesheet" href="contact.css?v=1">
+</head>
+<body>
+  <main class="page contact-page">
+    <!-- ===== Header banner (same as FAQs) ===== -->
+    <section class="page-hero" aria-labelledby="contact-page-title">
+      <img
+        src="assets/figma-export/faq-header.jpg"
+        alt=""
+        class="page-hero__media"
+        aria-hidden="true"
+        width="1920"
+        height="646"
+      >
+
+      <header class="page-hero__nav">
+        <a href="index.html" class="hero__logo">
+          <img
+            src="assets/figma-hero/logo-icon-white.svg"
+            alt=""
+            class="hero__logo-icon"
+            width="40"
+            height="40"
+          >
+          <span class="hero__logo-text">fastbridge</span>
+        </a>
+        <a href="https://fastbridge.availproject.org/" class="page-hero__cta">Bridge Now</a>
+      </header>
+
+      <div class="page-hero__content">
+        <h1 class="page-hero__title" id="contact-page-title">Get in touch</h1>
+        <p class="page-hero__subtitle">
+          Have a question, partnership idea, or want to integrate FastBridge? Send us a message.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Contact form ===== -->
+    <section class="contact" aria-label="Contact form">
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="contact-form__row">
+          <div class="contact-field">
+            <label class="contact-field__label" for="contact-name">Full name</label>
+            <input class="contact-field__input" type="text" id="contact-name" name="name" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="contact-field">
+            <label class="contact-field__label" for="contact-email">Email</label>
+            <input class="contact-field__input" type="email" id="contact-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="contact-field">
+          <label class="contact-field__label" for="contact-topic">Topic</label>
+          <select class="contact-field__select" id="contact-topic" name="topic">
+            <option value="general">General inquiry</option>
+            <option value="integration">Integration / partnership</option>
+            <option value="support">Technical support</option>
+            <option value="press">Press &amp; media</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="contact-field">
+          <label class="contact-field__label" for="contact-message">Message</label>
+          <textarea class="contact-field__textarea" id="contact-message" name="message" placeholder="How can we help?" required></textarea>
+        </div>
+
+        <div class="contact-form__actions">
+          <button type="submit" class="section-btn contact-form__submit">Send message</button>
+        </div>
+
+        <p class="contact-form__success" id="contact-success" role="status" hidden>
+          Thanks — your message has been sent. We'll get back to you soon.
+        </p>
+      </form>
+    </section>
+
+    <!-- ===== Footer (same as FAQs) ===== -->
+    <footer class="site-footer is-visible" id="footer">
+      <div class="site-footer__glow-wrap" aria-hidden="true">
+        <div class="site-footer__glow-clip">
+          <img
+            src="assets/figma-export/footer-bg-desktop.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--desktop"
+            width="1024"
+            height="359"
+          >
+          <img
+            src="assets/figma-export/footer-bg-tablet.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--tablet"
+            width="1024"
+            height="909"
+          >
+          <img
+            src="assets/figma-export/footer-bg-mobile.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--mobile"
+            width="653"
+            height="1024"
+          >
+        </div>
+      </div>
+
+      <div class="site-footer__inner">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <a href="index.html" class="site-footer__logo">
+              <img
+                src="assets/figma-hero/logo-icon-white.svg"
+                alt=""
+                class="site-footer__logo-icon"
+                width="40"
+                height="40"
+              >
+              <span class="site-footer__logo-text">fastbridge</span>
+            </a>
+
+            <p class="site-footer__desc site-footer__desc--desktop">
+              Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement. Visit the docs to get started.
+            </p>
+            <p class="site-footer__desc site-footer__desc--compact">
+              Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement.
+            </p>
+
+            <a
+              href="https://docs.availproject.org/docs/nexus/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="site-footer__cta"
+            >Integrate Now <strong aria-hidden="true">→</strong></a>
+
+            <p class="site-footer__legal site-footer__legal--desktop">
+              Copyright © Avail Project. All rights reserved.
+            </p>
+            <p class="site-footer__legal site-footer__legal--inline">
+              Copyright © Avail Project. All rights reserved.
+            </p>
+          </div>
+
+          <nav class="site-footer__links" aria-label="Footer">
+            <div class="site-footer__col">
+              <span class="site-footer__col-title">Support</span>
+              <a href="https://docs.availproject.org/" target="_blank" rel="noopener noreferrer">Docs</a>
+              <a href="faq.html">FAQs</a>
+              <a href="https://discord.com/invite/AvailProject" target="_blank" rel="noopener noreferrer">Discord</a>
+              <a href="https://github.com/availproject" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.availproject.org/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              <a href="contact.html" class="site-footer__contact">Get in Touch</a>
+            </div>
+
+            <div class="site-footer__col site-footer__col--socials">
+              <span class="site-footer__col-title">Socials</span>
+              <a href="https://www.availproject.org/" target="_blank" rel="noopener noreferrer">Avail Website</a>
+              <a href="https://blog.availproject.org/" target="_blank" rel="noopener noreferrer">Blog</a>
+              <a href="https://x.com/AvailProject" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+              <a href="https://www.linkedin.com/company/availproject/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://t.me/AvailCommunity" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="https://www.youtube.com/@AvailProject" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="site-footer__watermark" aria-hidden="true">
+        <picture>
+          <source
+            media="(max-width: 390px)"
+            srcset="assets/figma-export/footer-watermark-mobile.svg"
+          >
+          <source
+            media="(max-width: 768px)"
+            srcset="assets/figma-export/footer-watermark-tablet.svg"
+          >
+          <img
+            src="assets/figma-export/footer-watermark-desktop.svg"
+            alt=""
+            class="site-footer__watermark-img"
+            width="1240"
+            height="163"
+          >
+        </picture>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      var success = document.getElementById('contact-success');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        // NOTE: not wired to a backend yet — shows a client-side confirmation.
+        form.reset();
+        if (success) {
+          success.hidden = false;
+          success.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

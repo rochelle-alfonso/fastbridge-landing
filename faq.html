@@ -3,140 +3,510 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ — FastBridge</title>
-  <link rel="stylesheet" href="base.css?v=21">
-  <link rel="stylesheet" href="sections.css?v=16">
+  <title>FAQs — FastBridge</title>
+  <link rel="stylesheet" href="base.css?v=22">
+  <link rel="stylesheet" href="hero.css?v=53">
+  <link rel="stylesheet" href="sections.css?v=27">
+  <link rel="stylesheet" href="faq.css?v=8">
 </head>
 <body>
-  <main class="page">
-    <section class="faq is-visible" id="faq" aria-labelledby="faq-title">
-      <header class="faq__intro">
-        <div class="faq__heading">
-          <h2 class="faq__title" id="faq-title">
-            All your questions
-            <em>Answered here</em>
-          </h2>
-          <p class="faq__subtitle faq__subtitle--desktop">
-            Answers to all your questions, quickly and clearly
-          </p>
-          <p class="faq__subtitle faq__subtitle--mobile">
-            Discover guides, tips, and resources to inspire your next big idea.
-          </p>
-        </div>
-        <a href="#" class="section-btn faq__header-btn">View More</a>
+  <main class="page faq-page">
+    <!-- ===== Header banner (new design visual + navigation) ===== -->
+    <section class="page-hero" aria-labelledby="faq-page-title">
+      <img
+        src="assets/figma-export/faq-header.jpg"
+        alt=""
+        class="page-hero__media"
+        aria-hidden="true"
+        width="1920"
+        height="646"
+      >
+
+      <header class="page-hero__nav">
+        <a href="index.html" class="hero__logo">
+          <img
+            src="assets/figma-hero/logo-icon-white.svg"
+            alt=""
+            class="hero__logo-icon"
+            width="40"
+            height="40"
+          >
+          <span class="hero__logo-text">fastbridge</span>
+        </a>
+        <a href="https://fastbridge.availproject.org/" class="page-hero__cta">Bridge Now</a>
       </header>
 
-      <div class="faq__list">
-        <article class="faq-item faq-item--open">
-          <button
-            type="button"
-            class="faq-item__question"
-            aria-expanded="true"
-            aria-controls="faq-answer-1"
-            id="faq-question-1"
-          >
-            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>What is Avail FastBridge?</span>
-          </button>
-          <div class="faq-item__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
-            <p>FastBridge is a unified cross-chain bridge that lets you move stablecoins and tokens from multiple source chains to any supported destination chain in a single transaction. Unlike traditional bridges, you don't need to manage gas on each chain or bridge one chain at a time; FastBridge aggregates your balances so you arrive ready to trade.</p>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button
-            type="button"
-            class="faq-item__question"
-            aria-expanded="false"
-            aria-controls="faq-answer-2"
-            id="faq-question-2"
-          >
-            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>What is the relationship between Avail and FastBridge?</span>
-          </button>
-          <div class="faq-item__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden>
-            <p>FastBridge is built by Avail as a fully standalone bridging interface you can use today to move stablecoins across any supported EVM chain in seconds. At the same time, FastBridge is also a live demonstration of what Avail Nexus is capable of, which is why developers can embed the same bridging experience directly into their own apps via the Nexus SDK. The Avail team continues to build secure and scalable infrastructure for the next generation of both applications and users through its products: Avail Nexus, Avail DA and now, FastBridge.</p>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button
-            type="button"
-            class="faq-item__question"
-            aria-expanded="false"
-            aria-controls="faq-answer-3"
-            id="faq-question-3"
-          >
-            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>How is FastBridge different from other bridges?</span>
-          </button>
-          <div class="faq-item__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" hidden>
-            <p>Most bridges move funds from one chain to one other chain. FastBridge aggregates your balances across multiple source chains and settles them at the destination chain in a single transaction. Avail Nexus' protocol handles routing and settlement through intent-based execution, which allows users to pay gas in stablecoins. No need to hold native gas tokens on each source chain.</p>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button
-            type="button"
-            class="faq-item__question"
-            aria-expanded="false"
-            aria-controls="faq-answer-4"
-            id="faq-question-4"
-          >
-            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>Do I need to hold gas tokens on every chain I'm bridging from?</span>
-          </button>
-          <div class="faq-item__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" hidden>
-            <p>No. You only need the stablecoins you want to bridge. Gas fees are deducted directly from your stablecoin balance, so if you're bridging 5 USDC to Citrea, you'd pay a small additional fee in USDC to cover gas. No ETH, no AVAX, no native gas tokens required on any source chain.</p>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button
-            type="button"
-            class="faq-item__question"
-            aria-expanded="false"
-            aria-controls="faq-answer-5"
-            id="faq-question-5"
-          >
-            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>Which wallets are supported?</span>
-          </button>
-          <div class="faq-item__answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" hidden>
-            <p>FastBridge supports any EVM-compatible wallet, including MetaMask, Rabby, Coinbase Wallet, and WalletConnect-compatible wallets. If your wallet works with EVM chains, it works with FastBridge.</p>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button
-            type="button"
-            class="faq-item__question"
-            aria-expanded="false"
-            aria-controls="faq-answer-6"
-            id="faq-question-6"
-          >
-            <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span>How long does a bridge transaction take?</span>
-          </button>
-          <div class="faq-item__answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6" hidden>
-            <p>Most transactions settle in approx. 10–20 seconds. Settlement time can vary slightly depending on the destination chain's block confirmation speed, but FastBridge is designed for near-instant delivery compared to traditional lock-and-mint bridges that can take minutes to hours.</p>
-          </div>
-        </article>
+      <div class="page-hero__content">
+        <h1 class="page-hero__title" id="faq-page-title">All your questions, answered</h1>
+        <p class="page-hero__subtitle">
+          Everything you need to know about moving crypto across chains with FastBridge.
+        </p>
       </div>
     </section>
+
+    <!-- ===== FAQ list ===== -->
+    <section class="faq-page__list" id="faq" aria-label="Frequently asked questions">
+      <div class="faq-filters" role="tablist" aria-label="Filter FAQs by topic">
+        <button type="button" class="faq-filter faq-filter--active" data-filter="all" aria-selected="true">All</button>
+        <button type="button" class="faq-filter" data-filter="getting-started" aria-selected="false">Getting started</button>
+        <button type="button" class="faq-filter" data-filter="supported-chains" aria-selected="false">Supported chains &amp; tokens</button>
+        <button type="button" class="faq-filter" data-filter="fees-costs" aria-selected="false">Fees &amp; costs</button>
+        <button type="button" class="faq-filter" data-filter="safety-security" aria-selected="false">Safety &amp; security</button>
+        <button type="button" class="faq-filter" data-filter="technical" aria-selected="false">Technical</button>
+        <button type="button" class="faq-filter" data-filter="guides" aria-selected="false">Guides &amp; how-tos</button>
+      </div>
+
+      <div class="faq-groups">
+
+        <!-- Getting Started -->
+        <section class="faq-group" data-category="getting-started" aria-labelledby="faq-group-1">
+          <h2 class="faq-group__title" id="faq-group-1">Getting started</h2>
+          <div class="faq__list">
+            <article class="faq-item faq-item--open">
+              <button type="button" class="faq-item__question" aria-expanded="true" aria-controls="faq-answer-1" id="faq-question-1">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>What is Avail FastBridge?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
+                <p>FastBridge is a unified cross-chain bridge that lets you move and swap tokens from multiple source chains to any supported destination chain in a single transaction. You can bridge several different assets at once and receive the token you want, on the chain you want. Unlike traditional bridges, you don't need to manage gas on each chain or bridge one chain at a time; FastBridge aggregates your balances so you arrive ready to trade.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>What is the relationship between Avail and FastBridge?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" hidden>
+                <p>FastBridge is built by Avail as a fully standalone bridging interface you can use today to move stablecoins across any supported EVM chain in seconds. At the same time, FastBridge is also a live demonstration of what Avail Nexus is capable of, which is why developers can embed the same bridging experience directly into their own apps via the FastBridge Widget or the <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" rel="noopener noreferrer">Nexus SDK</a>.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How is FastBridge different from other bridges?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" hidden>
+                <p>Most bridges move funds from one chain to one other chain. FastBridge aggregates your balances across multiple source chains, can swap between different tokens, and settles everything at the destination chain in a single transaction. Avail Nexus' protocol handles routing and settlement through intent-based execution, which allows users to pay gas in stablecoins. No need to hold native gas tokens on each source chain.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Do I need to hold gas tokens on every chain I'm bridging from?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" hidden>
+                <p>No. You only need the stablecoins you want to bridge. Gas fees are deducted directly from your stablecoin balance, so if you're bridging 5 USDC to Citrea, you'd pay a small additional fee in USDC to cover gas. No ETH, no AVAX, no native gas tokens required on any source chain.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Which wallets are supported?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" hidden>
+                <p>FastBridge supports any EVM-compatible wallet, including MetaMask, Rabby, Coinbase Wallet, and WalletConnect-compatible wallets. If your wallet works with EVM chains, it works with FastBridge.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How long does a bridge transaction take?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6" hidden>
+                <p>Most transactions settle in approx. 10–20 seconds. Settlement time can vary slightly depending on the amounts and destination chain's block confirmation speed, but FastBridge is designed for near-instant delivery compared to traditional lock-and-mint bridges that can take minutes to hours.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Supported Chains & Tokens -->
+        <section class="faq-group" data-category="supported-chains" aria-labelledby="faq-group-2">
+          <h2 class="faq-group__title" id="faq-group-2">Supported chains &amp; tokens</h2>
+          <div class="faq__list">
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Which chains does FastBridge support?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7" hidden>
+                <p>FastBridge currently supports multiple EVM chains: Monad, MegaETH, Citrea, Arbitrum, Avalanche, Ethereum, Optimism, Base, Scroll, Polygon, BNB, Kaia, and HyperEVM, with more chains being added regularly. You can always check the bridge interface for the current full list.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Which tokens can I bridge?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-8" role="region" aria-labelledby="faq-question-8" hidden>
+                <p>On the source side, FastBridge supports any token your wallet already holds on a supported chain (Monad, MegaETH, Citrea, Arbitrum, Avalanche, Ethereum, Optimism, Base, Scroll, Polygon, BNB, Kaia, and HyperEVM). On the destination side, you can receive any token that is supported on those chains. Since you can swap as well as bridge, you can send one token and receive a different one at the destination. Stablecoin-to-stablecoin transfers settle with zero slippage, while swaps between different tokens may carry a small price impact that is always shown before you confirm.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-9" id="faq-question-9">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Will more chains be added?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-9" role="region" aria-labelledby="faq-question-9" hidden>
+                <p>Yes. FastBridge is built on Avail Nexus, which is designed to scale across EVM and non-EVM chains. New integrations are added on an ongoing basis. Follow <a href="https://x.com/AvailProject" target="_blank" rel="noopener noreferrer">Avail's official channels</a> for announcements.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-10" id="faq-question-10">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Can I bridge to non-EVM chains?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-10" role="region" aria-labelledby="faq-question-10" hidden>
+                <p>Currently FastBridge focuses on EVM-compatible chains. Support for additional chain types is on the roadmap.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-11" id="faq-question-11">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Is there a minimum or maximum bridge amount?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-11" role="region" aria-labelledby="faq-question-11" hidden>
+                <p>Minimum and maximum amounts may apply per chain and token pair to ensure efficient routing and settlement. These limits are displayed in the bridge interface before you confirm a transaction.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Fees & Costs -->
+        <section class="faq-group" data-category="fees-costs" aria-labelledby="faq-group-3">
+          <h2 class="faq-group__title" id="faq-group-3">Fees &amp; costs</h2>
+          <div class="faq__list">
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-12" id="faq-question-12">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How much does it cost to use FastBridge?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-12" role="region" aria-labelledby="faq-question-12" hidden>
+                <p>FastBridge charges a small protocol fee on each transaction, which covers routing and settlement costs. The exact fee is displayed before you confirm and there are no hidden charges. Since gas is abstracted, you don't pay gas separately on source chains. If your transaction involves a swap between different tokens, any price impact is shown as a separate line alongside the fee, so you can see the full cost before confirming.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-13" id="faq-question-13">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Is there slippage on stablecoin transfers?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-13" role="region" aria-labelledby="faq-question-13" hidden>
+                <p>Stablecoin-to-stablecoin transfers on FastBridge are processed with zero slippage, so you receive exactly the amount you specified. Swaps between different tokens (for example ETH to USDC, or several assets into one) are priced at the time of execution and may carry a small price impact, which is shown clearly before you confirm and must be approved before the transaction runs.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-14" id="faq-question-14">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Does the fee change based on the destination chain?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-14" role="region" aria-labelledby="faq-question-14" hidden>
+                <p>Fees may vary slightly depending on the destination chain's settlement costs and current network conditions. The bridge interface always shows the exact fee before you confirm.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Safety & Security -->
+        <section class="faq-group" data-category="safety-security" aria-labelledby="faq-group-4">
+          <h2 class="faq-group__title" id="faq-group-4">Safety &amp; security</h2>
+          <div class="faq__list">
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-15" id="faq-question-15">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Is FastBridge non-custodial?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-15" role="region" aria-labelledby="faq-question-15" hidden>
+                <p>Yes. FastBridge is fully non-custodial. Your funds are never held by a centralized party. The protocol routes and settles your transaction trustlessly without holding approvals or taking custody of your assets at any point.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-16" id="faq-question-16">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>What happens if my transaction fails?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-16" role="region" aria-labelledby="faq-question-16" hidden>
+                <p>If a transaction fails to settle at the destination, your funds are never lost and always remain in your control. The transaction simply reverts, and your assets stay in your wallet on the source chain, exactly where they started. You can retry the transaction immediately.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-17" id="faq-question-17">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Has FastBridge been audited?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-17" role="region" aria-labelledby="faq-question-17" hidden>
+                <p>Security audits are conducted as part of the Avail Nexus protocol development. Details of completed audits are published in the <a href="https://docs.availproject.org/" target="_blank" rel="noopener noreferrer">Avail documentation</a>. We recommend checking the official docs for the most up-to-date audit reports.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-18" id="faq-question-18">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>What is Avail Nexus and why does it matter for security?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-18" role="region" aria-labelledby="faq-question-18" hidden>
+                <p>Avail Nexus is the underlying cross-chain coordination layer that powers FastBridge. It provides unified proof verification and intent settlement across chains, meaning the security of your bridge transaction is backed by a robust, decentralized coordination layer rather than a multisig or federated validator set.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Technical -->
+        <section class="faq-group" data-category="technical" aria-labelledby="faq-group-5">
+          <h2 class="faq-group__title" id="faq-group-5">Technical</h2>
+          <div class="faq__list">
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-19" id="faq-question-19">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>What is intent-based bridging?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-19" role="region" aria-labelledby="faq-question-19" hidden>
+                <p>Intent-based bridging means you declare what you want to receive at the destination (the token, the chain, the amount) and the protocol figures out how to fulfill that intent optimally. FastBridge uses solvers that compete to fill your intent, which is what enables near-instant settlement and gas abstraction without wrapping assets or minting synthetic tokens.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-20" id="faq-question-20">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Can I bridge from multiple source chains in a single transaction?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-20" role="region" aria-labelledby="faq-question-20" hidden>
+                <p>Yes. This is the core feature of FastBridge. You can consolidate balances from several chains, such as Arbitrum, Optimism, Polygon, and others simultaneously, and even combine several different tokens to receive another token of your choice at your destination chain in one transaction, rather than executing separate bridge or swap transactions for each source asset.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-21" id="faq-question-21">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>What is intent-based bridging vs lock-and-mint bridging?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-21" role="region" aria-labelledby="faq-question-21" hidden>
+                <p>Lock-and-mint bridges work by locking your tokens on the source chain and minting a synthetic wrapped version on the destination. This introduces counterparty risk, wrapping overhead, and often requires you to unwrap assets before using them. Intent-based bridging, which is how FastBridge works, skips all of that. You declare the token and the amount you want to receive and on which chain, and solvers compete to fulfill that intent using native assets — no wrapping, no synthetic tokens, and no waiting for lock confirmations.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-22" id="faq-question-22">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How do I integrate FastBridge into my dApp or protocol?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-22" role="region" aria-labelledby="faq-question-22" hidden>
+                <p>FastBridge exposes integration endpoints for dApps, wallets, and protocols that want to offer unified bridging to their users. Visit the <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" rel="noopener noreferrer">Avail developer portal</a> to access the technical documentation and get started.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-23" id="faq-question-23">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How do I add a cross-chain bridge to my dApp?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-23" role="region" aria-labelledby="faq-question-23" hidden>
+                <p>You can integrate FastBridge directly into your dApp using the <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" rel="noopener noreferrer">Avail Nexus SDK</a>. It gives you a configurable bridge widget that handles multi-chain asset routing, gas, and settlement, all without redirecting your users to a third-party bridge.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-24" id="faq-question-24">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How do I embed a bridge widget in my DeFi app?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-24" role="region" aria-labelledby="faq-question-24" hidden>
+                <p>FastBridge offers an embeddable UI element that drops into your existing app with minimal setup. You configure the destination chain(s), supported tokens, and branding, and your users get a full cross-chain bridging experience without ever leaving your product. Details are in the <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" rel="noopener noreferrer">Avail Nexus SDK documentation</a>.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Guides & How-Tos -->
+        <section class="faq-group" data-category="guides" aria-labelledby="faq-group-6">
+          <h2 class="faq-group__title" id="faq-group-6">Guides &amp; how-tos</h2>
+          <div class="faq__list">
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-25" id="faq-question-25">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>What is the fastest way to bridge USDC to Monad?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-25" role="region" aria-labelledby="faq-question-25" hidden>
+                <p>FastBridge is the fastest way to move USDC to Monad from multiple chains in one go, with average settlement times of ~10–20 seconds. You can bridge from any supported source chain — Ethereum, Arbitrum, Avalanche, and others — without managing gas on each network separately.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-26" id="faq-question-26">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How do I avoid losing money to slippage when bridging stablecoins?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-26" role="region" aria-labelledby="faq-question-26" hidden>
+                <p>Slippage on stablecoin bridges typically happens when the bridge uses liquidity pools with variable pricing. For stablecoin-to-stablecoin transfers, FastBridge is designed for zero slippage; you receive exactly the amount you specified, not an estimate, because these routes don't swap through AMM pools. If you instead swap into a different token, a small price impact may apply, but FastBridge shows it clearly before you confirm and must be approved before the transaction runs.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-27" id="faq-question-27">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How do I bridge crypto without paying gas on every chain?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-27" role="region" aria-labelledby="faq-question-27" hidden>
+                <p>With FastBridge, you don't need to hold native gas tokens like ETH or AVAX on your source chains. Gas fees are paid in the stablecoin you're bridging — a small amount is added on top of the transfer — so you only need USDC or USDT in your wallet to get started.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-28" id="faq-question-28">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>What is gasless crypto bridging?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-28" role="region" aria-labelledby="faq-question-28" hidden>
+                <p>Gasless bridging refers to bridge experiences where users don't need to hold native gas tokens on each chain they're bridging from. In FastBridge, gas is paid in stablecoins (USDC/USDT) as a small fee added to your transaction, rather than requiring you to hold ETH or POL or AVAX, or any other native token on your source chains.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer is-visible" id="footer">
+      <div class="site-footer__glow-wrap" aria-hidden="true">
+        <div class="site-footer__glow-clip">
+          <img
+            src="assets/figma-export/footer-bg-desktop.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--desktop"
+            width="1024"
+            height="359"
+          >
+          <img
+            src="assets/figma-export/footer-bg-tablet.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--tablet"
+            width="1024"
+            height="909"
+          >
+          <img
+            src="assets/figma-export/footer-bg-mobile.png"
+            alt=""
+            class="site-footer__glow-img site-footer__glow-img--mobile"
+            width="653"
+            height="1024"
+          >
+        </div>
+      </div>
+
+      <div class="site-footer__inner">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <a href="index.html" class="site-footer__logo">
+              <img
+                src="assets/figma-hero/logo-icon-white.svg"
+                alt=""
+                class="site-footer__logo-icon"
+                width="40"
+                height="40"
+              >
+              <span class="site-footer__logo-text">fastbridge</span>
+            </a>
+
+            <p class="site-footer__desc site-footer__desc--desktop">
+              Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement. Visit the docs to get started.
+            </p>
+            <p class="site-footer__desc site-footer__desc--compact">
+              Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement.
+            </p>
+
+            <a
+              href="https://docs.availproject.org/docs/nexus/get-started"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="site-footer__cta"
+            >Integrate Now <strong aria-hidden="true">→</strong></a>
+
+            <p class="site-footer__legal site-footer__legal--desktop">
+              Copyright © Avail Project. All rights reserved.
+            </p>
+            <p class="site-footer__legal site-footer__legal--inline">
+              Copyright © Avail Project. All rights reserved.
+            </p>
+          </div>
+
+          <nav class="site-footer__links" aria-label="Footer">
+            <div class="site-footer__col">
+              <span class="site-footer__col-title">Support</span>
+              <a href="https://docs.availproject.org/" target="_blank" rel="noopener noreferrer">Docs</a>
+              <a href="faq.html">FAQs</a>
+              <a href="https://discord.com/invite/AvailProject" target="_blank" rel="noopener noreferrer">Discord</a>
+              <a href="https://github.com/availproject" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.availproject.org/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              <a href="contact.html" class="site-footer__contact">Get in Touch</a>
+            </div>
+
+            <div class="site-footer__col site-footer__col--socials">
+              <span class="site-footer__col-title">Socials</span>
+              <a href="https://www.availproject.org/" target="_blank" rel="noopener noreferrer">Avail Website</a>
+              <a href="https://blog.availproject.org/" target="_blank" rel="noopener noreferrer">Blog</a>
+              <a href="https://x.com/AvailProject" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+              <a href="https://www.linkedin.com/company/availproject/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://t.me/AvailCommunity" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="https://www.youtube.com/@AvailProject" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="site-footer__watermark" aria-hidden="true">
+        <picture>
+          <source
+            media="(max-width: 390px)"
+            srcset="assets/figma-export/footer-watermark-mobile.svg"
+          >
+          <source
+            media="(max-width: 768px)"
+            srcset="assets/figma-export/footer-watermark-tablet.svg"
+          >
+          <img
+            src="assets/figma-export/footer-watermark-desktop.svg"
+            alt=""
+            class="site-footer__watermark-img"
+            width="1240"
+            height="163"
+          >
+        </picture>
+      </div>
+    </footer>
   </main>
   <script src="sections.js?v=3" defer></script>
+  <script>
+    (function () {
+      var filters = document.querySelectorAll('.faq-filter');
+      var groups = document.querySelectorAll('.faq-group');
+      if (!filters.length || !groups.length) return;
+
+      filters.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = btn.getAttribute('data-filter');
+          filters.forEach(function (b) {
+            var on = b === btn;
+            b.classList.toggle('faq-filter--active', on);
+            b.setAttribute('aria-selected', on ? 'true' : 'false');
+          });
+          groups.forEach(function (group) {
+            group.hidden = !(filter === 'all' || group.getAttribute('data-category') === filter);
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

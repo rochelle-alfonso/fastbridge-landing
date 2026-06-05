@@ -1,0 +1,241 @@
+/* FAQ page — new design: header banner + standalone accordion list.
+   Reuses .hero__logo (hero.css), .faq-item / .site-footer (sections.css). */
+
+.faq-page {
+  background: var(--brand-white, #fffffe);
+}
+
+/* ========== Header banner ========== */
+.page-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(320px, 34vw, 440px);
+  overflow: hidden;
+  background: #05060f;
+  isolation: isolate;
+}
+
+.page-hero__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+
+/* Left-to-right scrim so the title stays legible over the streaks */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 6, 15, 0.88) 0%,
+    rgba(5, 6, 15, 0.55) 38%,
+    rgba(5, 6, 15, 0) 72%
+  );
+  pointer-events: none;
+}
+
+.page-hero__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: var(--section-max, 1440px);
+  margin: 0 auto;
+  padding: 40px var(--section-pad-x);
+}
+
+.page-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 56px;
+  min-width: 160px;
+  padding: 0 24px;
+  border: 1px solid #e8e8e7;
+  border-radius: 8px;
+  background: #fffffe;
+  color: #161615;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(85, 85, 85, 0.05);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.page-hero__cta:hover {
+  background: #f2f2f0;
+  border-color: #d8d8d6;
+}
+
+.page-hero__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  max-width: var(--section-max, 1440px);
+  margin: 0 auto;
+  padding: 8px var(--section-pad-x) 56px;
+}
+
+.page-hero__title {
+  margin: 0;
+  max-width: 640px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: clamp(40px, 5.2vw, 64px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: #fffffe;
+}
+
+.page-hero__subtitle {
+  margin: 0;
+  max-width: 520px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(255, 255, 254, 0.74);
+}
+
+/* ========== FAQ list (standalone, centered) ========== */
+.faq-page__list {
+  width: 100%;
+  max-width: var(--section-max, 1440px);
+  margin: 0 auto;
+  padding: clamp(32px, 4vw, 56px) var(--section-pad-x) clamp(72px, 9vw, 130px);
+}
+
+/* Topic filter pills */
+.faq-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin: 0 0 clamp(36px, 5vw, 52px);
+}
+
+.faq-filter {
+  padding: 9px 18px;
+  border: 1px solid #e3e3e1;
+  border-radius: 999px;
+  background: #fffffe;
+  color: var(--fg-muted, #6b7280);
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.faq-filter:hover {
+  border-color: #c9c9c6;
+}
+
+.faq-filter--active {
+  background: var(--fg-primary, #161615);
+  color: #fffffe;
+  border-color: var(--fg-primary, #161615);
+}
+
+.faq-groups {
+  width: 100%;
+  margin: 0;
+}
+
+.faq-group + .faq-group {
+  margin-top: clamp(48px, 6vw, 72px);
+}
+
+.faq-group__title {
+  margin: 0 0 4px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--fg-primary, #161615);
+}
+
+.faq-page__list .faq__list {
+  max-width: none;
+}
+
+.faq-page__list .faq-item__answer a {
+  color: var(--brand-blue, #2f6bff);
+  text-decoration: none;
+}
+
+.faq-page__list .faq-item__answer a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: clamp(280px, 56vw, 380px);
+  }
+
+  /* Center the logo; drop the Bridge Now button on mobile */
+  .page-hero__nav {
+    justify-content: center;
+    padding: 28px var(--section-pad-x);
+  }
+
+  .page-hero__cta {
+    display: none;
+  }
+
+  /* Center the hero text on mobile */
+  .page-hero__content {
+    align-items: center;
+    text-align: center;
+    padding-bottom: 36px;
+  }
+
+  .page-hero__title {
+    max-width: none;
+  }
+
+  .page-hero__subtitle {
+    max-width: none;
+    font-size: 16px;
+  }
+
+  /* Filter pills: single horizontal row, swipeable, with a soft right-edge
+     fade so the next pill trails off cleanly instead of hard-cutting. */
+  .faq-filters {
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 calc(-1 * var(--section-pad-x)) clamp(28px, 6vw, 40px);
+    padding: 0 var(--section-pad-x);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+  }
+
+  .faq-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .faq-filter {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
