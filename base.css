@@ -97,7 +97,7 @@ body {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 440px) {
   :root {
     --section-pad-x: 32px;
   }

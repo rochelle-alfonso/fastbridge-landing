@@ -610,9 +610,9 @@
   }
 }
 
-/* ========== MOBILE ≤390px ========== */
+/* ========== MOBILE ≤440px ========== */
 
-@media (max-width: 390px) {
+@media (max-width: 440px) {
   .hiw__title {
     padding-top: 40px;
     font-size: 32px;

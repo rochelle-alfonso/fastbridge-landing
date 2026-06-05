@@ -364,7 +364,7 @@
 }
 
 /* Mobile — Figma "Mobile Section / Hero" (226:2731) */
-@media (max-width: 390px) {
+@media (max-width: 440px) {
   .hero {
     --hero-pad-x: 24px;
     --hero-pad-top: 37px;
