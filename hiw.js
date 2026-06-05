@@ -24,9 +24,12 @@
     }
   ];
 
-  // Safari / iOS: WebM VP9 alpha composites poorly — use HEVC (hvc1) with alpha.
-  // Do not gate on canPlayType; iOS Safari often returns "" before a file is loaded.
+  // HEVC alpha .mov on iOS only. Mac Safari uses WebM + Safari-specific CSS mask.
   function useHevcHiwVideos() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  function isSafariBrowser() {
     var ua = navigator.userAgent;
     if (/iPhone|iPad|iPod/i.test(ua)) return true;
     return /Safari/i.test(ua) && !/Chrome|CriOS|Chromium|Edg|OPR|FxiOS|Firefox/i.test(ua);
@@ -35,6 +38,10 @@
   function getStepVideoSrc(step, preferWebm) {
     if (preferWebm || !useHevcHiwVideos()) return step.webm;
     return step.hevc;
+  }
+
+  if (isSafariBrowser()) {
+    section.classList.add('hiw--safari');
   }
 
   // Fallback step length, used only when the cinematic videos can't drive the

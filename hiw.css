@@ -648,20 +648,43 @@
   }
 }
 
-/* Safari iOS — dual mask-composite on <video> is unreliable; use a single
-   vertical fade and keep the widget above overlapping step numbers. */
-@supports (-webkit-touch-callout: none) {
-  @media (max-width: 768px) {
-    .hiw__widget {
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 3%, #000 97%, transparent 100%);
-      mask-image: linear-gradient(to bottom, transparent 0, #000 3%, #000 97%, transparent 100%);
-      -webkit-mask-composite: source-over;
-      mask-composite: add;
-    }
+/* Safari (Mac + iOS) — dual mask-composite is unreliable; feather with a
+   radial mask so the Remotion dark backdrop never reads as a hard rectangle. */
+.hiw--safari .hiw__widget {
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
+  -webkit-mask-image: radial-gradient(
+    ellipse 52% 46% at 50% 42%,
+    #000 0%,
+    #000 84%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 52% 46% at 50% 42%,
+    #000 0%,
+    #000 84%,
+    transparent 100%
+  );
+}
 
-    .hiw__widget-video {
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
+.hiw--safari .hiw__widget-video {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .hiw--safari .hiw__widget {
+    -webkit-mask-image: radial-gradient(
+      ellipse 56% 50% at 50% 37%,
+      #000 0%,
+      #000 82%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 56% 50% at 50% 37%,
+      #000 0%,
+      #000 82%,
+      transparent 100%
+    );
   }
 }
