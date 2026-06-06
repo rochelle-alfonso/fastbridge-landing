@@ -9,47 +9,26 @@
   if (!steps.length) return;
 
   var widget = section.querySelector('.hiw__widget');
+  // Transparent exports: WebM (VP9 + alpha) for Chrome/Firefox, HEVC (hvc1 + alpha)
+  // for Safari. HEVC must be listed first — Safari supports VP9 but not VP9 alpha.
   var STEP_VIDEOS = [
     {
-      webm: 'assets/hiw-step-1.webm?v=3',
-      hevc: 'assets/hiw-step-1-hevc.mov?v=2'
+      webm: 'assets/hiw-step-1.webm?v=4',
+      hevc: 'assets/hiw-step-1-hevc.mp4?v=3'
     },
     {
-      webm: 'assets/hiw-step-2.webm?v=3',
-      hevc: 'assets/hiw-step-2-hevc.mov?v=2'
+      webm: 'assets/hiw-step-2.webm?v=4',
+      hevc: 'assets/hiw-step-2-hevc.mp4?v=3'
     },
     {
-      webm: 'assets/hiw-step-3.webm?v=3',
-      hevc: 'assets/hiw-step-3-hevc.mov?v=2'
+      webm: 'assets/hiw-step-3.webm?v=4',
+      hevc: 'assets/hiw-step-3-hevc.mp4?v=3'
     }
   ];
 
-  // HEVC alpha .mov on iOS only. Mac Safari uses WebM + Safari-specific CSS mask.
-  function useHevcHiwVideos() {
-    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-  }
-
-  function isSafariBrowser() {
-    var ua = navigator.userAgent;
-    if (/iPhone|iPad|iPod/i.test(ua)) return true;
-    return /Safari/i.test(ua) && !/Chrome|CriOS|Chromium|Edg|OPR|FxiOS|Firefox/i.test(ua);
-  }
-
-  function getStepVideoSrc(step, preferWebm) {
-    if (preferWebm || !useHevcHiwVideos()) return step.webm;
-    return step.hevc;
-  }
-
-  if (isSafariBrowser()) {
-    section.classList.add('hiw--safari');
-  }
-
-  // Fallback step length, used only when the cinematic videos can't drive the
-  // sequence (missing elements, load/decode error, or play() rejection).
   var STEP_DURATION = 6000;
   var currentIndex = 0;
   var timerId = null;
-  var timerEndsAt = 0;
   var isVisible = false;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobileQuery = window.matchMedia('(max-width: 768px)');
@@ -91,11 +70,9 @@
     }
   }
 
-  // ----- Fallback timer advance (no usable video) -----
   function scheduleAdvance(delay) {
     clearTimer();
     if (!isVisible || reducedMotion) return;
-    timerEndsAt = Date.now() + delay;
     timerId = window.setTimeout(function () {
       timerId = null;
       goToStep((currentIndex + 1) % steps.length);
@@ -107,15 +84,25 @@
     scheduleAdvance(STEP_DURATION);
   }
 
-  // ----- Video playback (stacked, crossfaded, preloaded) -----
+  function appendTransparentSources(video, step) {
+    var hevc = document.createElement('source');
+    hevc.src = step.hevc;
+    hevc.type = 'video/mp4; codecs="hvc1"';
+
+    var webm = document.createElement('source');
+    webm.src = step.webm;
+    webm.type = 'video/webm; codecs="vp9"';
+
+    video.appendChild(hevc);
+    video.appendChild(webm);
+  }
+
   function pauseVideos() {
     videos.forEach(function (v) {
       v.pause();
     });
   }
 
-  // Show the active step's video on top; the others stay loaded but hidden so
-  // switching is an opacity crossfade, never an empty/black reload.
   function showActiveVideo() {
     if (!useVideo) return;
     videos.forEach(function (v, i) {
@@ -135,10 +122,7 @@
     try { v.currentTime = 0; } catch (e) {}
     var p = v.play();
     if (p && typeof p.catch === 'function') {
-      p.catch(function () {
-        // Autoplay blocked or decode failed — keep the sequence moving.
-        fallBackToTimer();
-      });
+      p.catch(fallBackToTimer);
     }
   }
 
@@ -171,7 +155,6 @@
     }
   }
 
-  // Build one preloaded <video> per step, stacked inside the widget frame.
   if (widget) {
     widget.innerHTML = '';
     STEP_VIDEOS.forEach(function (step, i) {
@@ -185,25 +168,13 @@
       v.setAttribute('playsinline', '');
       v.playsInline = true;
       v.setAttribute('aria-hidden', 'true');
-      v.src = getStepVideoSrc(step);
+      appendTransparentSources(v, step);
 
       v.addEventListener('ended', function () {
         if (reducedMotion) return;
         if (i === currentIndex) goToStep((currentIndex + 1) % steps.length);
       });
-      v.addEventListener('error', function () {
-        if (!v.dataset.webmFallback && useHevcHiwVideos()) {
-          v.dataset.webmFallback = '1';
-          v.src = step.webm;
-          v.load();
-          if (i === currentIndex && isVisible && !reducedMotion) {
-            var p = v.play();
-            if (p && typeof p.catch === 'function') p.catch(fallBackToTimer);
-          }
-          return;
-        }
-        fallBackToTimer();
-      });
+      v.addEventListener('error', fallBackToTimer);
 
       widget.appendChild(v);
       videos.push(v);
@@ -238,8 +209,6 @@
   });
 
   if ('IntersectionObserver' in window) {
-    // Trigger on the card itself landing in view (not the tall section's top
-    // edge), so the sequence begins from step 1 once the user reaches it.
     var trigger = section.querySelector('.hiw__product-wrap') || section;
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -247,7 +216,6 @@
         isVisible = entry.isIntersecting;
 
         if (isVisible && !wasVisible) {
-          // Card has landed — (re)start the sequence from the first step.
           goToStep(0);
         }
 

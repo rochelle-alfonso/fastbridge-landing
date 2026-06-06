@@ -256,29 +256,17 @@
 
 /* ========== Product card ========== */
 
-/* Cinematic per-step widget video — replaces the static card (animated card).
-   The video is a card composed on a dark backdrop with empty margins; the
-   .hiw__widget frame clips + zooms it so the card itself reads larger, and a
-   soft glow + edge fade blend it into the gradient (no hard rectangle). */
+/* Cinematic per-step widget video — transparent card animation composited
+   over the section gradient. Requires Remotion exports with true alpha
+   (yuva420p WebM + HEVC hvc1 derived via tools/encode-hiw-hevc.sh). */
 .hiw__widget {
   position: relative;
   height: 600px;
   width: auto;
   max-width: 100%;
   aspect-ratio: 1256 / 1660;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
-  /* No box-shadow / border-radius frame. Instead fade all four edges so the
-     webm's dark backdrop melts into the gradient with no defined edge — the
-     card (with its own baked shadow) just floats. */
-  -webkit-mask-image:
-    linear-gradient(to bottom, transparent 0, #000 4%, #000 91%, transparent 100%),
-    linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to bottom, transparent 0, #000 4%, #000 91%, transparent 100%),
-    linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
-  mask-composite: intersect;
 }
 
 /* One <video> per step, stacked and crossfaded. All are preloaded so
@@ -288,11 +276,9 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center top;
   background: transparent;
-  /* Mild zoom only — keep enough backdrop margin that the edge fade lands on
-     the backdrop, never on the card. */
-  transform: scale(1.12);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -554,27 +540,14 @@
     isolation: isolate;
   }
 
-  /* Size by width; crop the universally-empty backdrop below the card (the
-     card is top-anchored in the source) so it stops reserving blank space. */
   .hiw__widget {
     height: auto;
     width: 100%;
-    /* Crop to the card region — trims the empty backdrop both above and
-       below the top-anchored card so it doesn't pad the layout. */
-    aspect-ratio: 1256 / 1345;
-    -webkit-mask-image:
-      linear-gradient(to bottom, transparent 0, #000 3%, #000 97%, transparent 100%),
-      linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-image:
-      linear-gradient(to bottom, transparent 0, #000 3%, #000 97%, transparent 100%),
-      linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
-    mask-composite: intersect;
+    aspect-ratio: 1256 / 1660;
   }
 
   .hiw__widget-video {
-    transform: translateZ(0);
-    object-position: 50% 37%;
+    object-position: center top;
   }
 
   .product-card__body {
@@ -594,8 +567,7 @@
     left: auto;
     right: auto;
     z-index: 1;
-    /* Tuck steps up into the widget's faded empty backdrop below the card. */
-    margin-top: -8px;
+    margin-top: 16px;
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 0 var(--section-pad-x) 64px;
@@ -645,46 +617,5 @@
 
   .hiw-step__heading {
     font-size: 18px;
-  }
-}
-
-/* Safari (Mac + iOS) — dual mask-composite is unreliable; feather with a
-   radial mask so the Remotion dark backdrop never reads as a hard rectangle. */
-.hiw--safari .hiw__widget {
-  -webkit-mask-composite: source-over;
-  mask-composite: add;
-  -webkit-mask-image: radial-gradient(
-    ellipse 52% 46% at 50% 42%,
-    #000 0%,
-    #000 84%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 52% 46% at 50% 42%,
-    #000 0%,
-    #000 84%,
-    transparent 100%
-  );
-}
-
-.hiw--safari .hiw__widget-video {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-@media (max-width: 768px) {
-  .hiw--safari .hiw__widget {
-    -webkit-mask-image: radial-gradient(
-      ellipse 56% 50% at 50% 37%,
-      #000 0%,
-      #000 82%,
-      transparent 100%
-    );
-    mask-image: radial-gradient(
-      ellipse 56% 50% at 50% 37%,
-      #000 0%,
-      #000 82%,
-      transparent 100%
-    );
   }
 }
