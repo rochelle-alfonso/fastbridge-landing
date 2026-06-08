@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "serve": "python3 -m http.server 9294",
-    "serve:animations": "python3 -m http.server 9294",
-    "serve:buttons": "python3 -m http.server 9294",
-    "serve:blog": "python3 -m http.server 9294",
+    "serve": "python3 tools/serve.py 9294",
+    "serve:animations": "python3 tools/serve.py 9294",
+    "serve:buttons": "python3 tools/serve.py 9294",
+    "serve:blog": "python3 tools/serve.py 9294",
     "prototype:swap-in": "python3 -m http.server ${PORT:-8888}",
     "export:chain-gradients": "node tools/hero-gradient/export-chain-gradients.mjs",
     "assemble:landing": "node tools/assemble-landing.mjs"

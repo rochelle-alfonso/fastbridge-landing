@@ -251,7 +251,10 @@
   font-size: 14px;
   line-height: 20px;
   color: var(--fg-body);
-  max-width: 340px;
+  /* Fill the grid column (constrains on desktop) and balance the wrap so the
+     copy settles into ~3 even lines instead of 4 with an orphan. */
+  max-width: 380px;
+  text-wrap: balance;
 }
 
 /* ========== Product card ========== */
@@ -281,6 +284,11 @@
   background: transparent;
   opacity: 0;
   transition: opacity 0.4s ease;
+  /* Elevation is applied here, not baked into the video — drop-shadow hugs
+     the card's alpha silhouette and stays vector-crisp (a baked alpha shadow
+     posterizes/bands over a contrasting background). */
+  filter: drop-shadow(0 2px 4px rgba(12, 24, 56, 0.10))
+    drop-shadow(0 18px 36px rgba(12, 24, 56, 0.20));
 }
 
 .hiw__widget-video--active {
@@ -567,7 +575,10 @@
     left: auto;
     right: auto;
     z-index: 1;
-    margin-top: 16px;
+    /* Pull the steps up into the transparent shadow-padding at the bottom of
+       the widget video (which otherwise reads as dead space). Sized to stay
+       within that transparent zone so it never overlaps the card. */
+    margin-top: -7vw;
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 0 var(--section-pad-x) 64px;
@@ -579,6 +590,14 @@
 
   .hiw-step {
     min-height: auto;
+  }
+
+  /* Mobile is single-column, so the desktop 340px desc cap is needlessly
+     narrow and forces the copy into 4 lines. Widen it and balance the wrap so
+     it settles into ~3 even lines. */
+  .hiw-step__desc {
+    max-width: 32em;
+    text-wrap: balance;
   }
 
   .hiw-step:not(.hiw-step--active) {
