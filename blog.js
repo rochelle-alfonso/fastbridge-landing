@@ -56,7 +56,7 @@
           '</div>' +
           '<a href="' +
           href +
-          '" class="blog__read" tabindex="' +
+          '" class="blog__read" target="_blank" rel="noopener noreferrer" tabindex="' +
           tabindex +
           '">' +
           cta +
@@ -167,7 +167,7 @@
           '<li class="blog-card">' +
           '<a class="blog-card__link" href="' +
           href +
-          '">' +
+          '" target="_blank" rel="noopener noreferrer">' +
           '<span class="blog-card__media"><img src="' +
           img +
           '" alt="" loading="lazy"></span>' +
