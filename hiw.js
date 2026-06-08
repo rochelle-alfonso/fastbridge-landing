@@ -85,23 +85,25 @@
   }
 
   function appendTransparentSources(video, step) {
-    // Pick ONE source by capability, not <source> order. Chrome reports it can
-    // play "hvc1" but cannot render HEVC's alpha channel — if we hand it the
-    // HEVC source it errors and the widget goes blank. So: anything that can
-    // play VP9/WebM (Chrome/Firefox/Edge — all with alpha) gets the WebM;
-    // browsers that can't (Safari/iOS WebKit) get the HEVC.
-    var canWebM = video.canPlayType('video/webm; codecs="vp9"') !== '';
+    // Route by ENGINE, not canPlayType. Safari/iOS (WebKit) support HEVC alpha
+    // but NOT VP9 alpha — yet modern Safari can DECODE VP9, so canPlayType
+    // reports it "can play" WebM. Trusting that handed Safari the WebM, which it
+    // renders opaque (black) since it ignores the alpha. Chrome/Firefox/Edge
+    // (Blink/Gecko) support VP9 alpha but can't render HEVC alpha. So: WebKit
+    // gets HEVC, everyone else gets WebM.
+    var ua = navigator.userAgent;
+    var isWebKit =
+      /AppleWebKit/.test(ua) &&
+      !/Chrome|Chromium|Android|Edg|OPR|SamsungBrowser/.test(ua);
     var source = document.createElement('source');
-    if (canWebM) {
-      source.src = step.webm;
-      source.type = 'video/webm; codecs="vp9"';
-    } else {
+    if (isWebKit) {
       source.src = step.hevc;
       source.type = 'video/mp4; codecs="hvc1"';
-      // Safari renders an HEVC-alpha <video> with a BLACK background unless it
-      // is fully preloaded — with preload="metadata" the transparent areas show
-      // black. Force full preload on the HEVC (Safari/iOS) path.
+      // Safari composites HEVC alpha reliably only when fully preloaded.
       video.preload = 'auto';
+    } else {
+      source.src = step.webm;
+      source.type = 'video/webm; codecs="vp9"';
     }
     video.appendChild(source);
   }
