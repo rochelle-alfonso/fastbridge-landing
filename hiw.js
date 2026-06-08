@@ -17,8 +17,8 @@
       hevc: 'assets/hiw-step-1-hevc.mp4?v=20'
     },
     {
-      webm: 'assets/hiw-step-2.webm?v=15',
-      hevc: 'assets/hiw-step-2-hevc.mp4?v=20'
+      webm: 'assets/hiw-step-2.webm?v=21',
+      hevc: 'assets/hiw-step-2-hevc.mp4?v=21'
     },
     {
       webm: 'assets/hiw-step-3.webm?v=15',
