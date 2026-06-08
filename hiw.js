@@ -14,15 +14,15 @@
   var STEP_VIDEOS = [
     {
       webm: 'assets/hiw-step-1.webm?v=16',
-      hevc: 'assets/hiw-step-1-hevc.mp4?v=17'
+      hevc: 'assets/hiw-step-1-hevc.mp4?v=20'
     },
     {
       webm: 'assets/hiw-step-2.webm?v=15',
-      hevc: 'assets/hiw-step-2-hevc.mp4?v=17'
+      hevc: 'assets/hiw-step-2-hevc.mp4?v=20'
     },
     {
       webm: 'assets/hiw-step-3.webm?v=15',
-      hevc: 'assets/hiw-step-3-hevc.mp4?v=17'
+      hevc: 'assets/hiw-step-3-hevc.mp4?v=20'
     }
   ];
 
