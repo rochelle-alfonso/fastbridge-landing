@@ -169,6 +169,11 @@
   display: none;
 }
 
+/* Subtitle removed from the FAQ section on all viewports. */
+.faq__subtitle--desktop {
+  display: none;
+}
+
 .faq__header-btn {
   width: 160px;
 }
