@@ -168,7 +168,7 @@
       v.muted = true;
       v.defaultMuted = true;
       v.loop = false;
-      v.preload = 'auto';
+      v.preload = 'metadata';
       v.setAttribute('muted', '');
       v.setAttribute('playsinline', '');
       v.playsInline = true;
