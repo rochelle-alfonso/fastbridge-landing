@@ -98,6 +98,10 @@
     } else {
       source.src = step.hevc;
       source.type = 'video/mp4; codecs="hvc1"';
+      // Safari/WebKit bug: a CSS `filter` on a <video> with an HEVC alpha
+      // channel composites the transparent areas against BLACK. Drop the
+      // drop-shadow filter on the HEVC path so the card stays transparent.
+      video.style.filter = 'none';
     }
     video.appendChild(source);
   }
