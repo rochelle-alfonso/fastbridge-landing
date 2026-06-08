@@ -50,6 +50,11 @@
   color: var(--title-muted);
 }
 
+/* Mobile-only forced line break inside the subtitle (shown via @media). */
+.blog__title-br {
+  display: none;
+}
+
 .blog__header-btn {
   flex-shrink: 0;
   width: 160px;
@@ -261,6 +266,23 @@
   .blog__header {
     flex-direction: column;
     gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Mobile: drop the "What's happening" lead and show the rest in black.
+     Force the break after "latest" so it reads:
+     "Check out the latest" / "from us." */
+  .blog__title-lead {
+    display: none;
+  }
+
+  .blog__title em {
+    color: var(--fg-primary);
+  }
+
+  .blog__title-br {
+    display: block;
   }
 
   /* Button moves below the cards into .blog__footer on mobile */

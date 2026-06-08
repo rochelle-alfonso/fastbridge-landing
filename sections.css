@@ -118,7 +118,9 @@
 
 /* ========== FAQ ========== */
 .faq {
-  padding: 174px var(--section-pad-x) 150px;
+  /* Top gap matches the blog section's top padding (124px) so the
+     blog→FAQ spacing equals the steps→blog spacing. */
+  padding: 124px var(--section-pad-x) 150px;
   max-width: var(--section-max);
   margin: 0 auto;
   min-height: 809px;
@@ -622,9 +624,7 @@
   }
 
   .faq__subtitle--mobile {
-    display: block;
-    font-size: 14px;
-    line-height: normal;
+    display: none;
   }
 
   .faq-item__question {
