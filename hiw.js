@@ -98,10 +98,10 @@
     } else {
       source.src = step.hevc;
       source.type = 'video/mp4; codecs="hvc1"';
-      // Safari/WebKit bug: a CSS `filter` on a <video> with an HEVC alpha
-      // channel composites the transparent areas against BLACK. Drop the
-      // drop-shadow filter on the HEVC path so the card stays transparent.
-      video.style.filter = 'none';
+      // Safari renders an HEVC-alpha <video> with a BLACK background unless it
+      // is fully preloaded — with preload="metadata" the transparent areas show
+      // black. Force full preload on the HEVC (Safari/iOS) path.
+      video.preload = 'auto';
     }
     video.appendChild(source);
   }
