@@ -85,16 +85,21 @@
   }
 
   function appendTransparentSources(video, step) {
-    var hevc = document.createElement('source');
-    hevc.src = step.hevc;
-    hevc.type = 'video/mp4; codecs="hvc1"';
-
-    var webm = document.createElement('source');
-    webm.src = step.webm;
-    webm.type = 'video/webm; codecs="vp9"';
-
-    video.appendChild(hevc);
-    video.appendChild(webm);
+    // Pick ONE source by capability, not <source> order. Chrome reports it can
+    // play "hvc1" but cannot render HEVC's alpha channel — if we hand it the
+    // HEVC source it errors and the widget goes blank. So: anything that can
+    // play VP9/WebM (Chrome/Firefox/Edge — all with alpha) gets the WebM;
+    // browsers that can't (Safari/iOS WebKit) get the HEVC.
+    var canWebM = video.canPlayType('video/webm; codecs="vp9"') !== '';
+    var source = document.createElement('source');
+    if (canWebM) {
+      source.src = step.webm;
+      source.type = 'video/webm; codecs="vp9"';
+    } else {
+      source.src = step.hevc;
+      source.type = 'video/mp4; codecs="hvc1"';
+    }
+    video.appendChild(source);
   }
 
   function pauseVideos() {
