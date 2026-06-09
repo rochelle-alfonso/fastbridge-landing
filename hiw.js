@@ -37,10 +37,11 @@
   var useVideo = false;
 
   function getMobileStepOrder(activeIndex, total) {
-    var order = [activeIndex];
+    // Circular order: active first, then the following steps wrapping around
+    // (e.g. active 3 -> 3, 1, 2) rather than counting back down.
+    var order = [];
     var i;
-    for (i = activeIndex + 1; i < total; i++) order.push(i);
-    for (i = activeIndex - 1; i >= 0; i--) order.push(i);
+    for (i = 0; i < total; i++) order.push((activeIndex + i) % total);
     return order;
   }
 
