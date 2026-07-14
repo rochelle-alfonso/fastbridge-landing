@@ -102,7 +102,8 @@
 
 .seo-banner--streaks {
   background-image: url('assets/branding/gradients/seo-banner-bg-streaks.jpg');
-  background-position: center right;
+  background-size: 112% 112%;
+  background-position: right center;
 }
 
 .seo-banner p {
