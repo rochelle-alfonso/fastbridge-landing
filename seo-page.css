@@ -67,6 +67,7 @@
 
 /* —— Dark CTA banner —— */
 .seo-banner {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -74,8 +75,29 @@
   margin: 1.75em 0 2.25em;
   padding: 28px 32px;
   border-radius: 14px;
-  background: var(--fg-primary, #161615);
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--fg-primary, #161615);
+  background-image: url('assets/branding/gradients/seo-banner-bg.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
   color: #fffffe;
+}
+
+.seo-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 18, 0.72) 0%,
+    rgba(10, 10, 18, 0.35) 42%,
+    rgba(10, 10, 18, 0.08) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .seo-banner p {
