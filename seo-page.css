@@ -157,6 +157,23 @@
   transform: scale(0.98);
 }
 
+.seo-banner__btn--secondary {
+  border: 1px solid rgba(0, 101, 255, 0.55);
+  background-color: rgba(10, 14, 40, 0.72);
+  background-image: linear-gradient(rgba(255, 255, 254, 0.1), rgba(255, 255, 254, 0.1));
+  background-size: 100% 0%;
+  color: #fffffe;
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.seo-banner__btn--secondary:hover {
+  background-size: 100% 100%;
+  color: #fffffe;
+  border-color: rgba(0, 101, 255, 0.85);
+}
+
 .seo-banner__btn-arrow {
   display: none;
 }
