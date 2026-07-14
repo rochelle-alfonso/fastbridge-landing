@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="hero.css?v=53">
   <link rel="stylesheet" href="sections.css?v=30">
   <link rel="stylesheet" href="faq.css?v=12">
-  <link rel="stylesheet" href="seo-page.css?v=2">
+  <link rel="stylesheet" href="seo-page.css?v=3">
   <link rel="stylesheet" href="button-hovers.css?v=20260605">
 </head>
 <body>
@@ -30,7 +30,7 @@
 
       <header class="page-hero__nav">
         <a href="index.html" class="hero__logo">
-          <img src="assets/figma-hero/logo-icon-white.svg" alt="" class="hero__logo-icon" width="40" height="40">
+          <img src="assets/branding/logos/logo-icon-white.svg" alt="" class="hero__logo-icon" width="40" height="40">
           <span class="hero__logo-text">fastbridge</span>
         </a>
         <a href="https://fastbridge.availproject.org/" class="page-hero__cta">Bridge Now</a>
@@ -39,18 +39,26 @@
       <div class="page-hero__content">
         <h1 class="page-hero__title" id="seo-page-title">FastBridge</h1>
         <p class="page-hero__subtitle">
-          A unified cross-chain bridge built by Avail. Move and swap tokens from multiple chains to any supported destination, in a single transaction.
+          A unified cross-chain bridge built by Avail. Move and swap tokens from multiple chains to any supported destination, in a single transaction. No switching networks, no managing gas, no waiting.
         </p>
       </div>
     </section>
 
     <article class="seo-content">
-      <p>FastBridge is a unified cross-chain bridge that lets you move and swap tokens from multiple source chains to any supported destination chain in a single transaction. You can bridge several different assets at once and receive the token you want, on the chain you want. Unlike traditional bridges, you don't need to manage gas on each chain or bridge one chain at a time. FastBridge aggregates your balances so you arrive ready to trade.</p>
+      <nav class="seo-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="seo-breadcrumb__sep" aria-hidden="true">/</span>
+        <span aria-current="page">FastBridge</span>
+      </nav>
+
+      <p class="seo-lead">FastBridge is a unified cross-chain bridge that lets you move and swap tokens from multiple source chains to any supported destination chain in a single transaction. You can bridge several different assets at once and receive the token you want, on the chain you want. Unlike traditional bridges, you don't need to manage gas on each chain or bridge one chain at a time. FastBridge aggregates your balances so you arrive ready to trade.</p>
 
       <p>FastBridge is built by Avail as a fully standalone bridging interface you can use today to move tokens across any supported EVM chain in seconds. It is also a live demonstration of what Avail Nexus is capable of — which is why developers can embed the same bridging experience directly into their own apps via the FastBridge Widget or the Nexus SDK.</p>
 
-      <p>Ready to bridge? Move tokens from any chain to any chain in a single transaction.</p>
-      <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Bridge Now</a>
+      <div class="seo-cta-row">
+        <p>Ready to bridge? Move tokens from any chain to any chain in a single transaction.</p>
+        <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Bridge Now</a>
+      </div>
 
       <h2>Overview</h2>
       <p>FastBridge is a unified cross-chain bridge, powered by Avail, that allows users to move multiple tokens from multiple chains in a single transaction. Instead of bridging assets one chain at a time, FastBridge aggregates your balances across chains and delivers them to any destination in seconds — consolidated and ready to use.</p>
@@ -63,42 +71,60 @@
 
       <h2>How it works</h2>
       <p>FastBridge uses intent-based bridging: you declare exactly which assets and amounts you're sending from your source chains, and the protocol determines the best way to deliver them to your chosen destination token and chain. Solvers compete to fill that intent using native assets, with no wrapping and no synthetic tokens.</p>
+      <p>The interface presents the flow as three steps.</p>
 
-      <div class="seo-step">
-        <p class="seo-step-num">01</p>
-        <h3>Select Token, Chain and Amount</h3>
-        <p>Start by selecting the source assets and the exact amounts you want to bridge from. Open the Swap and Bridge modal and add the source tokens you want to bridge from, choosing the chain and amount for each — FastBridge reads your balances across all connected chains and shows the running total in real time. Once your sources are set, select the destination chain and the token you want to receive there. You can remove any source asset at any time; FastBridge recalculates instantly.</p>
+      <div class="seo-steps">
+        <div class="seo-step">
+          <span class="seo-step-num" aria-hidden="true">01</span>
+          <span class="seo-step-label">Step 01</span>
+          <h3>Select Token, Chain and Amount</h3>
+          <p>Start by selecting the source assets and the exact amounts you want to bridge from. Open the Swap and Bridge modal and add the source tokens you want to bridge from, choosing the chain and amount for each — FastBridge reads your balances across all connected chains and shows the running total in real time. Once your sources are set, select the destination chain and the token you want to receive there. You can remove any source asset at any time; FastBridge recalculates instantly.</p>
+        </div>
+
+        <div class="seo-step">
+          <span class="seo-step-num" aria-hidden="true">02</span>
+          <span class="seo-step-label">Step 02</span>
+          <h3>Review Your Swap</h3>
+          <p>The Confirm Swap screen breaks down each source asset by chain and value, the estimated amount you'll receive, and total fees — execution gas fee, protocol fee, and solver fee — plus price impact and swap impact, with max slippage shown. Every figure can be expanded for full detail before you sign, and you can go back to adjust your sources at any point.</p>
+        </div>
+
+        <div class="seo-step">
+          <span class="seo-step-num" aria-hidden="true">03</span>
+          <span class="seo-step-label">Step 03</span>
+          <h3>Approve &amp; Swap is Complete</h3>
+          <p>Confirm each source asset in your wallet. FastBridge executes the bridge and swap atomically, then delivers your funds to the destination chain in seconds — consolidated, swapped, and ready to use.</p>
+        </div>
       </div>
 
-      <div class="seo-step">
-        <p class="seo-step-num">02</p>
-        <h3>Review Your Swap</h3>
-        <p>The Confirm Swap screen breaks down each source asset by chain and value, the estimated amount you'll receive, and total fees — execution gas fee, protocol fee, and solver fee — plus price impact and swap impact, with max slippage shown. Every figure can be expanded for full detail before you sign, and you can go back to adjust your sources at any point.</p>
+      <div class="seo-cta-row">
+        <p>Try it yourself. Bridge and swap across multiple chains — no gas tokens needed.</p>
+        <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Bridge Now</a>
       </div>
-
-      <div class="seo-step">
-        <p class="seo-step-num">03</p>
-        <h3>Approve &amp; Swap is Complete</h3>
-        <p>Confirm each source asset in your wallet. FastBridge executes the bridge and swap atomically, then delivers your funds to the destination chain in seconds — consolidated, swapped, and ready to use.</p>
-      </div>
-
-      <p>Try it yourself. Bridge and swap across multiple chains — no gas tokens needed.</p>
-      <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Bridge Now</a>
 
       <h2>Supported networks, tokens and wallets</h2>
       <p>FastBridge currently supports 12 EVM chains, with more being added regularly. You can always check the bridge interface for the current full list or follow Avail on Twitter for announcements.</p>
 
-      <dl>
-        <dt>Chains</dt>
-        <dd>Monad, MegaETH, Citrea, Arbitrum, Avalanche, Ethereum, Optimism, Base, Scroll, Polygon, BNB, HyperEVM — 12 chains, with more being added regularly.</dd>
-        <dt>Tokens</dt>
-        <dd>All tokens on all supported chains (USDC, USDT, USDm, etc.). Send any token(s) and receive any token at the destination.</dd>
-        <dt>Amounts</dt>
-        <dd>No minimum amount. Maximum is $10M per single transfer.</dd>
-        <dt>Wallets</dt>
-        <dd>Any EVM-compatible wallet — MetaMask, Rabby, Coinbase Wallet, and any WalletConnect-compatible wallet. If your wallet works with EVM chains, it works with FastBridge.</dd>
-        <dt>Settlement</dt>
-        <dd>Approximately 10–20 seconds. Designed for near-instant delivery — no lock-and-mint delays, no 7-day withdrawal windows.</dd>
+      <dl class="seo-specs">
+        <div>
+          <dt>Chains</dt>
+          <dd>Monad, MegaETH, Citrea, Arbitrum, Avalanche, Ethereum, Optimism, Base, Scroll, Polygon, BNB, HyperEVM — 12 chains, with more being added regularly.</dd>
+        </div>
+        <div>
+          <dt>Tokens</dt>
+          <dd>All tokens on all supported chains (USDC, USDT, USDm, etc.). Send any token(s) and receive any token at the destination.</dd>
+        </div>
+        <div>
+          <dt>Amounts</dt>
+          <dd>No minimum amount. Maximum is $10M per single transfer.</dd>
+        </div>
+        <div>
+          <dt>Wallets</dt>
+          <dd>Any EVM-compatible wallet — MetaMask, Rabby, Coinbase Wallet, and any WalletConnect-compatible wallet. If your wallet works with EVM chains, it works with FastBridge.</dd>
+        </div>
+        <div>
+          <dt>Settlement</dt>
+          <dd>Approximately 10–20 seconds. Designed for near-instant delivery — no lock-and-mint delays, no 7-day withdrawal windows.</dd>
+        </div>
       </dl>
 
       <h2>Security model</h2>
@@ -115,8 +141,10 @@
         <li>Audited: Avail Nexus undergoes security audits; reports are published in the official documentation.</li>
       </ul>
 
-      <p>The fastest way to move across chains.</p>
-      <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Bridge Now</a>
+      <div class="seo-cta-row">
+        <p>The fastest way to move across chains.</p>
+        <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Bridge Now</a>
+      </div>
 
       <h2>What makes FastBridge different</h2>
       <p>Traditional bridges move funds from one chain to one other chain. FastBridge aggregates your balances across multiple source chains, can swap between different tokens, and settles everything at the destination chain in a single transaction. Three capabilities set it apart from every other bridge on the market.</p>
@@ -150,20 +178,28 @@
       <h3>Funding</h3>
       <p>Avail has raised $75M in total ($43M Series A, $27M Seed) from Founders Fund, Dragonfly, Cyber Fund, SevenX, Figment, Alliance DAO, HashKey, and 15+ others.</p>
 
-      <dl>
-        <dt>Total raised</dt>
-        <dd>$75M</dd>
-        <dt>Founded</dt>
-        <dd>2023</dd>
-      </dl>
+      <div class="seo-stats">
+        <div class="seo-stat">
+          <span class="seo-stat__label">Total raised</span>
+          <span class="seo-stat__value">$75M</span>
+        </div>
+        <div class="seo-stat">
+          <span class="seo-stat__label">Founded</span>
+          <span class="seo-stat__value">2023</span>
+        </div>
+      </div>
 
       <h3>Integrating FastBridge</h3>
       <p>FastBridge exposes integration endpoints for dApps, wallets, and protocols. It offers an embeddable widget that drops into your existing app with minimal setup. Integrate FastBridge into your app and get a configurable widget handling multi-chain asset routing, gas, and settlement.</p>
 
-      <a href="https://docs.availproject.org/docs/nexus/get-started" class="section-btn seo-cta" target="_blank" rel="noopener noreferrer">Integrate now</a>
+      <div class="seo-cta-row">
+        <a href="https://docs.availproject.org/docs/nexus/get-started" class="section-btn seo-cta" target="_blank" rel="noopener noreferrer">Integrate now</a>
+      </div>
 
-      <p>Move your crypto across chains in one transaction.</p>
-      <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Bridge Now</a>
+      <div class="seo-cta-row">
+        <p>Move your crypto across chains in one transaction.</p>
+        <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Bridge Now</a>
+      </div>
 
       <p class="seo-meta">Last updated: June 2026 · Maintained by Avail</p>
     </article>
@@ -181,7 +217,7 @@
         <div class="site-footer__top">
           <div class="site-footer__brand">
             <a href="index.html" class="site-footer__logo">
-              <img src="assets/figma-hero/logo-icon-white.svg" alt="" class="site-footer__logo-icon" width="40" height="40">
+              <img src="assets/branding/logos/logo-icon-white.svg" alt="" class="site-footer__logo-icon" width="40" height="40">
               <span class="site-footer__logo-text">fastbridge</span>
             </a>
             <p class="site-footer__desc site-footer__desc--desktop">Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement. Visit the docs to get started.</p>
