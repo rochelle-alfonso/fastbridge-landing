@@ -5,10 +5,11 @@
 }
 
 .seo-content {
+  box-sizing: border-box;
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--section-max, 1440px);
   margin: 0 auto;
-  padding: clamp(40px, 5vw, 72px) clamp(24px, 3.5vw, 56px) clamp(64px, 8vw, 100px);
+  padding: clamp(40px, 5vw, 72px) 32px clamp(64px, 8vw, 100px);
   color: var(--fg-primary, #161615);
   font-family: 'Google Sans Flex', sans-serif;
   font-size: 16px;
@@ -106,7 +107,7 @@
 
 .seo-banner p {
   margin: 0;
-  max-width: 52ch;
+  max-width: none;
   color: rgba(255, 255, 254, 0.78);
   font-size: 16px;
   line-height: 1.55;
