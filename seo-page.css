@@ -4,6 +4,14 @@
   background: var(--brand-white, #fffffe);
 }
 
+/* Cap emphasis at medium on SEO pages (incl. shared footer) */
+.seo-page strong,
+.seo-page b,
+.seo-page .site-footer__cta strong,
+.seo-page .site-footer__col-title {
+  font-weight: 500;
+}
+
 .seo-layout {
   box-sizing: border-box;
   display: grid;
@@ -38,7 +46,7 @@
 .seo-spec-card__title {
   margin: 0;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--fg-primary, #161615);
@@ -109,7 +117,7 @@
 .seo-content h2 {
   margin: 3em 0 0.85em;
   font-size: clamp(28px, 3.4vw, 36px);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--fg-primary, #161615);
@@ -122,7 +130,7 @@
 .seo-content h3 {
   margin: 2em 0 0.6em;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.3;
 }
 
@@ -132,7 +140,7 @@
 }
 
 .seo-content strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* —— Callout (blue accent bar) —— */
@@ -200,7 +208,7 @@
 
 .seo-banner strong {
   color: #fffffe;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .seo-banner__btn {
@@ -294,7 +302,7 @@
   border-right: 1px solid var(--border, #e8e8e7);
   font-family: 'Geist', 'Google Sans Flex', ui-monospace, monospace;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--brand-blue, #0065ff);
   line-height: 1.2;
@@ -307,7 +315,7 @@
 .seo-step__body h3 {
   margin: 0 0 10px;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.3;
   color: var(--fg-primary, #161615);
 }
@@ -425,7 +433,7 @@
 
 .seo-content td:first-child {
   width: 30%;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--fg-primary, #161615);
   background: #fafafa;
   border-right: 1px solid var(--border, #e8e8e7);
@@ -468,7 +476,7 @@
 .seo-stat__value {
   display: block;
   font-size: clamp(32px, 4vw, 40px);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--fg-primary, #161615);
