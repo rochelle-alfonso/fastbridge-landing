@@ -697,6 +697,36 @@
   color: var(--fg-muted, #737373);
 }
 
+.seo-pick__screenshot--filled {
+  height: auto;
+  padding: 0;
+  gap: 0;
+  border-style: solid;
+  background: #fffffe;
+  overflow: hidden;
+}
+
+.seo-pick__screenshot--filled img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.seo-pick__screenshot--filled figcaption {
+  width: 100%;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border, #e8e8e7);
+  background: #fafafa;
+  font-family: 'Geist', 'Google Sans Flex', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted, #737373);
+  text-align: center;
+}
+
 .seo-pick__screenshot svg {
   opacity: 0.4;
 }
