@@ -810,26 +810,20 @@
 /* —— Guide page: flow diagram —— */
 .seo-flow {
   margin: 1.5em 0;
-  padding: 24px;
-  border: 1px solid var(--border, #e8e8e7);
+  padding: 0;
+  border: none;
   border-radius: 14px;
-  background: #f5f5f4;
+  background: transparent;
+  overflow: hidden;
 }
 
-.seo-flow__title {
-  margin: 0 0 16px;
-  font-family: 'Geist', 'Google Sans Flex', ui-monospace, monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--fg-muted, #737373);
-}
-
-.seo-flow svg {
+.seo-flow img {
   display: block;
   width: 100%;
+  max-width: 1024px;
   height: auto;
+  margin-inline: auto;
+  border-radius: 14px;
 }
 
 /* —— Guide page: comparison table highlights —— */

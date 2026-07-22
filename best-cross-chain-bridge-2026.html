@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="hero.css?v=53">
   <link rel="stylesheet" href="sections.css?v=30">
   <link rel="stylesheet" href="faq.css?v=12">
-  <link rel="stylesheet" href="seo-page.css?v=29">
+  <link rel="stylesheet" href="seo-page.css?v=30">
   <link rel="stylesheet" href="button-hovers.css?v=20260605">
 </head>
 <body>
@@ -322,40 +322,9 @@
           <p>Legacy bridges use a <strong>lock-and-mint</strong> or <strong>burn-and-mint</strong> flow: tokens are locked or burned on the source chain, a wrapped version is minted on the destination, and the user swaps or unwraps to get the native asset. This introduces intermediate tokens, multi-step confirmations, and settlement delays.</p>
           <p>Intent-based bridges flip the model. The user declares an outcome, <em>"I want X USDC on chain Y"</em>, and a solver fulfills the intent using their own liquidity on the destination chain, delivering native tokens in seconds. The solver is reimbursed on-chain after verification. FastBridge, Across, and deBridge all use this architecture.</p>
 
-          <div class="seo-flow">
-            <p class="seo-flow__title">FastBridge multi-source flow</p>
-            <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing USDC from Arbitrum, Base, and Optimism plus USDM from MegaETH flowing through Avail Nexus to a destination chain in one transaction">
-              <defs>
-                <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0065ff"></path>
-                </marker>
-              </defs>
-              <g font-family="Geist, ui-monospace, monospace" font-size="11" fill="#161615">
-                <rect x="20" y="20" width="130" height="36" rx="8" fill="#fffffe" stroke="#e8e8e7"></rect>
-                <text x="85" y="42" text-anchor="middle">USDC · Arbitrum</text>
-                <rect x="20" y="74" width="130" height="36" rx="8" fill="#fffffe" stroke="#e8e8e7"></rect>
-                <text x="85" y="96" text-anchor="middle">USDC · Base</text>
-                <rect x="20" y="128" width="130" height="36" rx="8" fill="#fffffe" stroke="#e8e8e7"></rect>
-                <text x="85" y="150" text-anchor="middle">USDM · MegaETH</text>
-                <rect x="20" y="182" width="130" height="36" rx="8" fill="#fffffe" stroke="#e8e8e7"></rect>
-                <text x="85" y="204" text-anchor="middle">USDC · Optimism</text>
-              </g>
-              <g stroke="#0065ff" stroke-width="1.4" fill="none" opacity="0.85">
-                <path d="M 150 38 Q 240 38 295 105" marker-end="url(#arr)"></path>
-                <path d="M 150 92 Q 240 92 295 110" marker-end="url(#arr)"></path>
-                <path d="M 150 146 Q 240 146 295 115" marker-end="url(#arr)"></path>
-                <path d="M 150 200 Q 240 200 295 120" marker-end="url(#arr)"></path>
-              </g>
-              <rect x="295" y="78" width="160" height="64" rx="12" fill="#161615"></rect>
-              <text x="375" y="105" font-family="Google Sans Flex, sans-serif" font-size="13" font-weight="500" fill="#fffffe" text-anchor="middle">Avail Nexus</text>
-              <text x="375" y="125" font-family="Geist, ui-monospace, monospace" font-size="10" fill="#0065ff" text-anchor="middle">SOLVER NETWORK</text>
-              <line x1="455" y1="110" x2="540" y2="110" stroke="#0065ff" stroke-width="1.4" marker-end="url(#arr)"></line>
-              <rect x="540" y="78" width="140" height="64" rx="12" fill="#0065ff"></rect>
-              <text x="610" y="103" font-family="Google Sans Flex, sans-serif" font-size="13" font-weight="500" fill="#fffffe" text-anchor="middle">Destination</text>
-              <text x="610" y="125" font-family="Geist, ui-monospace, monospace" font-size="10" fill="#fffffe" text-anchor="middle">~10–20s · NATIVE</text>
-              <text x="350" y="200" font-family="Geist, ui-monospace, monospace" font-size="10" fill="#737373" text-anchor="middle">ONE SIGNATURE · MULTIPLE SOURCES · ONE DESTINATION</text>
-            </svg>
-          </div>
+          <figure class="seo-flow">
+            <img src="assets/branding/diagrams/fastbridge-multi-source-flow.png" alt="FastBridge multi-source flow diagram showing USDT, USDC, USDM, and USDC on Optimism flowing through Avail Nexus solver network to a destination in one signature" width="1024" height="581" loading="lazy" decoding="async">
+          </figure>
 
           <p>FastBridge extends the intent model further. Most intent bridges still resolve to one source chain per intent. <strong>FastBridge resolves a single intent across multiple source chains simultaneously</strong>, and can swap into a different destination token in the same flow.</p>
         </section>
