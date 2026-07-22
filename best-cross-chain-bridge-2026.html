@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Best Cross-Chain Bridges in 2026 — An Independent Guide</title>
-  <meta name="description" content="An independent guide to the best cross-chain bridges in 2026. Compare FastBridge, Across, Stargate, and deBridge on speed, fees, multi-source support, and chain coverage.">
+  <title>Best Cross-Chain Bridges in 2026, An Independent Guide</title>
+  <meta name="description" content="An independent guide to the best cross-chain bridges: FastBridge, Across, Stargate, and deBridge. Compare architecture, speed, chain coverage, and fees.">
   <link rel="canonical" href="https://rochelle-alfonso.github.io/fastbridge-landing/best-cross-chain-bridge-2026.html">
   <meta property="og:title" content="Best Cross-Chain Bridges in 2026">
-  <meta property="og:description" content="Compare FastBridge, Across, Stargate, and deBridge — architecture, speed, fees, and multi-source support.">
+  <meta property="og:description" content="Compare FastBridge, Across, Stargate, and deBridge on architecture, speed, fees, and multi-source support.">
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="base.css?v=22">
   <link rel="stylesheet" href="hero.css?v=53">
   <link rel="stylesheet" href="sections.css?v=30">
   <link rel="stylesheet" href="faq.css?v=12">
-  <link rel="stylesheet" href="seo-page.css?v=2">
+  <link rel="stylesheet" href="seo-page.css?v=22">
   <link rel="stylesheet" href="button-hovers.css?v=20260605">
 </head>
 <body>
@@ -22,127 +22,402 @@
       <img src="assets/branding/gradients/seo-hero-bg.png" alt="" class="page-hero__media" aria-hidden="true" width="1024" height="289">
       <header class="page-hero__nav">
         <a href="index.html" class="hero__logo">
-          <img src="assets/figma-hero/logo-icon-white.svg" alt="" class="hero__logo-icon" width="40" height="40">
+          <img src="assets/branding/logos/logo-icon-white.svg" alt="" class="hero__logo-icon" width="40" height="40">
           <span class="hero__logo-text">fastbridge</span>
         </a>
         <a href="https://fastbridge.availproject.org/base" class="page-hero__cta">Bridge Now</a>
       </header>
       <div class="page-hero__content">
-        <h1 class="page-hero__title" id="seo-page-title">Best Cross-Chain Bridges in 2026</h1>
+        <h1 class="page-hero__title" id="seo-page-title">Best cross-chain bridges</h1>
         <p class="page-hero__subtitle">An independent guide to choosing the right bridge for your use case.</p>
       </div>
     </section>
 
-    <article class="seo-content">
-      <h2>TL;DR</h2>
-      <p>The best cross-chain bridge in 2026 depends on what you're moving and where from. For users whose assets are scattered across several chains and who want to consolidate or redeploy them in a single action, FastBridge by Avail is the only bridge that natively supports multi-source transactions. Users can combine their USDC, USDT, USDM, or ETH balances from multiple chains into one transfer, without receiving wrapped tokens and without needing gas on every source chain.</p>
-      <p>For fast single-route transfers with deep liquidity, Across remains the benchmark on major EVM routes. For the widest chain coverage including non-EVM networks, Stargate leads with 80+ chains. For native Solana support, deBridge is strong. All four are non-custodial, but they differ substantially in architecture, speed, asset coverage, and whether they support pulling from multiple source chains at once.</p>
+    <div class="seo-layout">
+      <article class="seo-content">
+        <p class="seo-authorship">
+          <span>Authored by <strong>Andria Efstathiou</strong></span>
+          <span class="seo-authorship__sep" aria-hidden="true">·</span>
+          <span>Reviewed by <strong>Scott Milat</strong></span>
+          <span class="seo-authorship__sep" aria-hidden="true">·</span>
+          <span>Last updated 24 April 2026</span>
+        </p>
 
-      <h2>Why Multi-Source Bridging Is the 2026 Story</h2>
-      <p>Most active DeFi users today don't hold capital on one chain. A typical portfolio might have USDC on Ethereum, USDT on Arbitrum, ETH on Base, and stablecoins parked on Optimism. When a new opportunity appears on Monad, MegaETH, Citrea, or any other chain, the conventional bridging workflow asks the user to switch networks, bridge, pay gas, wait, and repeat — three or four times.</p>
-      <p>Every bridge in this guide except FastBridge operates on a single-source, single-destination model. FastBridge is the only bridge built around multi-source input, where the user declares a destination and an amount, and the bridge pulls from multiple source chains at once in one signed transaction.</p>
-      <p>The other two features that meaningfully change the user experience: no token wrapping (you send and receive native assets throughout) and gas abstraction (fees are paid in stablecoins). FastBridge has both.</p>
+        <section id="tldr" aria-labelledby="tldr-heading">
+          <div class="seo-tldr">
+            <p class="seo-tldr__label" id="tldr-heading">TL;DR</p>
+            <p>The best cross-chain bridge in 2026 depends on what you're moving and where from. Here's the short version:</p>
+            <ul class="seo-tldr-list">
+              <li>
+                <span class="seo-tldr-list__rank" aria-hidden="true">01</span>
+                <span><strong>FastBridge by Avail</strong>, best for consolidating assets from multiple chains in one transaction. The only bridge with native multi-source support. Offers cross-chain swaps and gas abstraction. Supports all major EVM chains.</span>
+              </li>
+              <li>
+                <span class="seo-tldr-list__rank" aria-hidden="true">02</span>
+                <span><strong>Across</strong>, best for fast single-asset transfers with deep liquidity on major EVM routes (ETH, USDC between Ethereum, Arbitrum, Optimism, Base).</span>
+              </li>
+              <li>
+                <span class="seo-tldr-list__rank" aria-hidden="true">03</span>
+                <span><strong>Stargate</strong>, best for the widest chain coverage including non-EVM networks. Supports 80+ blockchains.</span>
+              </li>
+              <li>
+                <span class="seo-tldr-list__rank" aria-hidden="true">04</span>
+                <span><strong>deBridge</strong>, best for intent-based transfers with native Solana and Tron support.</span>
+              </li>
+            </ul>
+            <p>All four are non-custodial and deliver native assets. They differ substantially in architecture, speed, asset coverage, and whether they support pulling from multiple source chains at once.</p>
+          </div>
+        </section>
 
-      <h2>Our Top Picks</h2>
-      <h3>1. FastBridge</h3>
-      <p><strong>Best for:</strong> consolidating assets from multiple chains; no-wrapping stablecoin and ETH transfers; onboarding to new EVM L2s.</p>
-      <p>FastBridge is an intent-based, solver-powered bridge powered by Avail Nexus. It is the only bridge in this guide that natively supports multi-source transactions. Transactions settle in seconds, often under 10 seconds end-to-end. Funds are locked in decentralised vault contracts on the source chain, and a solver fronts liquidity on the destination chain immediately. FastBridge currently supports 13+ EVM ecosystems, including Ethereum, Arbitrum, Optimism, Base, Polygon, Avalanche, BNB Chain, Scroll, Kaia, HyperEVM, Monad, MegaETH, and Citrea.</p>
-      <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Launch FastBridge</a>
+        <section id="why" aria-labelledby="why-heading">
+          <h2 id="why-heading">Why multi-source bridging matters</h2>
+          <p>Most active DeFi users don't hold capital on one chain. A typical portfolio might have USDC on Ethereum from an exited position, USDT on Arbitrum from a yield farm, ETH on Base from a launch, and stablecoins parked on Optimism. When a new opportunity appears on Monad, MegaETH, Citrea, or any other chain, the conventional bridging workflow asks the user to do the same thing three or four times: switch networks, bridge, pay gas, wait, repeat.</p>
+          <p>Every bridge in this guide except FastBridge operates on a single-source, single-destination model. <strong>One chain in, one chain out.</strong> If your funds are split across three chains, you're making three transactions.</p>
+          <p>FastBridge is the only bridge built around <strong>multi-source input</strong>: you add the tokens and chains you want to bridge from, then select the destination chain and the token you want to receive. FastBridge pulls from all selected source chains in one signed transaction. You can also swap at the destination, send USDC and receive HYPE on HyperEVM, for example, making it the only bridge that consolidates and swaps in a single flow.</p>
+          <p>The other two features that meaningfully change the user experience: <strong>no token wrapping</strong> (you send and receive native assets throughout) and <strong>gas abstraction</strong> (fees are paid in stablecoins, so you don't need to hold native gas tokens on every source chain).</p>
+        </section>
 
-      <h3>2. Across Protocol</h3>
-      <p><strong>Best for:</strong> fast single-asset transfers between major EVM chains; deep liquidity on ETH and USDC routes.</p>
-      <p>Across is a mature intent-based bridge with over $22B in volume across 15M+ transactions, with average fill times under one minute. Each transfer is chain-to-chain: Across does not support consolidating from multiple source chains in a single transaction. <a href="https://across.to/" target="_blank" rel="noopener noreferrer">across.to</a></p>
+        <div class="seo-banner seo-banner--streaks">
+          <p><strong>Skip the multi-step bridging workflow.</strong> Consolidate from any chain in one transaction.</p>
+          <a href="https://fastbridge.availproject.org/base" class="seo-banner__btn">Bridge Now</a>
+        </div>
 
-      <h3>3. Stargate</h3>
-      <p><strong>Best for:</strong> broad chain coverage including non-EVM networks; large native asset transfers.</p>
-      <p>Stargate is built on LayerZero and supports 80+ blockchains. It delivers native assets with instant guaranteed finality, typically in seconds. Stargate does not offer multi-source input. <a href="https://stargate.finance/" target="_blank" rel="noopener noreferrer">stargate.finance</a></p>
+        <section id="picks" aria-labelledby="picks-heading">
+          <h2 id="picks-heading">Our top picks</h2>
+          <p>Four bridges that meaningfully cover the market. Each is non-custodial and delivers native assets. They differ on architecture, speed, coverage, and whether they support pulling from multiple source chains at once.</p>
 
-      <h3>4. deBridge</h3>
-      <p><strong>Best for:</strong> intent-based transfers with native Solana and Tron support; solver-driven pricing.</p>
-      <p>deBridge operates the DLN, a 0-TVL intent-based execution layer. It supports 25+ chains including Ethereum, Solana, Tron, and major EVM networks. Transfers typically settle in 1–4 seconds. Like Across and Stargate, deBridge handles one source and one destination per transaction. <a href="https://debridge.finance/" target="_blank" rel="noopener noreferrer">debridge.finance</a></p>
+          <div class="seo-picks">
+            <article class="seo-pick seo-pick--featured">
+              <div class="seo-pick__head">
+                <span class="seo-pick__rank">01</span>
+                <h3 class="seo-pick__name">FastBridge</h3>
+              </div>
+              <p class="seo-pick__tagline"><strong>Best for:</strong> consolidating assets from multiple chains; cross-chain swaps; onboarding to new EVM L2s without managing gas.</p>
+              <div class="seo-pick__screenshot" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                <span>Screenshot · fastbridge.availproject.org</span>
+              </div>
+              <p>FastBridge is a unified cross-chain bridge built by Avail and powered by <strong>Avail Nexus</strong>, an intent-based coordination layer. It is the only bridge in this guide that natively supports multi-source transactions: add the source tokens and chains you want to bridge from, select the destination chain and the token you want to receive, and FastBridge handles the rest in one signed transaction.</p>
+              <p>FastBridge also supports <strong>cross-chain swaps</strong>, you can send any token(s) and receive a different token at the destination. Swaps between different tokens might show a small price impact before you confirm. Transactions settle in approximately <strong>10–20 seconds</strong>. No native gas tokens required on any source chain, fees can be paid in USDC or USDT.</p>
+              <p>FastBridge supports all major EVM chains, including Ethereum, Arbitrum, Optimism, Base, Polygon, Avalanche, BNB Chain, Scroll, HyperEVM, Monad, MegaETH, and Citrea.</p>
+              <a href="https://fastbridge.availproject.org/base" class="seo-pick__link">fastbridge.availproject.org</a>
+            </article>
 
-      <h2>Side-by-Side Comparison</h2>
-      <table>
-        <thead><tr><th scope="col"></th><th scope="col">FastBridge</th><th scope="col">Across</th><th scope="col">Stargate</th><th scope="col">deBridge</th></tr></thead>
-        <tbody>
-          <tr><td>Architecture</td><td>Intent / solver</td><td>Intent / solver</td><td>Unified liquidity pools (LayerZero)</td><td>Intent / solver (0-TVL)</td></tr>
-          <tr><td>Settlement speed</td><td>Seconds (typically under 20s)</td><td>Under 1 min average</td><td>Seconds</td><td>1–4 seconds</td></tr>
-          <tr><td>Multi-source</td><td>Yes, native</td><td>No</td><td>No</td><td>No</td></tr>
-          <tr><td>Native asset delivery</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-          <tr><td>Gas paid in stablecoins</td><td>Yes (USDC/USDT)</td><td>No</td><td>No</td><td>No</td></tr>
-          <tr><td>Self-custodial</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-          <tr><td>Chain coverage</td><td>14+ EVM (incl. Monad, MegaETH, Citrea, HyperEVM)</td><td>Major EVM + Solana + Hyperliquid</td><td>80+ (EVM + non-EVM)</td><td>25+ (EVM + Solana + Tron)</td></tr>
-        </tbody>
-      </table>
+            <article class="seo-pick">
+              <div class="seo-pick__head">
+                <span class="seo-pick__rank">02</span>
+                <h3 class="seo-pick__name">Across Protocol</h3>
+              </div>
+              <p class="seo-pick__tagline"><strong>Best for:</strong> fast single-asset transfers between major EVM chains; deep liquidity on ETH and USDC routes.</p>
+              <div class="seo-pick__screenshot" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                <span>Screenshot · across.to</span>
+              </div>
+              <p>Across is a mature intent-based bridge that uses a competitive relayer network to fulfil user intents. It is particularly strong for ETH, WBTC, USDC, and USDT transfers between Ethereum, Arbitrum, Optimism, Base, and BSC, and has expanded to include Solana and Hyperliquid. Non-custodial, native asset delivery, no wrapped tokens.</p>
+              <p>Each transfer is chain-to-chain: Across does not support consolidating from multiple source chains in a single transaction.</p>
+              <a href="https://across.to/" target="_blank" rel="noopener noreferrer" class="seo-pick__link">across.to</a>
+            </article>
 
-      <h2>Cross-Chain Bridge Fee Comparison</h2>
-      <table>
-        <thead><tr><th scope="col">Bridge</th><th scope="col">Protocol Fee</th><th scope="col">Solver Fee</th><th scope="col">Model</th></tr></thead>
-        <tbody>
-          <tr><td>Stargate</td><td>~0.06%</td><td>—</td><td>Liquidity pools</td></tr>
-          <tr><td>Across</td><td>~0.05–0.1%</td><td>~0.05–0.2%</td><td>Intents (relayers)</td></tr>
-          <tr><td>deBridge</td><td>~0.04–0.1% + small flat fee</td><td>~0.1–0.3%</td><td>RFQ / MM</td></tr>
-          <tr><td>FastBridge</td><td>~0.05%</td><td>~0.02–0.05%</td><td>Intents (multi-source)</td></tr>
-        </tbody>
-      </table>
+            <article class="seo-pick">
+              <div class="seo-pick__head">
+                <span class="seo-pick__rank">03</span>
+                <h3 class="seo-pick__name">Stargate</h3>
+              </div>
+              <p class="seo-pick__tagline"><strong>Best for:</strong> broad chain coverage including non-EVM networks; large native asset transfers.</p>
+              <div class="seo-pick__screenshot" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                <span>Screenshot · stargate.finance</span>
+              </div>
+              <p>Stargate is a composable omnichain asset bridge built on LayerZero. The current version supports <strong>80+ blockchains</strong>, including EVM networks, Solana, and other non-EVM chains. It delivers native assets (USDC, USDT, ETH, BTC, OFTs) with instant guaranteed finality, typically in seconds. Non-custodial.</p>
+              <p>The UX offers multiple routing options based on speed and fees, which gives flexibility but can introduce friction. Stargate does not offer multi-source input, each transfer is a single source-to-destination route.</p>
+              <a href="https://stargate.finance/" target="_blank" rel="noopener noreferrer" class="seo-pick__link">stargate.finance</a>
+            </article>
 
-      <h2>How to Choose the Right Bridge</h2>
-      <ul>
-        <li><strong>Funds on multiple chains, consolidate in one transaction:</strong> FastBridge by Avail.</li>
-        <li><strong>Single asset between two EVM chains with deep liquidity:</strong> Across.</li>
-        <li><strong>Bridge to or from a non-EVM chain:</strong> Stargate for widest footprint; deBridge for Solana, Tron, or intent-based pricing.</li>
-        <li><strong>Onboarding to a new EVM L2 (Monad, MegaETH, Citrea, HyperEVM):</strong> FastBridge.</li>
-        <li><strong>Large stablecoin volumes on cost-sensitive routes:</strong> Compare quotes across deBridge, Stargate, and Across.</li>
-      </ul>
+            <article class="seo-pick">
+              <div class="seo-pick__head">
+                <span class="seo-pick__rank">04</span>
+                <h3 class="seo-pick__name">deBridge</h3>
+              </div>
+              <p class="seo-pick__tagline"><strong>Best for:</strong> intent-based transfers with native Solana and Tron support; solver-driven pricing.</p>
+              <div class="seo-pick__screenshot" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                <span>Screenshot · debridge.finance</span>
+              </div>
+              <p>deBridge operates the <strong>DLN (deBridge Liquidity Network)</strong>, a 0-TVL intent-based execution layer where competing solvers fulfil orders using their own liquidity. It supports <strong>25+ chains</strong> including Ethereum, Solana, Tron, BNB Chain, Arbitrum, Optimism, Polygon, Avalanche, and Base. Transfers typically settle in <strong>1–4 seconds</strong> with native asset delivery. Fees are transparent: a flat component plus 4 bps on the input. Non-custodial.</p>
+              <p>Like Across and Stargate, deBridge handles one source and one destination per transaction.</p>
+              <a href="https://debridge.finance/" target="_blank" rel="noopener noreferrer" class="seo-pick__link">debridge.finance</a>
+            </article>
+          </div>
+        </section>
 
-      <h2>How Intent-Based Bridges Work</h2>
-      <p>Legacy bridges use lock-and-mint or burn-and-mint flows with intermediate wrapped tokens and settlement delays. Intent-based bridges flip the model: the user declares an outcome and a solver fulfils it using their own liquidity, delivering native tokens in seconds. FastBridge extends this further by resolving a single intent across multiple source chains simultaneously.</p>
+        <div class="seo-banner seo-banner--streaks">
+          <p><strong>The only bridge with native multi-source support.</strong> Move and swap tokens from multiple chains in one transaction, no gas tokens needed.</p>
+          <a href="https://fastbridge.availproject.org/base" class="seo-banner__btn">Bridge Now</a>
+        </div>
 
-      <h2>Frequently Asked Questions</h2>
-      <h3>What is the best cross-chain bridge in 2026?</h3>
-      <p>For consolidating assets from multiple chains in one transaction, FastBridge by Avail. For single-asset transfers on high-volume EVM routes, Across. For the broadest chain coverage including non-EVM, Stargate.</p>
-      <h3>Can I bridge from multiple chains in a single transaction?</h3>
-      <p>Yes, but only with FastBridge. Every other bridge in this guide requires a separate transaction per source chain.</p>
-      <h3>How do I consolidate crypto scattered across chains?</h3>
-      <p>Connect your wallet at <a href="https://fastbridge.availproject.org/">fastbridge.availproject.org</a>, select a destination chain and amount, and FastBridge calculates the optimal combination of your balances across every connected source chain.</p>
-      <h3>What does "no wrapping" mean?</h3>
-      <p>Conventional bridges often deliver wrapped tokens on the destination chain. Bridges that don't wrap deliver native assets directly. FastBridge, Across, Stargate V2, and deBridge all deliver native assets.</p>
-      <h3>How does gas abstraction work on FastBridge?</h3>
-      <p>Fees can be paid in USDC or USDT directly. You do not need ETH, BNB, MATIC, or any other native gas token on a chain you're only bridging through.</p>
-      <h3>Is FastBridge by Avail safe?</h3>
-      <p>FastBridge is non-custodial. User funds are locked in decentralised vault contracts and are never held by Avail. Execution risk sits with the solver, not the user.</p>
+        <section id="table" aria-labelledby="table-heading">
+          <h2 id="table-heading">Side-by-side comparison</h2>
+          <p>The differences between these four bridges are most visible side by side. Multi-source input, cross-chain swaps, and gas abstraction are the capabilities that meaningfully separate FastBridge from the rest.</p>
+          <div class="seo-table-wrap">
+            <table class="seo-table--compare">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" class="seo-col-highlight">FastBridge</th>
+                  <th scope="col">Across</th>
+                  <th scope="col">Stargate</th>
+                  <th scope="col">deBridge</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Architecture</td>
+                  <td class="seo-col-highlight">Intent / solver</td>
+                  <td>Intent / solver</td>
+                  <td>Unified liquidity pools (LayerZero)</td>
+                  <td>Intent / solver (0-TVL)</td>
+                </tr>
+                <tr>
+                  <td>Settlement speed</td>
+                  <td class="seo-col-highlight">~10–20 seconds</td>
+                  <td>Seconds</td>
+                  <td>Seconds</td>
+                  <td>1–4 seconds</td>
+                </tr>
+                <tr>
+                  <td>Multi-source input</td>
+                  <td class="seo-col-highlight"><span class="seo-check">✓ Native</span></td>
+                  <td><span class="seo-cross">—</span></td>
+                  <td><span class="seo-cross">—</span></td>
+                  <td><span class="seo-cross">—</span></td>
+                </tr>
+                <tr>
+                  <td>Native asset delivery</td>
+                  <td class="seo-col-highlight"><span class="seo-check">✓</span></td>
+                  <td><span class="seo-check">✓</span></td>
+                  <td><span class="seo-check">✓</span></td>
+                  <td><span class="seo-check">✓</span></td>
+                </tr>
+                <tr>
+                  <td>Gas abstraction</td>
+                  <td class="seo-col-highlight"><span class="seo-check">✓ Pay in USDC/USDT</span></td>
+                  <td><span class="seo-cross">—</span></td>
+                  <td><span class="seo-cross">—</span></td>
+                  <td><span class="seo-cross">—</span></td>
+                </tr>
+                <tr>
+                  <td>Self-custodial</td>
+                  <td class="seo-col-highlight"><span class="seo-check">✓</span></td>
+                  <td><span class="seo-check">✓</span></td>
+                  <td><span class="seo-check">✓</span></td>
+                  <td><span class="seo-check">✓</span></td>
+                </tr>
+                <tr>
+                  <td>Chain coverage</td>
+                  <td class="seo-col-highlight">All major EVM chains (incl. Monad, MegaETH, Citrea, HyperEVM)</td>
+                  <td>Major EVM + Solana + Hyperliquid</td>
+                  <td>80+ (EVM + non-EVM incl. Solana)</td>
+                  <td>25+ (EVM + Solana + Tron)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-      <h2>About This Guide</h2>
-      <p>Published and maintained by Avail. Competitor descriptions are sourced from each protocol's public documentation and third-party coverage. FastBridge data reflects the product as of April 2026.</p>
+        <section id="fees" aria-labelledby="fees-heading">
+          <h2 id="fees-heading">Cross-chain bridge fee comparison</h2>
+          <p>Bridge fees typically combine a <strong>protocol fee</strong> and a <strong>solver fee</strong> (in intent-based models). Real fees vary by route, direction, asset, and time of day. FastBridge shows the exact fee, execution gas fee, protocol fee, solver fee, and any price impact, in the Confirm Swap screen before you sign.</p>
+          <div class="seo-table-wrap">
+            <table class="seo-table--compare">
+              <thead>
+                <tr>
+                  <th scope="col">Bridge</th>
+                  <th scope="col">Protocol fee</th>
+                  <th scope="col">Solver fee</th>
+                  <th scope="col">Model</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Stargate</td>
+                  <td>~0.06%</td>
+                  <td><span class="seo-cross">—</span></td>
+                  <td>Liquidity pools</td>
+                </tr>
+                <tr>
+                  <td>Across</td>
+                  <td>~0.05–0.1%</td>
+                  <td>~0.05–0.2%</td>
+                  <td>Intents (relayers)</td>
+                </tr>
+                <tr>
+                  <td>deBridge</td>
+                  <td>~0.04–0.1% + flat fee</td>
+                  <td>~0.1–0.3%</td>
+                  <td>RFQ / market-maker</td>
+                </tr>
+                <tr class="seo-row-highlight">
+                  <td><strong>FastBridge</strong></td>
+                  <td>~0.05%</td>
+                  <td>~0.02–0.05%</td>
+                  <td>Intents (multi-source, swaps)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-      <a href="https://fastbridge.availproject.org/" class="section-btn seo-cta">Launch FastBridge</a>
-      <p class="seo-meta">Last updated: 24 April 2026 · Maintained by Avail</p>
-    </article>
+        <section id="choose" aria-labelledby="choose-heading">
+          <h2 id="choose-heading">How to choose the right bridge</h2>
+          <p>The right bridge depends on the shape of your move. Use these scenarios as a starting point.</p>
+          <div class="seo-choices">
+            <div class="seo-choice">
+              <p class="seo-choice__scenario">You have multiple assets on multiple chains and want to consolidate them in one transaction. Also, you want to bridge multiple tokens from different chains quickly, without switching networks, top-up gas, or bridging multiple times.</p>
+              <p class="seo-choice__answer"><strong>FastBridge</strong> is the easiest, fastest option. It is the only bridge with native multi-source support.</p>
+            </div>
+            <div class="seo-choice">
+              <p class="seo-choice__scenario">You're moving a single asset between two specific EVM chains and want the deepest liquidity on that route.</p>
+              <p class="seo-choice__answer"><strong>Across</strong>, particularly for ETH and USDC between Ethereum, Arbitrum, Optimism, and Base.</p>
+            </div>
+            <div class="seo-choice">
+              <p class="seo-choice__scenario">You need to bridge to or from a non-EVM chain.</p>
+              <p class="seo-choice__answer"><strong>Stargate</strong> for the widest non-EVM footprint; <strong>deBridge</strong> if your route is Solana, Tron, or an EVM chain.</p>
+            </div>
+            <div class="seo-choice">
+              <p class="seo-choice__scenario">You're onboarding to a new EVM L2 (Monad, MegaETH, Citrea, HyperEVM).</p>
+              <p class="seo-choice__answer"><strong>FastBridge.</strong> It offers native support for new EVM chains.</p>
+            </div>
+            <div class="seo-choice">
+              <p class="seo-choice__scenario">You're routing large stablecoin volumes on cost-sensitive routes.</p>
+              <p class="seo-choice__answer">Compare quotes across <strong>FastBridge, deBridge, Stargate, and Across</strong>, real fees depend on route, direction, and time of day. FastBridge can process up to <strong>$10M in a single transfer</strong>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="how" aria-labelledby="how-heading">
+          <h2 id="how-heading">How intent-based bridges work (and why they're faster)</h2>
+          <p>Legacy bridges use a <strong>lock-and-mint</strong> or <strong>burn-and-mint</strong> flow: tokens are locked or burned on the source chain, a wrapped version is minted on the destination, and the user swaps or unwraps to get the native asset. This introduces intermediate tokens, multi-step confirmations, and settlement delays.</p>
+          <p>Intent-based bridges flip the model. The user declares an outcome, <em>"I want X USDC on chain Y"</em>, and a solver fulfills the intent using their own liquidity on the destination chain, delivering native tokens in seconds. The solver is reimbursed on-chain after verification. FastBridge, Across, and deBridge all use this architecture.</p>
+
+          <div class="seo-flow">
+            <p class="seo-flow__title">FastBridge multi-source flow</p>
+            <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing USDC from Arbitrum, Base, and Optimism plus USDM from MegaETH flowing through Avail Nexus to a destination chain in one transaction">
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0065ff"></path>
+                </marker>
+              </defs>
+              <g font-family="Geist, ui-monospace, monospace" font-size="11" fill="#161615">
+                <rect x="20" y="20" width="130" height="36" rx="8" fill="#fffffe" stroke="#e8e8e7"></rect>
+                <text x="85" y="42" text-anchor="middle">USDC · Arbitrum</text>
+                <rect x="20" y="74" width="130" height="36" rx="8" fill="#fffffe" stroke="#e8e8e7"></rect>
+                <text x="85" y="96" text-anchor="middle">USDC · Base</text>
+                <rect x="20" y="128" width="130" height="36" rx="8" fill="#fffffe" stroke="#e8e8e7"></rect>
+                <text x="85" y="150" text-anchor="middle">USDM · MegaETH</text>
+                <rect x="20" y="182" width="130" height="36" rx="8" fill="#fffffe" stroke="#e8e8e7"></rect>
+                <text x="85" y="204" text-anchor="middle">USDC · Optimism</text>
+              </g>
+              <g stroke="#0065ff" stroke-width="1.4" fill="none" opacity="0.85">
+                <path d="M 150 38 Q 240 38 295 105" marker-end="url(#arr)"></path>
+                <path d="M 150 92 Q 240 92 295 110" marker-end="url(#arr)"></path>
+                <path d="M 150 146 Q 240 146 295 115" marker-end="url(#arr)"></path>
+                <path d="M 150 200 Q 240 200 295 120" marker-end="url(#arr)"></path>
+              </g>
+              <rect x="295" y="78" width="160" height="64" rx="12" fill="#161615"></rect>
+              <text x="375" y="105" font-family="Google Sans Flex, sans-serif" font-size="13" font-weight="500" fill="#fffffe" text-anchor="middle">Avail Nexus</text>
+              <text x="375" y="125" font-family="Geist, ui-monospace, monospace" font-size="10" fill="#0065ff" text-anchor="middle">SOLVER NETWORK</text>
+              <line x1="455" y1="110" x2="540" y2="110" stroke="#0065ff" stroke-width="1.4" marker-end="url(#arr)"></line>
+              <rect x="540" y="78" width="140" height="64" rx="12" fill="#0065ff"></rect>
+              <text x="610" y="103" font-family="Google Sans Flex, sans-serif" font-size="13" font-weight="500" fill="#fffffe" text-anchor="middle">Destination</text>
+              <text x="610" y="125" font-family="Geist, ui-monospace, monospace" font-size="10" fill="#fffffe" text-anchor="middle">~10–20s · NATIVE</text>
+              <text x="350" y="200" font-family="Geist, ui-monospace, monospace" font-size="10" fill="#737373" text-anchor="middle">ONE SIGNATURE · MULTIPLE SOURCES · ONE DESTINATION</text>
+            </svg>
+          </div>
+
+          <p>FastBridge extends the intent model further. Most intent bridges still resolve to one source chain per intent. <strong>FastBridge resolves a single intent across multiple source chains simultaneously</strong>, and can swap into a different destination token in the same flow.</p>
+        </section>
+
+        <div class="seo-banner seo-banner--streaks seo-banner--final" id="cta">
+          <div class="seo-banner__copy">
+            <p class="seo-banner__eyebrow">Try FastBridge</p>
+            <p class="seo-banner__title">Move your crypto across chains in one transaction.</p>
+            <p>Bridge and swap tokens from multiple chains to any destination in seconds.</p>
+          </div>
+          <a href="https://fastbridge.availproject.org/base" class="seo-banner__btn">Launch FastBridge</a>
+        </div>
+
+        <p class="seo-meta">Last updated: 24 April 2026 · Maintained by Avail</p>
+      </article>
+
+      <aside class="seo-sidebar">
+        <nav class="seo-toc" aria-label="On this page">
+          <p class="seo-toc__label">On this page</p>
+          <ol>
+            <li><a href="#tldr">TL;DR</a></li>
+            <li><a href="#why">Why multi-source matters</a></li>
+            <li><a href="#picks">Our top picks</a></li>
+            <li><a href="#table">Side-by-side comparison</a></li>
+            <li><a href="#fees">Fee comparison</a></li>
+            <li><a href="#choose">How to choose</a></li>
+            <li><a href="#how">How intent bridges work</a></li>
+          </ol>
+        </nav>
+      </aside>
+    </div>
 
     <footer class="site-footer is-visible" id="footer">
-      <div class="site-footer__glow-wrap" aria-hidden="true"><div class="site-footer__glow-clip">
-        <img src="assets/figma-export/footer-bg-desktop.png" alt="" class="site-footer__glow-img site-footer__glow-img--desktop" width="1024" height="359">
-        <img src="assets/figma-export/footer-bg-tablet.png" alt="" class="site-footer__glow-img site-footer__glow-img--tablet" width="1024" height="909">
-        <img src="assets/figma-export/footer-bg-mobile.png" alt="" class="site-footer__glow-img site-footer__glow-img--mobile" width="653" height="1024">
-      </div></div>
-      <div class="site-footer__inner"><div class="site-footer__top"><div class="site-footer__brand">
-        <a href="index.html" class="site-footer__logo"><img src="assets/figma-hero/logo-icon-white.svg" alt="" class="site-footer__logo-icon" width="40" height="40"><span class="site-footer__logo-text">fastbridge</span></a>
-        <p class="site-footer__desc site-footer__desc--desktop">Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement. Visit the docs to get started.</p>
-        <p class="site-footer__desc site-footer__desc--compact">Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement.</p>
-        <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" rel="noopener noreferrer" class="site-footer__cta">Integrate Now <strong aria-hidden="true">→</strong></a>
-        <p class="site-footer__legal site-footer__legal--desktop">Copyright © Avail Project. All rights reserved.</p>
-        <p class="site-footer__legal site-footer__legal--inline">Copyright © Avail Project. All rights reserved.</p>
-      </div><nav class="site-footer__links" aria-label="Footer">
-        <div class="site-footer__col"><span class="site-footer__col-title">Support</span>
-          <a href="https://docs.availproject.org/" target="_blank" rel="noopener noreferrer">Docs</a><a href="about.html">About</a><a href="faq.html">FAQs</a><a href="https://discord.com/invite/AvailProject" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://github.com/availproject" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.availproject.org/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a><a href="contact.html" class="site-footer__contact">Get in Touch</a>
-        </div><div class="site-footer__col site-footer__col--socials"><span class="site-footer__col-title">Socials</span>
-          <a href="https://www.availproject.org/" target="_blank" rel="noopener noreferrer">Avail Website</a><a href="https://blog.availproject.org/" target="_blank" rel="noopener noreferrer">Blog</a><a href="https://x.com/AvailProject" target="_blank" rel="noopener noreferrer">X (Twitter)</a><a href="https://www.linkedin.com/company/availproject/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://t.me/AvailCommunity" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://www.youtube.com/@AvailProject" target="_blank" rel="noopener noreferrer">YouTube</a>
-        </div></nav></div></div>
-      <div class="site-footer__watermark" aria-hidden="true"><picture>
-        <source media="(max-width: 460px)" srcset="assets/figma-export/footer-watermark-mobile.svg">
-        <source media="(max-width: 768px)" srcset="assets/figma-export/footer-watermark-tablet.svg">
-        <img src="assets/figma-export/footer-watermark-desktop.svg" alt="" class="site-footer__watermark-img" width="1240" height="163">
-      </picture></div>
+      <div class="site-footer__glow-wrap" aria-hidden="true">
+        <div class="site-footer__glow-clip">
+          <img src="assets/figma-export/footer-bg-desktop.png" alt="" class="site-footer__glow-img site-footer__glow-img--desktop" width="1024" height="359">
+          <img src="assets/figma-export/footer-bg-tablet.png" alt="" class="site-footer__glow-img site-footer__glow-img--tablet" width="1024" height="909">
+          <img src="assets/figma-export/footer-bg-mobile.png" alt="" class="site-footer__glow-img site-footer__glow-img--mobile" width="653" height="1024">
+        </div>
+      </div>
+
+      <div class="site-footer__inner">
+        <div class="site-footer__top">
+          <div class="site-footer__brand">
+            <a href="index.html" class="site-footer__logo">
+              <img src="assets/branding/logos/logo-icon-white.svg" alt="" class="site-footer__logo-icon" width="40" height="40">
+              <span class="site-footer__logo-text">fastbridge</span>
+            </a>
+            <p class="site-footer__desc site-footer__desc--desktop">Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement. Visit the docs to get started.</p>
+            <p class="site-footer__desc site-footer__desc--compact">Integrate FastBridge into your app with the Avail Nexus SDK and get a configurable widget handling multi-chain asset routing, gas, and settlement.</p>
+            <a href="https://docs.availproject.org/docs/nexus/get-started" target="_blank" rel="noopener noreferrer" class="site-footer__cta">Integrate Now <strong aria-hidden="true">→</strong></a>
+            <p class="site-footer__legal site-footer__legal--desktop">Copyright © Avail Project. All rights reserved.</p>
+            <p class="site-footer__legal site-footer__legal--inline">Copyright © Avail Project. All rights reserved.</p>
+          </div>
+          <nav class="site-footer__links" aria-label="Footer">
+            <div class="site-footer__col">
+              <span class="site-footer__col-title">Support</span>
+              <a href="https://docs.availproject.org/" target="_blank" rel="noopener noreferrer">Docs</a>
+              <a href="about.html">About</a>
+              <a href="faq.html">FAQs</a>
+              <a href="https://discord.com/invite/AvailProject" target="_blank" rel="noopener noreferrer">Discord</a>
+              <a href="https://github.com/availproject" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.availproject.org/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              <a href="contact.html" class="site-footer__contact">Get in Touch</a>
+            </div>
+            <div class="site-footer__col site-footer__col--socials">
+              <span class="site-footer__col-title">Socials</span>
+              <a href="https://www.availproject.org/" target="_blank" rel="noopener noreferrer">Avail Website</a>
+              <a href="https://blog.availproject.org/" target="_blank" rel="noopener noreferrer">Blog</a>
+              <a href="https://x.com/AvailProject" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+              <a href="https://www.linkedin.com/company/availproject/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://t.me/AvailCommunity" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="https://www.youtube.com/@AvailProject" target="_blank" rel="noopener noreferrer">YouTube</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="site-footer__watermark" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 460px)" srcset="assets/figma-export/footer-watermark-mobile.svg">
+          <source media="(max-width: 768px)" srcset="assets/figma-export/footer-watermark-tablet.svg">
+          <img src="assets/figma-export/footer-watermark-desktop.svg" alt="" class="site-footer__watermark-img" width="1240" height="163">
+        </picture>
+      </div>
     </footer>
   </main>
 </body>
