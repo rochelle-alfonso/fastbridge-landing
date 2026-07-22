@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FastBridge Swap Screenshot Capture</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1024px;
+      height: 642px;
+      overflow: hidden;
+      font-family: 'Google Sans Flex', 'Geist', system-ui, sans-serif;
+      background: linear-gradient(180deg, #d9e8ff 0%, #eef4ff 38%, #f8fbff 100%);
+      color: #161615;
+    }
+    .page {
+      position: relative;
+      width: 1024px;
+      height: 642px;
+      padding: 28px 36px 0;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 72px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background:
+        linear-gradient(135deg, transparent 42%, #161615 42%, #161615 46%, transparent 46%),
+        linear-gradient(135deg, transparent 54%, #161615 54%, #161615 58%, transparent 58%),
+        linear-gradient(135deg, transparent 66%, #161615 66%, #161615 70%, transparent 70%);
+    }
+    .connect {
+      padding: 10px 18px;
+      border: 1px solid #e8e8e7;
+      border-radius: 999px;
+      background: #fffffe;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(85, 85, 85, 0.06);
+    }
+    .card {
+      width: 420px;
+      margin: 0 auto;
+      padding: 18px 18px 16px;
+      border-radius: 24px;
+      background: #fffffe;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 12px 24px rgba(0, 120, 247, 0.08),
+        0 32px 64px rgba(21, 113, 254, 0.12);
+    }
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .card-title { font-size: 18px; font-weight: 500; }
+    .card-actions { display: flex; gap: 8px; color: #737373; font-size: 14px; }
+    .section { margin-bottom: 14px; }
+    .label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #737373;
+    }
+    .field {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 16px;
+      border: 1px solid #ececea;
+      border-radius: 14px;
+      background: #fafafa;
+    }
+    .amount { font-size: 34px; line-height: 1; color: #c9c9c5; font-weight: 400; }
+    .sub { margin-top: 6px; font-size: 13px; color: #848483; }
+    .asset-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid #ececea;
+      border-radius: 999px;
+      background: #fffffe;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .asset-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1.5px dashed #c9c9c5;
+    }
+    .recipient {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border: 1px solid #ececea;
+      border-radius: 14px;
+      background: #fafafa;
+      font-size: 15px;
+      font-weight: 500;
+      color: #0065ff;
+    }
+    .edit {
+      padding: 6px 10px;
+      border: 1px solid #ececea;
+      border-radius: 999px;
+      background: #fffffe;
+      font-size: 12px;
+      color: #525252;
+    }
+    .cta {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 14px;
+      background: #ececea;
+      color: #737373;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+      <div class="logo"><span class="logo-mark" aria-hidden="true"></span><span>fastbridge</span></div>
+      <div class="connect">Connect Wallet</div>
+    </header>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Swap</div>
+        <div class="card-actions">↺ ↻ ✕</div>
+      </div>
+
+      <div class="section">
+        <div class="label-row"><span>Send</span><span>+ Add asset</span></div>
+        <div class="field">
+          <div>
+            <div class="amount">0</div>
+            <div class="sub">≈ $0.00</div>
+          </div>
+          <div class="asset-btn"><span class="asset-dot"></span>Select asset ⌄</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="label-row"><span>Receive</span></div>
+        <div class="field">
+          <div>
+            <div class="amount">0</div>
+            <div class="sub">≈ $0.00</div>
+          </div>
+          <div class="asset-btn"><span class="asset-dot"></span>Select asset ⌄</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="label-row"><span>Recipient</span></div>
+        <div class="recipient">
+          <span>0xF3a1…9b2E</span>
+          <span class="edit">Edit</span>
+        </div>
+      </div>
+
+      <button type="button" class="cta">Add assets to send</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -816,13 +816,17 @@
   background: transparent;
 }
 
-.seo-flow img {
+.seo-flow img,
+.seo-flow__diagram {
   display: block;
   width: 100%;
   max-width: 1012px;
   height: auto;
   margin-inline: auto;
-  image-rendering: auto;
+}
+
+.seo-flow__diagram {
+  border-radius: 14px;
 }
 
 /* —— Guide page: comparison table highlights —— */
