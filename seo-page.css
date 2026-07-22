@@ -973,6 +973,87 @@
   min-width: min(100%, 280px);
 }
 
+/* —— Guides index page —— */
+.guides-list {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--section-max, 1440px);
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 72px) var(--section-pad-x, 100px) clamp(64px, 8vw, 100px);
+}
+
+.guides-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: clamp(20px, 3vw, 28px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guides-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: clamp(24px, 3vw, 32px);
+  border: 1px solid var(--border, #e8e8e7);
+  border-radius: 14px;
+  background: #fffffe;
+  box-shadow: 0 1px 2px rgba(85, 85, 85, 0.04);
+}
+
+.guides-card__eyebrow {
+  margin: 0;
+  font-family: 'Geist', 'Google Sans Flex', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted, #737373);
+}
+
+.guides-card__title {
+  margin: 0;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.guides-card__title a {
+  color: var(--fg-primary, #161615);
+  text-decoration: none;
+}
+
+.guides-card__title a:hover {
+  color: var(--brand-blue, #0065ff);
+}
+
+.guides-card__desc {
+  flex: 1;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--fg-body, #525252);
+}
+
+.guides-card__link {
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brand-blue, #0065ff);
+  text-decoration: none;
+}
+
+.guides-card__link::after {
+  content: ' →';
+}
+
+.guides-card__link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1024px) {
   .seo-layout {
     grid-template-columns: 1fr;

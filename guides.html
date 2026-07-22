@@ -3,12 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Footer — FastBridge</title>
-  <link rel="stylesheet" href="base.css?v=21">
-  <link rel="stylesheet" href="sections.css?v=16">
+  <title>Guides — FastBridge</title>
+  <meta name="description" content="FastBridge guides and how-tos for bridging crypto across chains, choosing the right bridge, and getting started with multi-chain DeFi.">
+  <link rel="canonical" href="https://rochelle-alfonso.github.io/fastbridge-landing/guides.html">
+  <link rel="stylesheet" href="base.css?v=22">
+  <link rel="stylesheet" href="hero.css?v=53">
+  <link rel="stylesheet" href="sections.css?v=30">
+  <link rel="stylesheet" href="faq.css?v=12">
+  <link rel="stylesheet" href="seo-page.css?v=40">
+  <link rel="stylesheet" href="button-hovers.css?v=20260605">
 </head>
 <body>
-  <main class="page">
+  <main class="page seo-page guides-page">
+    <section class="page-hero" aria-labelledby="guides-page-title">
+      <img
+        src="assets/figma-export/faq-header.jpg"
+        alt=""
+        class="page-hero__media"
+        aria-hidden="true"
+        width="1920"
+        height="646"
+      >
+
+      <header class="page-hero__nav">
+        <a href="index.html" class="hero__logo">
+          <img
+            src="assets/figma-hero/logo-icon-white.svg"
+            alt=""
+            class="hero__logo-icon"
+            width="40"
+            height="40"
+          >
+          <span class="hero__logo-text">fastbridge</span>
+        </a>
+        <a href="https://fastbridge.availproject.org/base" class="page-hero__cta">Bridge Now</a>
+      </header>
+
+      <div class="page-hero__content">
+        <h1 class="page-hero__title" id="guides-page-title">Guides</h1>
+        <p class="page-hero__subtitle">
+          Practical guides for bridging across chains, choosing the right bridge, and getting the most out of FastBridge.
+        </p>
+      </div>
+    </section>
+
+    <section class="guides-list" aria-label="FastBridge guides">
+      <ul class="guides-list__grid">
+        <li>
+          <article class="guides-card">
+            <p class="guides-card__eyebrow">Bridge comparison</p>
+            <h2 class="guides-card__title">
+              <a href="best-cross-chain-bridge-2026.html">Best cross-chain bridges in 2026</a>
+            </h2>
+            <p class="guides-card__desc">
+              An independent guide to choosing the right bridge. Compare FastBridge, Across, Stargate, and deBridge on architecture, speed, fees, and multi-source support.
+            </p>
+            <a href="best-cross-chain-bridge-2026.html" class="guides-card__link">Read guide</a>
+          </article>
+        </li>
+      </ul>
+    </section>
+
     <footer class="site-footer is-visible" id="footer">
       <div class="site-footer__glow-wrap" aria-hidden="true">
         <div class="site-footer__glow-clip">
@@ -39,7 +94,7 @@
       <div class="site-footer__inner">
         <div class="site-footer__top">
           <div class="site-footer__brand">
-            <a href="/" class="site-footer__logo">
+            <a href="index.html" class="site-footer__logo">
               <img
                 src="assets/figma-hero/logo-icon-white.svg"
                 alt=""
@@ -82,7 +137,7 @@
               <a href="https://discord.com/invite/AvailProject" target="_blank" rel="noopener noreferrer">Discord</a>
               <a href="https://github.com/availproject" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a href="https://www.availproject.org/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-              <a href="#" class="site-footer__contact">Get in Touch</a>
+              <a href="contact.html" class="site-footer__contact">Get in Touch</a>
             </div>
 
             <div class="site-footer__col site-footer__col--socials">
@@ -119,6 +174,5 @@
       </div>
     </footer>
   </main>
-  <script src="sections.js?v=3" defer></script>
 </body>
 </html>
