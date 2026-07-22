@@ -699,6 +699,8 @@
 
 .seo-pick__screenshot--filled {
   height: auto;
+  max-width: 1024px;
+  margin-inline: auto;
   padding: 0;
   gap: 0;
   border-style: solid;
@@ -709,12 +711,16 @@
 .seo-pick__screenshot--filled img {
   display: block;
   width: 100%;
-  max-width: 100%;
+  max-width: 1024px;
   height: auto;
-  min-height: 120px;
   object-fit: contain;
   border-radius: 10px 10px 0 0;
   background: #f5f5f4;
+}
+
+.seo-pick__screenshot--filled a {
+  display: block;
+  line-height: 0;
 }
 
 .seo-pick__screenshot--filled figcaption {
