@@ -812,18 +812,15 @@
   margin: 1.5em 0;
   padding: 0;
   border: none;
-  border-radius: 14px;
   background: transparent;
-  overflow: hidden;
 }
 
 .seo-flow img {
   display: block;
   width: 100%;
-  max-width: 1024px;
+  max-width: 1012px;
   height: auto;
   margin-inline: auto;
-  border-radius: 14px;
 }
 
 /* —— Guide page: comparison table highlights —— */
