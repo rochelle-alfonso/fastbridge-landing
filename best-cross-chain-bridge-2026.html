@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="hero.css?v=53">
   <link rel="stylesheet" href="sections.css?v=30">
   <link rel="stylesheet" href="faq.css?v=12">
-  <link rel="stylesheet" href="seo-page.css?v=35">
+  <link rel="stylesheet" href="seo-page.css?v=36">
   <link rel="stylesheet" href="button-hovers.css?v=20260605">
 </head>
 <body>
@@ -108,6 +108,12 @@
                 <h3 class="seo-pick__name">FastBridge</h3>
               </div>
               <p class="seo-pick__tagline"><strong>Best for:</strong> consolidating assets from multiple chains; cross-chain swaps; onboarding to new EVM L2s without managing gas.</p>
+              <figure class="seo-pick__screenshot seo-pick__screenshot--filled">
+                <a href="assets/branding/screenshots/fastbridge-swap-ui-light.png?v=3" target="_blank" rel="noopener noreferrer">
+                  <img src="assets/branding/screenshots/fastbridge-swap-ui-light.png?v=3" alt="FastBridge Swap interface with send, receive, and recipient fields" width="1024" height="642" decoding="async" fetchpriority="high">
+                </a>
+                <figcaption>Screenshot · fastbridge.availproject.org</figcaption>
+              </figure>
               <p>FastBridge is a unified cross-chain bridge built by Avail and powered by <strong>Avail Nexus</strong>, an intent-based coordination layer. It is the only bridge in this guide that natively supports multi-source transactions: add the source tokens and chains you want to bridge from, select the destination chain and the token you want to receive, and FastBridge handles the rest in one signed transaction.</p>
               <p>FastBridge also supports <strong>cross-chain swaps</strong>, you can send any token(s) and receive a different token at the destination. Swaps between different tokens might show a small price impact before you confirm. Transactions settle in approximately <strong>10–20 seconds</strong>. No native gas tokens required on any source chain, fees can be paid in USDC or USDT.</p>
               <p>FastBridge supports all major EVM chains, including Ethereum, Arbitrum, Optimism, Base, Polygon, Avalanche, BNB Chain, Scroll, HyperEVM, Monad, MegaETH, and Citrea.</p>
@@ -315,6 +321,10 @@
           <h2 id="how-heading">How intent-based bridges work (and why they're faster)</h2>
           <p>Legacy bridges use a <strong>lock-and-mint</strong> or <strong>burn-and-mint</strong> flow: tokens are locked or burned on the source chain, a wrapped version is minted on the destination, and the user swaps or unwraps to get the native asset. This introduces intermediate tokens, multi-step confirmations, and settlement delays.</p>
           <p>Intent-based bridges flip the model. The user declares an outcome, <em>"I want X USDC on chain Y"</em>, and a solver fulfills the intent using their own liquidity on the destination chain, delivering native tokens in seconds. The solver is reimbursed on-chain after verification. FastBridge, Across, and deBridge all use this architecture.</p>
+
+          <figure class="seo-flow">
+            <img src="assets/branding/diagrams/fastbridge-multi-source-flow.png?v=7" alt="FastBridge multi-source flow diagram showing USDT, USDC, USDM, and USDC on Optimism flowing through Avail Nexus solver network to a destination in one signature" width="1012" height="631" loading="lazy" decoding="async">
+          </figure>
 
           <p>FastBridge extends the intent model further. Most intent bridges still resolve to one source chain per intent. <strong>FastBridge resolves a single intent across multiple source chains simultaneously</strong>, and can swap into a different destination token in the same flow.</p>
         </section>
