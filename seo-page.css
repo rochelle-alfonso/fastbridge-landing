@@ -21,7 +21,30 @@
   width: 100%;
   max-width: var(--section-max, 1440px);
   margin: 0 auto;
-  padding: clamp(40px, 5vw, 72px) var(--section-pad-x) clamp(64px, 8vw, 100px);
+  padding-top: clamp(40px, 5vw, 72px);
+  padding-bottom: clamp(64px, 8vw, 100px);
+  padding-inline: var(--section-pad-x, 100px);
+}
+
+/* Guide layout — TOC on the left, like the artifact */
+.seo-layout--guide {
+  grid-template-columns: min(240px, 28vw) minmax(0, 1fr);
+}
+
+.seo-layout > .seo-content,
+.seo-layout > .seo-sidebar {
+  min-width: 0;
+}
+
+/* Standalone SEO article (no sidebar layout wrapper) */
+.seo-page > .seo-content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--section-max, 1440px);
+  margin: 0 auto;
+  padding-top: clamp(40px, 5vw, 72px);
+  padding-bottom: clamp(64px, 8vw, 100px);
+  padding-inline: var(--section-pad-x, 100px);
 }
 
 .seo-sidebar {
@@ -807,10 +830,12 @@
 
 .seo-table-wrap {
   margin: 1.5em 0 2em;
+  max-width: 100%;
   border: 1px solid var(--border, #e8e8e7);
   border-radius: 12px;
   overflow: hidden;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .seo-table-wrap table {
