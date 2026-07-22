@@ -26,7 +26,7 @@
   padding-inline: var(--section-pad-x, 100px);
 }
 
-/* Guide layout — TOC on the left, like the artifact */
+/* Guide layout — TOC on the left */
 .seo-layout--guide {
   grid-template-columns: min(240px, 28vw) minmax(0, 1fr);
 }
