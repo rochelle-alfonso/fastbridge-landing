@@ -716,6 +716,7 @@
   object-fit: contain;
   border-radius: 10px 10px 0 0;
   background: #f5f5f4;
+  image-rendering: auto;
 }
 
 .seo-pick__screenshot--filled a {
@@ -821,6 +822,7 @@
   max-width: 1012px;
   height: auto;
   margin-inline: auto;
+  image-rendering: auto;
 }
 
 /* —— Guide page: comparison table highlights —— */
