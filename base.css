@@ -43,7 +43,8 @@ body {
   margin: 0;
   padding: 0;
   background: #fffffe;
-  overflow-x: hidden;
+  /* clip avoids breaking position:sticky (hidden creates a scroll container) */
+  overflow-x: clip;
 }
 
 :root {
@@ -63,6 +64,12 @@ body {
   --footer-muted: #b5b5b5;
   --section-pad-x: 100px;
   --section-max: 1440px;
+
+  /* Branding assets — see assets/branding/branding-inventory.json */
+  --asset-logo-icon-white: url('assets/branding/logos/logo-icon-white.svg');
+  --asset-logo-icon-black: url('assets/branding/logos/logo-icon-black.svg');
+  --asset-hero-gradient: url('assets/branding/gradients/hero-gradient-v2.jpg');
+  --asset-hiw-bg: url('assets/branding/gradients/hiw-hero-bg.png');
 }
 
 body {

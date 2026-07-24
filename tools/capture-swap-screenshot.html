@@ -67,10 +67,43 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     .card-title { font-size: 18px; font-weight: 500; }
     .card-actions { display: flex; gap: 8px; color: #737373; font-size: 14px; }
+    .mode-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 16px;
+      padding: 4px;
+      border-radius: 14px;
+      background: #f1f1f0;
+    }
+    .mode-toggle__btn {
+      padding: 10px 12px;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      text-align: left;
+      cursor: default;
+    }
+    .mode-toggle__btn.is-active {
+      background: #fffffe;
+      box-shadow: 0 1px 2px rgba(85, 85, 85, 0.08);
+    }
+    .mode-toggle__label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #161615;
+    }
+    .mode-toggle__hint {
+      display: block;
+      margin-top: 2px;
+      font-size: 11px;
+      color: #848483;
+    }
     .section { margin-bottom: 14px; }
     .label-row {
       display: flex;
@@ -155,8 +188,19 @@
 
     <div class="card">
       <div class="card-head">
-        <div class="card-title">Swap</div>
+        <div class="card-title">Swap and Bridge</div>
         <div class="card-actions">↺ ↻ ✕</div>
+      </div>
+
+      <div class="mode-toggle" aria-label="Exact In or Exact Out">
+        <div class="mode-toggle__btn is-active">
+          <span class="mode-toggle__label">Exact In</span>
+          <span class="mode-toggle__hint">Set send amount</span>
+        </div>
+        <div class="mode-toggle__btn">
+          <span class="mode-toggle__label">Exact Out</span>
+          <span class="mode-toggle__hint">Set receive amount</span>
+        </div>
       </div>
 
       <div class="section">
