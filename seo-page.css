@@ -749,8 +749,19 @@
 }
 
 .seo-pick__screenshot--banner img {
-  max-height: 180px;
+  max-height: 220px;
   object-fit: cover;
+  object-position: center;
+}
+
+.seo-pick--featured .seo-pick__screenshot--banner {
+  max-width: min(100%, 640px);
+}
+
+.seo-pick--featured .seo-pick__screenshot--banner img {
+  max-height: none;
+  object-fit: contain;
+  background: #0a0a12;
 }
 
 .seo-pick__screenshot svg {
