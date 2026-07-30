@@ -209,6 +209,40 @@
   text-decoration: underline;
 }
 
+/* Longer answers (multiple paragraphs / lists) need more room than the
+   default 400px cap in sections.css */
+.faq-page__list .faq-item--open .faq-item__answer {
+  max-height: 900px;
+}
+
+.faq-page__list .faq-item__answer p + p,
+.faq-page__list .faq-item__answer ul {
+  margin-top: 12px;
+}
+
+.faq-page__list .faq-item__answer ul {
+  margin-bottom: 0;
+  padding-left: 24px;
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--fg-secondary);
+}
+
+.faq-page__list .faq-item__answer li + li {
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .faq-page__list .faq-item--open .faq-item__answer {
+    max-height: 1200px;
+  }
+
+  .faq-page__list .faq-item__answer ul {
+    font-size: 14px;
+  }
+}
+
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
   .page-hero {
