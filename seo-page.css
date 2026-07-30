@@ -202,16 +202,17 @@
 .seo-banner {
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px 48px;
   margin: 0;
-  padding: 18px 22px;
-  border-radius: 12px;
+  padding: 36px 40px;
+  border-radius: 14px;
   overflow: hidden;
   isolation: isolate;
-  background-color: var(--fg-primary, #161615);
-  background-image: url('assets/branding/gradients/seo-banner-bg.jpg');
+  background-color: #0a0a12;
+  background-image: url('assets/branding/gradients/seo-banner-bg-streaks.jpg');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
@@ -225,9 +226,9 @@
   z-index: -1;
   background: linear-gradient(
     90deg,
-    rgba(10, 10, 18, 0.72) 0%,
-    rgba(10, 10, 18, 0.35) 42%,
-    rgba(10, 10, 18, 0.08) 70%,
+    rgba(8, 8, 16, 0.82) 0%,
+    rgba(8, 8, 16, 0.45) 48%,
+    rgba(8, 8, 16, 0.08) 75%,
     transparent 100%
   );
   pointer-events: none;
@@ -235,33 +236,78 @@
 
 .seo-banner--streaks {
   background-image: url('assets/branding/gradients/seo-banner-bg-streaks.jpg');
-  background-size: 112% 112%;
-  background-position: right center;
+  background-size: 120% 120%;
+  background-position: 85% center;
+}
+
+.seo-banner__copy {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-width: min(100%, 260px);
+  max-width: 48ch;
+  color: #fffffe;
+}
+
+.seo-banner__eyebrow,
+.seo-content .seo-banner__eyebrow {
+  margin: 0 0 12px;
+  font-family: 'Geist', 'Google Sans Flex', ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-blue, #0065ff);
+}
+
+.seo-banner__title,
+.seo-content .seo-banner__title {
+  margin: 0 0 12px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #fffffe;
+}
+
+.seo-banner__title-line {
+  white-space: nowrap;
+}
+
+.seo-banner__body,
+.seo-content .seo-banner__body,
+.seo-content .seo-banner p:not(.seo-banner__eyebrow):not(.seo-banner__title) {
+  margin: 0;
+  color: rgba(255, 255, 254, 0.78);
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 .seo-banner p {
   margin: 0;
   max-width: none;
   color: rgba(255, 255, 254, 0.78);
-  font-size: 16px;
-  line-height: 1.55;
 }
 
-.seo-banner strong {
+.seo-banner strong,
+.seo-content .seo-banner strong {
   color: #fffffe;
   font-weight: 500;
 }
 
 .seo-banner__btn {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 44px;
-  min-width: 140px;
-  padding: 0 20px;
-  border: 1px solid #e8e8e7;
-  border-radius: 8px;
+  height: 48px;
+  min-width: 168px;
+  padding: 0 22px;
+  border: 1px solid #fffffe;
+  border-radius: 10px;
   background-color: #fffffe;
   background-image: linear-gradient(#161615, #161615);
   background-size: 100% 0%;
@@ -272,7 +318,8 @@
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  box-shadow: 0 1px 2px rgba(85, 85, 85, 0.05);
+  box-shadow: none;
+  white-space: nowrap;
   transition:
     color 0.25s ease,
     border-color 0.25s ease,
@@ -557,9 +604,10 @@
 .seo-tldr {
   margin: 0 0 2em;
   padding: 28px 32px;
+  border: 1px solid var(--border, #e8e8e7);
   border-radius: 14px;
-  background: var(--fg-primary, #161615);
-  color: rgba(255, 255, 254, 0.85);
+  background: #fffffe;
+  color: var(--fg-primary, #161615);
 }
 
 .seo-tldr__label {
@@ -584,7 +632,7 @@
 
 .seo-tldr p {
   margin: 0 0 14px;
-  color: rgba(255, 255, 254, 0.85);
+  color: var(--fg-body, #525252);
   line-height: 1.65;
 }
 
@@ -593,7 +641,7 @@
 }
 
 .seo-tldr strong {
-  color: #fffffe;
+  color: var(--fg-primary, #161615);
 }
 
 .seo-tldr-list {
@@ -610,10 +658,10 @@
   gap: 12px;
   margin: 0;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 254, 0.08);
+  border-bottom: 1px solid var(--border, #e8e8e7);
   font-size: 15px;
   line-height: 1.55;
-  color: rgba(255, 255, 254, 0.85);
+  color: var(--fg-body, #525252);
 }
 
 .seo-tldr-list li:last-child {
@@ -744,24 +792,19 @@
   line-height: 0;
 }
 
-.seo-pick__screenshot--banner {
-  max-width: min(100%, 520px);
+.seo-pick__screenshot--wide {
+  max-width: 100%;
+  width: 100%;
+  margin-inline: 0;
 }
 
-.seo-pick__screenshot--banner img {
-  max-height: 220px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.seo-pick--featured .seo-pick__screenshot--banner {
-  max-width: min(100%, 640px);
-}
-
-.seo-pick--featured .seo-pick__screenshot--banner img {
+.seo-pick__screenshot--wide img {
+  width: 100%;
+  max-width: none;
   max-height: none;
+  height: auto;
   object-fit: contain;
-  background: #0a0a12;
+  background: transparent;
 }
 
 .seo-pick__screenshot svg {
@@ -839,16 +882,25 @@
   margin: 1.25em 0;
   padding: 0;
   border: none;
+  outline: none;
   background: transparent;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 .seo-flow img {
   display: block;
   width: 100%;
-  max-width: 640px;
+  max-width: none;
   height: auto;
   margin-inline: 0;
-  border-radius: 12px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 /* —— Guide page: comparison table highlights —— */
@@ -968,39 +1020,6 @@
   color: var(--brand-blue, #0065ff);
 }
 
-.seo-banner--final {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px 24px;
-  padding: 22px 24px;
-}
-
-.seo-banner--final .seo-banner__eyebrow {
-  margin: 0 0 6px;
-  font-family: 'Geist', 'Google Sans Flex', ui-monospace, monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--brand-blue, #0065ff);
-}
-
-.seo-banner--final .seo-banner__title {
-  margin: 0 0 4px;
-  font-size: clamp(20px, 2.8vw, 26px);
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: #fffffe;
-  max-width: 28ch;
-}
-
-.seo-banner--final .seo-banner__copy {
-  flex: 1;
-  min-width: min(100%, 280px);
-}
 
 /* —— Guides index page —— */
 .guides-list {
@@ -1099,7 +1118,22 @@
 
 @media (max-width: 640px) {
   .seo-banner {
-    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px 24px;
+  }
+
+  .seo-banner__copy {
+    max-width: none;
+  }
+
+  .seo-banner__title-line {
+    white-space: normal;
+  }
+
+  .seo-banner__btn {
+    width: 100%;
   }
 
   .seo-step {

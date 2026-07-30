@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="hero.css?v=53">
   <link rel="stylesheet" href="sections.css?v=30">
   <link rel="stylesheet" href="faq.css?v=12">
-  <link rel="stylesheet" href="seo-page.css?v=42">
+  <link rel="stylesheet" href="seo-page.css?v=61">
   <link rel="stylesheet" href="button-hovers.css?v=20260605">
 </head>
 <body>
@@ -93,7 +93,11 @@
         </section>
 
         <div class="seo-banner seo-banner--streaks">
-          <p><strong>Skip the multi-step bridging workflow.</strong> Consolidate from any chain in one transaction.</p>
+          <div class="seo-banner__copy">
+            <p class="seo-banner__eyebrow">Try FastBridge</p>
+            <p class="seo-banner__title">Skip the multi-step bridging workflow.</p>
+            <p class="seo-banner__body">Consolidate assets from any chain in one transaction.</p>
+          </div>
           <a href="https://fastbridge.availproject.org/base" class="seo-banner__btn">Bridge Now</a>
         </div>
 
@@ -108,9 +112,18 @@
                 <h3 class="seo-pick__name">FastBridge</h3>
               </div>
               <p class="seo-pick__tagline"><strong>Best for:</strong> consolidating assets from multiple chains; cross-chain swaps; onboarding to new EVM L2s without managing gas.</p>
-              <figure class="seo-pick__screenshot seo-pick__screenshot--filled seo-pick__screenshot--banner">
-                <a href="assets/branding/screenshots/anatomy-of-fastbridge.png?v=1" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/branding/screenshots/anatomy-of-fastbridge.png?v=1" alt="Anatomy of FastBridge — Swap and Bridge interface with Exact In and Exact Out" width="1024" height="396" decoding="async" fetchpriority="high">
+              <figure class="seo-pick__screenshot seo-pick__screenshot--filled seo-pick__screenshot--wide">
+                <a href="assets/branding/screenshots/anatomy-of-fastbridge@2x.png?v=3" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="assets/branding/screenshots/anatomy-of-fastbridge.png?v=3"
+                    srcset="assets/branding/screenshots/anatomy-of-fastbridge.png?v=3 2048w, assets/branding/screenshots/anatomy-of-fastbridge@2x.png?v=3 4096w"
+                    sizes="(max-width: 1024px) 100vw, min(100%, 900px)"
+                    alt="Anatomy of FastBridge — Swap and Bridge interface with Exact In and Exact Out"
+                    width="2048"
+                    height="794"
+                    decoding="async"
+                    fetchpriority="high"
+                  >
                 </a>
               </figure>
               <p>FastBridge is a unified cross-chain bridge built by Avail and powered by <strong>Avail Nexus</strong>, an intent-based coordination layer. It is the only bridge in this guide that natively supports multi-source transactions: add the source tokens and chains you want to bridge from, select the destination chain and the token you want to receive, and FastBridge handles the rest in one signed transaction.</p>
@@ -125,9 +138,18 @@
                 <h3 class="seo-pick__name">Across Protocol</h3>
               </div>
               <p class="seo-pick__tagline"><strong>Best for:</strong> fast single-asset transfers between major EVM chains; deep liquidity on ETH and USDC routes.</p>
-              <figure class="seo-pick__screenshot seo-pick__screenshot--filled seo-pick__screenshot--banner">
-                <a href="assets/branding/screenshots/across-bridge-ui.png?v=2" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/branding/screenshots/across-bridge-ui.png?v=2" alt="Across Protocol branding" width="1024" height="307" loading="lazy" decoding="async">
+              <figure class="seo-pick__screenshot seo-pick__screenshot--filled seo-pick__screenshot--wide">
+                <a href="assets/branding/screenshots/across-bridge-ui@2x.png?v=3" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="assets/branding/screenshots/across-bridge-ui.png?v=3"
+                    srcset="assets/branding/screenshots/across-bridge-ui.png?v=3 2048w, assets/branding/screenshots/across-bridge-ui@2x.png?v=3 4096w"
+                    sizes="(max-width: 1024px) 100vw, min(100%, 900px)"
+                    alt="Across Protocol — Bridge ETH, instantly"
+                    width="2048"
+                    height="794"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </a>
               </figure>
               <p>Across is a mature intent-based bridge that uses a competitive relayer network to fulfil user intents. It is particularly strong for ETH, WBTC, USDC, and USDT transfers between Ethereum, Arbitrum, Optimism, Base, and BSC, and has expanded to include Solana and Hyperliquid. Non-custodial, native asset delivery, no wrapped tokens.</p>
@@ -141,9 +163,18 @@
                 <h3 class="seo-pick__name">Stargate</h3>
               </div>
               <p class="seo-pick__tagline"><strong>Best for:</strong> broad chain coverage including non-EVM networks; large native asset transfers.</p>
-              <figure class="seo-pick__screenshot seo-pick__screenshot--filled seo-pick__screenshot--banner">
-                <a href="assets/branding/screenshots/stargate-bridge-ui.png?v=2" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/branding/screenshots/stargate-bridge-ui.png?v=2" alt="Stargate logo and branding" width="1024" height="307" loading="lazy" decoding="async">
+              <figure class="seo-pick__screenshot seo-pick__screenshot--filled seo-pick__screenshot--wide">
+                <a href="assets/branding/screenshots/stargate-bridge-ui@2x.png?v=3" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="assets/branding/screenshots/stargate-bridge-ui.png?v=3"
+                    srcset="assets/branding/screenshots/stargate-bridge-ui.png?v=3 2048w, assets/branding/screenshots/stargate-bridge-ui@2x.png?v=3 4096w"
+                    sizes="(max-width: 1024px) 100vw, min(100%, 900px)"
+                    alt="Stargate logo and branding"
+                    width="2048"
+                    height="794"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </a>
               </figure>
               <p>Stargate is a composable omnichain asset bridge built on LayerZero. The current version supports <strong>80+ blockchains</strong>, including EVM networks, Solana, and other non-EVM chains. It delivers native assets (USDC, USDT, ETH, BTC, OFTs) with instant guaranteed finality, typically in seconds. Non-custodial.</p>
@@ -157,9 +188,18 @@
                 <h3 class="seo-pick__name">deBridge</h3>
               </div>
               <p class="seo-pick__tagline"><strong>Best for:</strong> intent-based transfers with native Solana and Tron support; solver-driven pricing.</p>
-              <figure class="seo-pick__screenshot seo-pick__screenshot--filled seo-pick__screenshot--banner">
-                <a href="assets/branding/screenshots/debridge-bridge-ui.png?v=2" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/branding/screenshots/debridge-bridge-ui.png?v=2" alt="deBridge Bridging At Lightspeed branding" width="1024" height="307" loading="lazy" decoding="async">
+              <figure class="seo-pick__screenshot seo-pick__screenshot--filled seo-pick__screenshot--wide">
+                <a href="assets/branding/screenshots/debridge-bridge-ui@2x.png?v=3" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="assets/branding/screenshots/debridge-bridge-ui.png?v=3"
+                    srcset="assets/branding/screenshots/debridge-bridge-ui.png?v=3 2048w, assets/branding/screenshots/debridge-bridge-ui@2x.png?v=3 4096w"
+                    sizes="(max-width: 1024px) 100vw, min(100%, 900px)"
+                    alt="deBridge — Bridging At Lightspeed"
+                    width="2048"
+                    height="794"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </a>
               </figure>
               <p>deBridge operates the <strong>DLN (deBridge Liquidity Network)</strong>, a 0-TVL intent-based execution layer where competing solvers fulfil orders using their own liquidity. It supports <strong>25+ chains</strong> including Ethereum, Solana, Tron, BNB Chain, Arbitrum, Optimism, Polygon, Avalanche, and Base. Transfers typically settle in <strong>1–4 seconds</strong> with native asset delivery. Fees are transparent: a flat component plus 4 bps on the input. Non-custodial.</p>
@@ -170,7 +210,11 @@
         </section>
 
         <div class="seo-banner seo-banner--streaks">
-          <p><strong>The only bridge with native multi-source support.</strong> Move and swap tokens from multiple chains in one transaction, no gas tokens needed.</p>
+          <div class="seo-banner__copy">
+            <p class="seo-banner__eyebrow">Try FastBridge</p>
+            <p class="seo-banner__title">The only bridge with<br><span class="seo-banner__title-line">native multi-source support.</span></p>
+            <p class="seo-banner__body">Move and swap tokens from multiple chains in one transaction, no gas tokens needed.</p>
+          </div>
           <a href="https://fastbridge.availproject.org/base" class="seo-banner__btn">Bridge Now</a>
         </div>
 
@@ -315,17 +359,26 @@
           <p>Intent-based bridges flip the model. The user declares an outcome, <em>"I want X USDC on chain Y"</em>, and a solver fulfills the intent using their own liquidity on the destination chain, delivering native tokens in seconds. The solver is reimbursed on-chain after verification. FastBridge, Across, and deBridge all use this architecture.</p>
 
           <figure class="seo-flow">
-            <img src="assets/branding/diagrams/fastbridge-multi-source-flow.png?v=10" alt="FastBridge multi-source flow diagram showing USDT, USDC, and USDM converging through FastBridge into one destination in a single signature" width="760" height="360" loading="lazy" decoding="async">
+            <img
+              src="assets/branding/diagrams/fastbridge-multi-source-flow.png?v=16"
+              srcset="assets/branding/diagrams/fastbridge-multi-source-flow.png?v=16 2048w, assets/branding/diagrams/fastbridge-multi-source-flow@2x.png?v=16 4096w"
+              sizes="(max-width: 1024px) 100vw, min(100%, 900px)"
+              alt="FastBridge multi-source flow diagram showing USDT, USDC, and USDM converging through Avail Nexus into one destination in a single signature"
+              width="2048"
+              height="997"
+              loading="lazy"
+              decoding="async"
+            >
           </figure>
 
           <p>FastBridge extends the intent model further. Most intent bridges still resolve to one source chain per intent. <strong>FastBridge resolves a single intent across multiple source chains simultaneously</strong>, and can swap into a different destination token in the same flow.</p>
         </section>
 
-        <div class="seo-banner seo-banner--streaks seo-banner--final" id="cta">
+        <div class="seo-banner seo-banner--streaks" id="cta">
           <div class="seo-banner__copy">
             <p class="seo-banner__eyebrow">Try FastBridge</p>
             <p class="seo-banner__title">Move your crypto across chains in one transaction.</p>
-            <p>Bridge and swap tokens from multiple chains to any destination in seconds.</p>
+            <p class="seo-banner__body">Bridge and swap tokens from multiple chains to any destination in seconds.</p>
           </div>
           <a href="https://fastbridge.availproject.org/base" class="seo-banner__btn">Launch FastBridge</a>
         </div>
