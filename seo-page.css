@@ -164,6 +164,10 @@
   border-top: 1px solid var(--border, #e8e8e7);
 }
 
+.seo-content > .seo-banner + h2 {
+  margin-top: 45px;
+}
+
 .seo-content > .seo-authorship + section {
   margin-top: 1.5em;
 }
@@ -360,6 +364,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+/* Banners with multiple buttons: copy on top, buttons in a horizontal row below */
+.seo-banner:has(.seo-banner__actions) {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 /* —— How it works step grid —— */
