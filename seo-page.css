@@ -1020,6 +1020,20 @@
   color: var(--brand-blue, #0065ff);
 }
 
+.seo-toc li.is-active {
+  border-left-width: 3px;
+  border-left-color: var(--brand-blue, #0065ff);
+  margin-left: 19px;
+}
+
+.seo-toc li.is-active a {
+  color: var(--brand-blue, #0065ff);
+}
+
+.seo-toc li.is-active a::before {
+  color: var(--fg-muted, #737373);
+}
+
 
 /* —— Guides index page —— */
 .guides-list {
