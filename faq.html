@@ -335,6 +335,33 @@
                 <p>FastBridge is a non-custodial application built and maintained by the Avail team and powered by Avail Nexus. You authorize transactions directly from your wallet, and FastBridge never has access to your private keys or seed phrase. As with any blockchain application, cross-chain transactions involve smart-contract, network, liquidity and third-party risks. Always verify the selected tokens, chains, destination address and transaction details before confirming.</p>
               </div>
             </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-39" id="faq-question-39">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>How does FastBridge keep my funds secure?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-39" role="region" aria-labelledby="faq-question-39" hidden>
+                <p>FastBridge uses an intent-based settlement model, so custody and execution are separated by design. When you initiate a transfer, your assets are deposited into an on-chain Vault Smart Contract, where release conditions are enforced entirely by contract logic, with no admin key that can override them.</p>
+                <p>Settlement works like this: a solver fronts the destination chain liquidity and delivers it to you first. Only after your intended outcome is fulfilled and verified on-chain does the solver become eligible to claim the locked source funds from the Vault. This ordering means the solver bears the execution and timing risk and not the user. If a solver fails to deliver, the Vault conditions simply aren't met and your funds become refundable rather than being released to the solver.</p>
+                <p>Because every state transition (deposit, fulfilment, release) is a verifiable on-chain event, the entire flow is auditable end-to-end. There's no custodial checkpoint in the path where a centralized party holds keys to your funds, so there's no single point where funds could be frozen, redirected, or withheld.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button type="button" class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-40" id="faq-question-40">
+                <svg class="faq-item__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="#161615" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Is FastBridge safe to use?</span>
+              </button>
+              <div class="faq-item__answer" id="faq-answer-40" role="region" aria-labelledby="faq-question-40" hidden>
+                <p>Safety here comes from the architecture and design, not from trusting an operator. Two properties matter most:</p>
+                <ul>
+                  <li><strong>Non-custodial escrow:</strong> Funds sit in on-chain Vault Smart Contracts governed by smart-contract conditions, not a company balance sheet or admin-controlled account. This is fully audited and public too.</li>
+                  <li><strong>Conditional, verifiable settlement:</strong> Solvers are only paid out after your intended outcome is fulfilled and verified on-chain, so payment is contingent on correct execution rather than upfront trust.</li>
+                </ul>
+                <p>Combined, this means solvers absorb execution risk while you retain claim to your funds until the contract conditions clear, and the full transaction/settlement trail is inspectable on-chain rather than relying on off-chain assurances.</p>
+              </div>
+            </article>
           </div>
         </section>
 
