@@ -35,7 +35,6 @@
 
   var videos = [];
   var useVideo = false;
-  var sourcesReady = false;
 
   function getMobileStepOrder(activeIndex, total) {
     // Circular order: active first, then the following steps wrapping around
@@ -84,14 +83,6 @@
   function fallBackToTimer() {
     if (useVideo) useVideo = false;
     scheduleAdvance(STEP_DURATION);
-  }
-
-  function attachVideoSources() {
-    if (sourcesReady || reducedMotion) return;
-    sourcesReady = true;
-    videos.forEach(function (v, i) {
-      appendTransparentSources(v, STEP_VIDEOS[i]);
-    });
   }
 
   function appendTransparentSources(video, step) {
@@ -167,7 +158,6 @@
 
   function goToStep(index) {
     if (index < 0 || index >= steps.length) return;
-    attachVideoSources();
     clearTimer();
     setActiveStep(index);
     if (useVideo) {
@@ -185,11 +175,12 @@
       v.muted = true;
       v.defaultMuted = true;
       v.loop = false;
-      v.preload = 'none';
+      v.preload = 'metadata';
       v.setAttribute('muted', '');
       v.setAttribute('playsinline', '');
       v.playsInline = true;
       v.setAttribute('aria-hidden', 'true');
+      appendTransparentSources(v, step);
 
       v.addEventListener('ended', function () {
         if (reducedMotion) return;
@@ -237,7 +228,6 @@
         isVisible = entry.isIntersecting;
 
         if (isVisible && !wasVisible) {
-          attachVideoSources();
           goToStep(0);
         }
 
@@ -269,8 +259,5 @@
     return;
   }
 
-  if (!('IntersectionObserver' in window)) {
-    attachVideoSources();
-    goToStep(0);
-  }
+  goToStep(0);
 })();
