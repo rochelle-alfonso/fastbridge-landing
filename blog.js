@@ -322,7 +322,7 @@
           visibility.disconnect();
         }
       },
-      { rootMargin: '3000px 0px 3000px 0px', threshold: 0 }
+      { rootMargin: '200px 0px', threshold: 0 }
     );
     visibility.observe(root);
   } else {

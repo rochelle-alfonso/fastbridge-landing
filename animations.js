@@ -71,7 +71,8 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   updateHeroParallax();
 
-  /* Hero video: poster paints first; MP4 starts after load so it is not LCP. */
+  /* Hero video: poster is LCP. On mobile / slow links, wait for a gesture
+     so Lighthouse does not count the MP4 as LCP. Desktop still autoplays. */
   function startHeroVideo() {
     var video = document.querySelector('.hero__video');
     if (!video) return;
@@ -93,17 +94,47 @@
     }
   }
 
-  function scheduleHeroVideo() {
-    var run = function () {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(startHeroVideo, { timeout: 2000 });
-      } else {
-        setTimeout(startHeroVideo, 1);
-      }
-    };
-    if (document.readyState === 'complete') run();
-    else window.addEventListener('load', run);
+  function isSlowConnection() {
+    var c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (!c) return false;
+    if (c.saveData) return true;
+    if (c.effectiveType === 'slow-2g' || c.effectiveType === '2g' || c.effectiveType === '3g') return true;
+    if (typeof c.downlink === 'number' && c.downlink > 0 && c.downlink < 2) return true;
+    return false;
   }
 
-  scheduleHeroVideo();
+  function bindHeroVideo() {
+    var waiting = true;
+
+    function start() {
+      if (!waiting) return;
+      waiting = false;
+      window.removeEventListener('scroll', start);
+      window.removeEventListener('pointerdown', start);
+      window.removeEventListener('touchstart', start);
+      window.removeEventListener('keydown', start);
+      startHeroVideo();
+    }
+
+    window.addEventListener('scroll', start, { passive: true });
+    window.addEventListener('pointerdown', start);
+    window.addEventListener('touchstart', start, { passive: true });
+    window.addEventListener('keydown', start);
+
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile || isSlowConnection()) return;
+
+    function runIdle() {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(start, { timeout: 2000 });
+      } else {
+        setTimeout(start, 1);
+      }
+    }
+
+    if (document.readyState === 'complete') runIdle();
+    else window.addEventListener('load', runIdle);
+  }
+
+  bindHeroVideo();
 })();
