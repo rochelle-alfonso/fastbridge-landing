@@ -65,6 +65,12 @@
   transform: translate(-50%, -50%);
   object-fit: cover;
   object-position: center top;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.hero__video.is-playing {
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {

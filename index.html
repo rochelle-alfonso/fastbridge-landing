@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastBridge</title>
   <link rel="stylesheet" href="base.css?v=24">
-  <link rel="stylesheet" href="hero.css?v=58">
+  <link rel="stylesheet" href="hero.css?v=59">
   <link rel="stylesheet" href="sections.css?v=37">
   <link rel="stylesheet" href="hiw.css?v=50">
   <link rel="stylesheet" href="blog.css?v=20260608e">
@@ -27,15 +27,13 @@
           >
           <video
             class="hero__video"
-            autoplay
             muted
             loop
             playsinline
-            preload="metadata"
+            preload="none"
             poster="assets/figma-export/hero-gradient-v2.jpg?v=2"
-          >
-            <source src="assets/hero-bg-video-v2.mp4?v=5" type="video/mp4">
-          </video>
+            data-src="assets/hero-bg-video-v2.mp4?v=5"
+          ></video>
         </div>
       </div>
 
@@ -556,7 +554,7 @@
       </div>
     </footer>
   </main>
-  <script src="animations.js?v=2"></script>
+  <script src="animations.js?v=3"></script>
   <script src="sections.js?v=4"></script>
   <script src="hiw.js?v=21"></script>
   <script src="blog-squeezy-canvas.js?v=20260602b" defer></script>

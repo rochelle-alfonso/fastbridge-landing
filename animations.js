@@ -70,4 +70,40 @@
 
   window.addEventListener('scroll', onScroll, { passive: true });
   updateHeroParallax();
+
+  /* Hero video: poster paints first; MP4 starts after load so it is not LCP. */
+  function startHeroVideo() {
+    var video = document.querySelector('.hero__video');
+    if (!video) return;
+    var src = video.getAttribute('data-src');
+    if (!src || video.getAttribute('data-started')) return;
+    video.setAttribute('data-started', 'true');
+    video.src = src;
+
+    function play() {
+      video.classList.add('is-playing');
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    }
+
+    if (video.readyState >= 3) {
+      play();
+    } else {
+      video.addEventListener('canplay', play, { once: true });
+    }
+  }
+
+  function scheduleHeroVideo() {
+    var run = function () {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(startHeroVideo, { timeout: 2000 });
+      } else {
+        setTimeout(startHeroVideo, 1);
+      }
+    };
+    if (document.readyState === 'complete') run();
+    else window.addEventListener('load', run);
+  }
+
+  scheduleHeroVideo();
 })();
