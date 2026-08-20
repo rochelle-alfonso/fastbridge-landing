@@ -78,19 +78,19 @@
     var src = video.getAttribute('data-src');
     if (!src || video.getAttribute('data-started')) return;
     video.setAttribute('data-started', 'true');
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.preload = 'auto';
     video.src = src;
+    video.load();
 
-    function play() {
+    video.addEventListener('playing', function () {
       video.classList.add('is-playing');
-      var playing = video.play();
-      if (playing && playing.catch) playing.catch(function () {});
-    }
+    }, { once: true });
 
-    if (video.readyState >= 3) {
-      play();
-    } else {
-      video.addEventListener('canplay', play, { once: true });
-    }
+    var playing = video.play();
+    if (playing && playing.catch) playing.catch(function () {});
   }
 
   function scheduleHeroVideo() {
