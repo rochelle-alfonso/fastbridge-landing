@@ -11,7 +11,7 @@
   position: relative;
   width: 100%;
   max-width: var(--section-max);
-  height: 809px;
+  height: 839px; /* +30 with the steps (top 594) */
   margin: 0 auto;
   background: transparent;
   isolation: isolate;
@@ -37,7 +37,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
 }
 
 .hiw__curve-fill {
@@ -106,7 +106,8 @@
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  width: 632px;
+  /* wide enough for the token picker in step 1; the card itself stays ~440px */
+  width: 780px;
   max-width: calc(100% - 2 * var(--section-pad-x));
   --hiw-widget-height: 460px;
 }
@@ -116,7 +117,7 @@
 .hiw__steps {
   position: absolute;
   z-index: 4;
-  top: 564px;
+  top: 594px;
   left: var(--section-pad-x);
   right: var(--section-pad-x);
   margin: 0;
@@ -264,10 +265,10 @@
    (yuva420p WebM + HEVC hvc1 derived via tools/encode-hiw-hevc.sh). */
 .hiw__widget {
   position: relative;
-  height: 600px;
+  height: 610px;
   width: auto;
   max-width: 100%;
-  aspect-ratio: 1256 / 1660;
+  aspect-ratio: 2324 / 1840;
   overflow: visible;
   background: transparent;
 }
@@ -551,7 +552,7 @@
   .hiw__widget {
     height: auto;
     width: 100%;
-    aspect-ratio: 1256 / 1660;
+    aspect-ratio: 2324 / 1840;
   }
 
   .hiw__widget-video {

@@ -46,13 +46,14 @@
 .hero__gradient {
   position: absolute;
   left: 50%;
-  top: -23.28%;
+  /* fb-hero.jpg: taller than the hero so the convergence point lands below the CTAs */
+  top: 0;
   width: 100.02%;
-  height: 147.93%;
+  height: 150%;
   max-width: none;
   transform: translateX(-50%);
   object-fit: cover;
-  object-position: center top;
+  object-position: 35% top;
 }
 
 .hero__video {

@@ -13,16 +13,16 @@
   // for Safari. HEVC must be listed first — Safari supports VP9 but not VP9 alpha.
   var STEP_VIDEOS = [
     {
-      webm: 'assets/hiw-step-1.webm?v=16',
-      hevc: 'assets/hiw-step-1-hevc.mp4?v=20'
+      webm: 'assets/hiw-step-1.webm?v=30',
+      hevc: 'assets/hiw-step-1-hevc.mp4?v=30'
     },
     {
-      webm: 'assets/hiw-step-2.webm?v=21',
-      hevc: 'assets/hiw-step-2-hevc.mp4?v=21'
+      webm: 'assets/hiw-step-2.webm?v=30',
+      hevc: 'assets/hiw-step-2-hevc.mp4?v=30'
     },
     {
-      webm: 'assets/hiw-step-3.webm?v=15',
-      hevc: 'assets/hiw-step-3-hevc.mp4?v=20'
+      webm: 'assets/hiw-step-3.webm?v=30',
+      hevc: 'assets/hiw-step-3-hevc.mp4?v=30'
     }
   ];
 
