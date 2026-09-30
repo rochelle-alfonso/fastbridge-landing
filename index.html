@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastBridge</title>
-  <link rel="stylesheet" href="base.css?v=24">
-  <link rel="stylesheet" href="hero.css?v=62">
-  <link rel="stylesheet" href="sections.css?v=37">
+  <link rel="stylesheet" href="base.css?v=25">
+  <link rel="stylesheet" href="hero.css?v=67">
+  <link rel="stylesheet" href="sections.css?v=38">
   <link rel="stylesheet" href="hiw.css?v=54">
   <link rel="stylesheet" href="blog.css?v=20260608e">
   <link rel="stylesheet" href="animations.css?v=2">
@@ -14,17 +14,27 @@
 </head>
 <body>
   <main class="page">
+
     <section class="hero" id="hero" data-hero-animate>
       <div class="hero__bg" aria-hidden="true">
         <div class="hero__gradient-wrap">
           <img
-            src="assets/figma-export/fb-hero.jpg?v=1"
+            src="assets/figma-export/fb-hero-ribbons-poster.jpg?v=1"
             alt=""
-            class="hero__gradient"
-            width="2880"
-            height="1582"
+            class="hero__gradient hero__poster"
+            width="2208"
+            height="936"
             fetchpriority="high"
           >
+          <video
+            class="hero__gradient hero__video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            poster="assets/figma-export/fb-hero-ribbons-poster.jpg?v=1"
+            data-src="assets/fb-hero-ribbons.mp4?v=1"
+          ></video>
         </div>
       </div>
 
@@ -45,20 +55,20 @@
 
         <h1 class="hero__title">
           <span class="hero__title-desktop">
-            <span class="hero__title-line">Move Your Crypto across</span>
-            <span class="hero__title-line">chains in One Transaction</span>
+            <span class="hero__title-line">The Fastest Way to Move</span>
+            <span class="hero__title-line">Across Chains</span>
           </span>
-          <span class="hero__title-tablet">Move All Your Crypto<br>In One Transaction</span>
+          <span class="hero__title-tablet">The Fastest Way to<br>Move Across Chains</span>
           <span class="hero__title-mobile">
-            <span class="hero__title-line">Move All Your</span>
-            <span class="hero__title-line">Crypto In One</span>
-            <span class="hero__title-line">Transaction</span>
+            <span class="hero__title-line">The Fastest</span>
+            <span class="hero__title-line">Way to Move</span>
+            <span class="hero__title-line">Across Chains</span>
           </span>
         </h1>
 
         <div class="hero__panel">
           <p class="hero__desc">
-            Combine your balances from multiple chains in a single move. No switching networks, no managing gas, no waiting. Arrive ready to trade.
+            Combine balances from multiple chains, swap and bridge in one go. Arrive ready to trade.
           </p>
           <div class="hero__actions">
             <a href="https://fastbridge.availproject.org/base" class="btn btn--secondary">Bridge Now</a>
@@ -93,6 +103,7 @@
               <div class="chains-strip__logo"><img src="assets/figma-export/chains/monad.png" alt="Monad" width="151" height="85"></div>
               <div class="chains-strip__logo"><img src="assets/figma-export/chains/bnb-chain.png" alt="BNB Chain" width="148" height="26"></div>
               <div class="chains-strip__logo"><img src="assets/figma-export/chains/citrea.png" alt="Citrea" width="106" height="26"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/robinhood.png" alt="Robinhood" width="135" height="26"></div>
 
               <div class="chains-strip__logo"><img src="assets/figma-export/chains/ethereum.png" alt="Ethereum" width="136" height="34"></div>
               <div class="chains-strip__logo"><img src="assets/figma-export/chains/arbitrum.png" alt="Arbitrum" width="169" height="95"></div>
@@ -107,6 +118,7 @@
               <div class="chains-strip__logo"><img src="assets/figma-export/chains/monad.png" alt="Monad" width="151" height="85"></div>
               <div class="chains-strip__logo"><img src="assets/figma-export/chains/bnb-chain.png" alt="BNB Chain" width="148" height="26"></div>
               <div class="chains-strip__logo"><img src="assets/figma-export/chains/citrea.png" alt="Citrea" width="106" height="26"></div>
+              <div class="chains-strip__logo"><img src="assets/figma-export/chains/robinhood.png" alt="Robinhood" width="135" height="26"></div>
         </div>
       </div>
     </section>
@@ -231,8 +243,8 @@
             >
               <span class="hiw-step__num" aria-hidden="true">02</span>
               <span class="hiw-step__label">STEP 02</span>
-              <span class="hiw-step__heading">Review Your Swap</span>
-              <p class="hiw-step__desc">Confirm the sources, expected output, fees, and price impact before signing. Need to change something? You can go back to adjust your sources.</p>
+              <span class="hiw-step__heading">Approve Your Swap</span>
+              <p class="hiw-step__desc">Click Approve &amp; Swap, then approve each source asset when prompted in your wallet. FastBridge will show the progress as it swaps your assets and moves them to your selected destination.</p>
             </button>
           </li>
           <li role="presentation">
@@ -246,8 +258,8 @@
             >
               <span class="hiw-step__num" aria-hidden="true">03</span>
               <span class="hiw-step__label">STEP 03</span>
-              <span class="hiw-step__heading">Approve &amp; Swap is Complete</span>
-              <p class="hiw-step__desc">Confirm each source asset in your wallet. FastBridge delivers your funds to the destination in ~20 seconds with no native gas required.</p>
+              <span class="hiw-step__heading">Receive Your Funds</span>
+              <p class="hiw-step__desc">FastBridge delivers your funds to the destination in ~10-20 seconds, with no native gas required. Track each stage in real time and view the transaction details once complete.</p>
             </button>
           </li>
         </ol>

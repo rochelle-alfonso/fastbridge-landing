@@ -35,13 +35,6 @@
   overflow: hidden;
 }
 
-.hero__gradient-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(132.24deg, rgba(0, 0, 0, 0.2) 26.76%, rgba(0, 0, 0, 0) 39.94%);
-  pointer-events: none;
-}
 
 .hero__gradient {
   position: absolute;
@@ -56,22 +49,37 @@
   object-position: 35% top;
 }
 
+/* Ribbon loop: shares .hero__gradient geometry, framed to show the colour fan
+   with the convergence point below the CTAs. */
+.hero__poster,
 .hero__video {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  object-position: center top;
+  object-position: 42% top;
+}
+
+.hero__video {
   opacity: 0;
   transition: opacity 0.45s ease;
 }
 
 .hero__video.is-playing {
   opacity: 1;
+}
+
+.hero__curve-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 272px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero__curve-section {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -136,7 +144,7 @@
   letter-spacing: var(--hero-title-tracking);
   color: #fffffe;
   text-align: center;
-  text-transform: capitalize;
+  text-transform: none; /* copy is authored in title case ("to" stays lowercase) */
 }
 
 .hero__title-tablet,
@@ -285,7 +293,7 @@
     height: 100%;
   }
 
-  .hero__gradient-wrap::after {
+  .hero__curve-band {
     display: none;
   }
 
@@ -297,6 +305,11 @@
     transform: translate(-50%, -50%);
     object-fit: cover;
     object-position: center;
+  }
+
+  .hero__poster,
+  .hero__video {
+    object-position: 50% 50%;
   }
 
   .hero .hero__nav-btn {
@@ -385,14 +398,20 @@
     --hero-panel-top: 32px;
   }
 
+  /* Blue sky behind the copy, streak fan filling the lower third (horizon ~72%) */
   .hero__gradient {
     left: 50%;
-    top: 50%;
+    top: -2%;
     width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
+    height: 148%;
+    transform: translateX(-50%);
     object-fit: cover;
-    object-position: center;
+    object-position: 34% 50%;
+  }
+
+  .hero__poster,
+  .hero__video {
+    object-position: 52% 50%;
   }
 
   .hero__header {
@@ -426,6 +445,7 @@
 
   .hero__title-line {
     display: block;
+    white-space: nowrap;
   }
 
   .hero__title {
@@ -454,6 +474,7 @@
   .hero__desc {
     margin: 0;
     width: 326px;
+    text-wrap: balance;
     max-width: 100%;
     color: #fffffe;
     font-size: 16px;

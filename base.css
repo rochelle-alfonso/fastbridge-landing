@@ -109,3 +109,132 @@ body {
     --section-pad-x: 32px;
   }
 }
+
+/* Announcement bar — Figma "recommended-swaps" (1339:28) */
+
+:root {
+  --announce-h: 46px;
+}
+
+.announce {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--announce-h);
+  background: var(--brand-white);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+}
+
+.announce__inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0 24px;
+  color: #1f1f1f;
+  font-family: 'Geist', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.announce__logo {
+  display: block;
+  width: 48.94px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.announce__divider {
+  width: 1px;
+  height: 20px;
+  margin: 0 8px;
+  background: #1f1f1f;
+  flex-shrink: 0;
+}
+
+/* Live status pip — the only accent in the bar */
+.announce__dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  margin-right: 2px;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  flex-shrink: 0;
+}
+
+.announce__dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  animation: announce-pulse 2.4s ease-out infinite;
+}
+
+@keyframes announce-pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --announce-h: 42px;
+  }
+
+  .announce__inner {
+    gap: 6px;
+    padding: 0 20px;
+    font-size: 15px;
+  }
+
+  .announce__logo {
+    width: 43.2px;
+    height: 15px;
+  }
+
+  .announce__divider {
+    height: 18px;
+    margin: 0 6px;
+  }
+}
+
+@media (max-width: 460px) {
+  :root {
+    --announce-h: 38px;
+  }
+
+  .announce__inner {
+    gap: 5px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .announce__logo {
+    width: 37.4px;
+    height: 13px;
+  }
+
+  .announce__divider {
+    height: 15px;
+    margin: 0 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announce__dot::after {
+    animation: none;
+  }
+}

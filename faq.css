@@ -27,6 +27,11 @@
   z-index: -2;
 }
 
+/* Ribbon still: 4:3 source, crop to the band where the streaks converge */
+.page-hero__media--ribbons {
+  object-position: center 70%;
+}
+
 /* Left-to-right scrim so the title stays legible over the streaks */
 .page-hero::after {
   content: '';
@@ -247,6 +252,17 @@
 @media (max-width: 768px) {
   .page-hero {
     min-height: clamp(280px, 56vw, 380px);
+  }
+
+  /* Centred text sits over the ribbon convergence on small screens, so the
+     left-to-right scrim isn't enough; darken the whole band instead. */
+  .page-hero:has(.page-hero__media--ribbons)::after {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 6, 15, 0.45) 0%,
+      rgba(5, 6, 15, 0.72) 45%,
+      rgba(5, 6, 15, 0.55) 100%
+    );
   }
 
   /* Center the logo; drop the Bridge Now button on mobile */
