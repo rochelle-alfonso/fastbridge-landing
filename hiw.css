@@ -11,7 +11,7 @@
   position: relative;
   width: 100%;
   max-width: var(--section-max);
-  height: 951px; /* steps sit fully on white below the curve (top 706) */
+  height: 839px; /* +30 with the steps (top 594) */
   margin: 0 auto;
   background: transparent;
   isolation: isolate;
@@ -117,7 +117,7 @@
 .hiw__steps {
   position: absolute;
   z-index: 4;
-  top: 706px;
+  top: 594px;
   left: var(--section-pad-x);
   right: var(--section-pad-x);
   margin: 0;
