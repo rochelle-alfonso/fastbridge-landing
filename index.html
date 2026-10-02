@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastBridge</title>
   <link rel="stylesheet" href="base.css?v=25">
-  <link rel="stylesheet" href="hero.css?v=67">
+  <link rel="stylesheet" href="hero.css?v=69">
   <link rel="stylesheet" href="sections.css?v=38">
-  <link rel="stylesheet" href="hiw.css?v=54">
-  <link rel="stylesheet" href="blog.css?v=20260608e">
+  <link rel="stylesheet" href="hiw.css?v=56">
+  <link rel="stylesheet" href="blog.css?v=20261002b">
   <link rel="stylesheet" href="animations.css?v=2">
   <link rel="stylesheet" href="button-hovers.css?v=20260605">
 </head>
@@ -19,22 +19,13 @@
       <div class="hero__bg" aria-hidden="true">
         <div class="hero__gradient-wrap">
           <img
-            src="assets/figma-export/fb-hero-ribbons-poster.jpg?v=1"
+            src="assets/figma-export/fb-hero.jpg?v=1"
             alt=""
-            class="hero__gradient hero__poster"
-            width="2208"
-            height="936"
+            class="hero__gradient"
+            width="2880"
+            height="1582"
             fetchpriority="high"
           >
-          <video
-            class="hero__gradient hero__video"
-            muted
-            loop
-            playsinline
-            preload="none"
-            poster="assets/figma-export/fb-hero-ribbons-poster.jpg?v=1"
-            data-src="assets/fb-hero-ribbons.mp4?v=1"
-          ></video>
         </div>
       </div>
 
@@ -68,7 +59,7 @@
 
         <div class="hero__panel">
           <p class="hero__desc">
-            Combine balances from multiple chains, swap and bridge in one go. Arrive ready to trade.
+            Combine balances from multiple chains, swap and bridge in one go. <span class="hero__desc-line">Arrive ready to trade.</span>
           </p>
           <div class="hero__actions">
             <a href="https://fastbridge.availproject.org/base" class="btn btn--secondary">Bridge Now</a>
@@ -85,7 +76,7 @@
 
     <section class="chains-strip" id="chains" aria-labelledby="chains-desc" data-reveal-stagger>
       <p class="chains-strip__desc" id="chains-desc" data-reveal-child>
-        Aggregate, swap, and spend your tokens across all major EVM chains in one go
+        Aggregate, swap, and move your tokens across all major EVM chains in one go
       </p>
 
       <div class="chains-strip__logos" aria-hidden="true" data-reveal-child>
@@ -272,21 +263,21 @@
       aria-labelledby="blog-carousel-heading"
       data-reveal
       data-items='[
-        {"id":"megaeth","imgSrc":"assets/blog-megaeth.jpg?v=5","collapsedOffsetX":0,"title":"The Fastest Chain Just Got the Fastest Bridge","href":"https://blog.availproject.org/megaeth-fastbridge-the-fastest-way-to-onboard-to-the-fastest-chain/","cta":"Read more"},
-        {"id":"multichain","imgSrc":"assets/blog-multichain.jpg?v=5","collapsedOffsetX":120,"title":"The Only Bridge Built For Multichain DeFi","href":"https://blog.availproject.org/fastbridge-by-avail-the-fastest-way-to-move-crypto-from-multiple-chains/","cta":"Read more"},
-        {"id":"monad","imgSrc":"assets/blog-monad.jpg?v=5","collapsedOffsetX":120,"title":"Bridge to Monad From Multiple Chains, In One Transaction","href":"https://blog.availproject.org/how-to-bridge-to-monad-in-under-60-seconds/","cta":"Read more"},
-        {"id":"canonical","imgSrc":"assets/blog-canonical.jpg?v=5","collapsedOffsetX":80,"title":"FastBridge vs Canonical Bridge","href":"https://blog.availproject.org/fastbridge-vs-canonical-bridge-why-7-days-is-too-long-for-defi/","cta":"Read more"}
+        {"id": "robinhood", "imgSrc": "assets/guides/guide-robinhood.jpg?v=1", "collapsedOffsetX": 0, "title": "How to Bridge to Robinhood Chain", "href": "https://fastbridge.availproject.org/guides/how-to-bridge-to-robinhood-chain", "cta": "Read more"},
+        {"id": "bnb", "imgSrc": "assets/guides/guide-bnb.jpg?v=1", "collapsedOffsetX": 0, "title": "How to Bridge to BNB Chain", "href": "https://fastbridge.availproject.org/guides/how-to-bridge-to-bnb-chain-with-fastbridge", "cta": "Read more"},
+        {"id": "arc", "imgSrc": "assets/guides/guide-arc.jpg?v=1", "collapsedOffsetX": 0, "title": "How to Bridge to Arc", "href": "https://fastbridge.availproject.org/guides/how-to-bridge-to-arc", "cta": "Read more"},
+        {"id": "base", "imgSrc": "assets/guides/guide-base.jpg?v=1", "collapsedOffsetX": 0, "title": "How to Bridge to Base", "href": "https://fastbridge.availproject.org/guides/how-to-bridge-to-base", "cta": "Read more"},
+        {"id": "hidden-costs", "imgSrc": "assets/guides/guide-hidden-costs.jpg?v=1", "collapsedOffsetX": 120, "title": "Bridging Crypto Without the Hidden Costs: Safety, Fees, and Gas", "href": "https://fastbridge.availproject.org/guides/bridging-crypto-without-the-hidden-costs-safety-fees-and-gas", "cta": "Read more"},
+        {"id": "top-bridges", "imgSrc": "assets/guides/guide-top-bridges.jpg?v=1", "collapsedOffsetX": 120, "title": "Best Cross-Chain Bridges in 2026 [Compared]", "href": "https://fastbridge.availproject.org/guides/top-cross-chain-bridges", "cta": "Read more"}
       ]'
     >
       <div class="blog__container">
         <header class="blog__header" id="blog-carousel-heading">
           <div class="blog__header-content">
-            <h2 class="blog__title">
-              <span class="blog__title-lead">What's happening</span>
-              <em>Check out the latest<span class="blog__title-br"></span> from us.</em>
-            </h2>
+            <h2 class="blog__title">Guides</h2>
+            <p class="blog__subtitle">Practical guides for bridging across chains, choosing the right bridge, and getting the most out of FastBridge.</p>
           </div>
-          <a href="https://blog.availproject.org/tag/fastbridge/" target="_blank" rel="noopener noreferrer" class="section-btn blog__header-btn">View all Blogs</a>
+          <a href="https://fastbridge.availproject.org/guides" class="section-btn blog__header-btn">View all Guides</a>
         </header>
 
         <div class="blog__body">
@@ -307,7 +298,7 @@
 
           <div class="blog__footer">
             <div class="blog__dots" id="blog-dots" aria-hidden="true"></div>
-            <a href="https://blog.availproject.org/tag/fastbridge/" target="_blank" rel="noopener noreferrer" class="section-btn blog__footer-btn">View all Blogs</a>
+            <a href="https://fastbridge.availproject.org/guides" class="section-btn blog__footer-btn">View all Guides</a>
           </div>
         </div>
       </div>

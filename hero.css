@@ -35,6 +35,14 @@
   overflow: hidden;
 }
 
+.hero__gradient-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(132.24deg, rgba(0, 0, 0, 0.2) 26.76%, rgba(0, 0, 0, 0) 39.94%);
+  pointer-events: none;
+}
+
 
 .hero__gradient {
   position: absolute;
@@ -49,14 +57,16 @@
   object-position: 35% top;
 }
 
-/* Ribbon loop: shares .hero__gradient geometry, framed to show the colour fan
-   with the convergence point below the CTAs. */
-.hero__poster,
 .hero__video {
-  object-position: 42% top;
-}
-
-.hero__video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center top;
   opacity: 0;
   transition: opacity 0.45s ease;
 }
@@ -183,6 +193,11 @@
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.55), 0 0 2px rgba(0, 0, 0, 0.35);
 }
 
+/* Keep "Arrive ready to trade." together on its own line */
+.hero__desc-line {
+  display: block;
+}
+
 .hero__actions {
   display: flex;
   align-items: center;
@@ -293,6 +308,10 @@
     height: 100%;
   }
 
+  .hero__gradient-wrap::after {
+    display: none;
+  }
+
   .hero__curve-band {
     display: none;
   }
@@ -305,11 +324,6 @@
     transform: translate(-50%, -50%);
     object-fit: cover;
     object-position: center;
-  }
-
-  .hero__poster,
-  .hero__video {
-    object-position: 50% 50%;
   }
 
   .hero .hero__nav-btn {
@@ -407,11 +421,6 @@
     transform: translateX(-50%);
     object-fit: cover;
     object-position: 34% 50%;
-  }
-
-  .hero__poster,
-  .hero__video {
-    object-position: 52% 50%;
   }
 
   .hero__header {

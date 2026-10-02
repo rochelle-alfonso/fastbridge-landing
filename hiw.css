@@ -11,7 +11,7 @@
   position: relative;
   width: 100%;
   max-width: var(--section-max);
-  height: 839px; /* +30 with the steps (top 594) */
+  height: 951px; /* steps sit fully on white below the curve (top 706) */
   margin: 0 auto;
   background: transparent;
   isolation: isolate;
@@ -117,7 +117,7 @@
 .hiw__steps {
   position: absolute;
   z-index: 4;
-  top: 594px;
+  top: 706px;
   left: var(--section-pad-x);
   right: var(--section-pad-x);
   margin: 0;
@@ -502,12 +502,25 @@
 /* ========== TABLET ≤768px ========== */
 
 @media (max-width: 768px) {
+  /* One-column grid: the gradient spans the title + widget rows, so the
+     steps row always starts below whichever is taller and never sits on
+     the dark curve. */
   .hiw__stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     height: auto;
     padding-bottom: 0;
   }
 
   .hiw__gradient-wrap {
+    position: relative;
+    top: auto;
+    left: auto;
+    grid-row: 1 / 3;
+    grid-column: 1;
+    justify-self: center;
+    align-self: start;
+    transform: none;
     height: clamp(480px, 72vw, 564px);
   }
 
@@ -531,6 +544,8 @@
     padding: 48px var(--section-pad-x) 0;
     font-size: 48px;
     text-align: center;
+    grid-row: 1;
+    grid-column: 1;
   }
 
   /* Flow words inline again on tablet/mobile (centered, natural wrap) */
@@ -544,7 +559,11 @@
     left: auto;
     transform: none;
     width: min(96%, 560px);
-    margin: 10px auto 0;
+    /* Pull the steps up into the transparent shadow-padding at the bottom of
+       the widget video (which otherwise reads as dead space). */
+    margin: 10px auto -7vw;
+    grid-row: 2;
+    grid-column: 1;
     z-index: 2;
     isolation: isolate;
   }
@@ -576,10 +595,9 @@
     left: auto;
     right: auto;
     z-index: 1;
-    /* Pull the steps up into the transparent shadow-padding at the bottom of
-       the widget video (which otherwise reads as dead space). Sized to stay
-       within that transparent zone so it never overlaps the card. */
-    margin-top: -7vw;
+    grid-row: 3;
+    grid-column: 1;
+    margin-top: 20px;
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 0 var(--section-pad-x) 64px;
